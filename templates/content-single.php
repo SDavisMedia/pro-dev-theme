@@ -18,8 +18,8 @@
 	<section class="entry-content">
 	
 		<?php 
-			// display featured image
-			if ( has_post_thumbnail() ) :
+			// display featured image?
+			if ( 'option1' == get_theme_mod( 'sdm_single_featured_image' ) && has_post_thumbnail() ) :
 				the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
 			endif;
 			
@@ -76,3 +76,56 @@
 		</div>
 	</footer>
 </article>
+
+<?php // show post footer? theme customizer options ?>
+<?php if ( 'option1' == get_theme_mod( 'sdm_post_footer' ) ) : ?>
+	<div class="single-post-footer">
+		<div class="post-footer-header clear-sdm">
+			<div class="post-footer-avatar">
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 75, '', get_the_author_meta( 'display_name' ) ); ?>
+			</div>
+			<div class="post-footer-author">
+				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'sdm' ); ?></h3>
+				<p>
+				
+					<?php 
+						/**
+						 * Built into the Customizer are a fields for social networking
+						 * profiles. Using the following array, check to see if the field
+						 * has a URL. If so, create a link for that profile in the post
+						 * footer. If not, do nothing.
+						 */
+						$social_profiles = array( 
+							'twitter'	=> array(
+								'name' 		=> 'Twitter',
+								'option'	=> get_theme_mod( 'sdm_twitter' )
+							),
+							'facebook'	=> array(
+								'name' 		=> 'Facebook',
+								'option'	=> get_theme_mod( 'sdm_facebook' )
+							),
+							'gplus'	=> array(
+								'name' 		=> 'Google+',
+								'option'	=> get_theme_mod( 'sdm_gplus' )
+							),
+							'linkedin'	=> array(
+								'name' 		=> 'Linkedin',
+								'option'	=> get_theme_mod( 'sdm_linkedin' )
+							),
+						);
+						// Build the social networking profile links based on the $social_profiles
+						foreach ( $social_profiles as $profile ) {
+							if ( '' != $profile[ 'option' ] ) :
+								echo '<a href="', $profile[ 'option' ], '">', $profile[ 'name' ], '</a>'; 
+							endif;
+						}
+					?>
+										
+				</p>
+			</div>
+		</div>
+		<div class="post-footer-body">
+			<p><?php echo get_the_author_meta( 'description' ); ?></p>
+		</div>
+	</div>
+<?php endif; ?>
