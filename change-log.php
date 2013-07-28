@@ -1,15 +1,22 @@
 <?php
 /**
- * Template Name: Change Log (Updates)
+ * Template Name: Change Log (Versions)
+ *
+ * This is a Page Template used to collect all of the "versions"
+ * and list them in chronological order to form a change log.
  */
-
-$version_loop = new WP_Query( array( 'post_type' => 'version', 'posts_per_page' => 10 ) ); ?>
+?>
  
 <?php get_header(); ?>
 
 	<div class="content">
 	
 		<?php 
+			$version_loop = new WP_Query( array( 
+				'post_type' => 'version', 
+				'posts_per_page' => 99999 
+			) ); 
+			
 			if ( $version_loop->have_posts() ) :
 	
 				// Start the Loop
@@ -17,9 +24,7 @@ $version_loop = new WP_Query( array( 'post_type' => 'version', 'posts_per_page' 
 
 					get_template_part( 'templates/content', 'change-log' );
 				
-				endwhile;
-	
-				sdm_content_nav( 'nav-below' );
+				endwhile; // end the loop
 	
 			else :
 	
