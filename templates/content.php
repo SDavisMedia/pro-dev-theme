@@ -19,15 +19,33 @@
 			</div>
 		<?php endif; ?>
 	</header>
-	<section class="entry-summary">
+	
+	<?php 
+		// change <section> class based on post feed content options
+		$post_content_type = ( 'option2' == get_theme_mod( 'sdm_post_content' ) ? 'entry-content' : 'entry-summary' ); 
+	?>
+	
+	<section class="<?php echo $post_content_type; ?>">
 		
 		<?php
-			// display featured image
-			if ( has_post_thumbnail() ) :
-				the_post_thumbnail( 'feed-thumb', array( 'class' => 'alignleft' ) );
+			// display either full posts or excerpts based on theme customizer options
+			if ( 'option2' == get_theme_mod( 'sdm_post_content' ) ) :
+			
+				// display featured image full
+				if ( has_post_thumbnail() ) :
+					the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
+				endif;
+				
+				the_content( get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) );
+	
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'sdm' ),
+					'after'  => '</div>',
+				) );
+				
+			else :
+			    the_excerpt();
 			endif;
-		
-			the_excerpt(); 
 		?>
 		
 	</section>
