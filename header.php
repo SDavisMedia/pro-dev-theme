@@ -16,6 +16,7 @@ $ping = get_bloginfo('pingback_url');
 		<title>
 		
 		<?php 
+			// page title configuration
 			echo
 			wp_title( '|', true, 'right' ),
 			$title,
@@ -34,18 +35,35 @@ $ping = get_bloginfo('pingback_url');
 	</head>
 	<body <?php body_class(); ?>>
 		
+		<?php // site wide ehader area ?>
 		<div class="header-area full">
 			<div class="main">
 				<header class="site-header inner">
-					<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $title ); ?>"><?php bloginfo( 'name' ); ?></a>
-					<span class="site-description"><?php echo $tagline; ?></span>
+			
+					<span class="site-title">
+									
+						<?php if ( get_theme_mod( 'sdm_logo' ) ) : ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<img src="<?php echo get_theme_mod( 'sdm_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+							</a>
+						<?php else : ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $title ); ?>">
+								<?php echo $title; ?>
+							</a>
+						<?php endif; ?>
+						
+					</span>
+					
+					<h1 class="site-description"><?php echo $tagline; ?></h1>
 				</header>
 			</div>
 		</div>
 	
+		<?php // site wide main menu area ?>
 		<div class="menu-area full">
 			<div class="main">
 				<div class="menu inner clear-sdm">
+				
 					<?php
 						// main menu configuration 
 						$menu_args = array( 
@@ -55,6 +73,7 @@ $ping = get_bloginfo('pingback_url');
 						);
 						wp_nav_menu( $menu_args );
 					?>
+					
 					<div class="search-container">
 						<?php get_search_form(); ?>
 					</div>
@@ -62,6 +81,7 @@ $ping = get_bloginfo('pingback_url');
 			</div>
 		</div>
 		
+		<?php // site wide feature box area ?>
 		<div class="feature-area full">
 			<div class="main">
 				<div class="feature inner clear-sdm">
@@ -75,6 +95,7 @@ $ping = get_bloginfo('pingback_url');
 			</div>
 		</div>
 		
+		<?php // site wide content area... closes in footer.php ?>
 		<div class="content-area full">
 			<div class="main">
 				<div class="site-content clear-sdm">
