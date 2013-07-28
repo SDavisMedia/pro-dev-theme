@@ -2,16 +2,29 @@
 /**
  * The template for displaying all pages
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<div class="content"">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php 
+			// start the loop
+			while ( have_posts() ) : the_post();
 
-			<?php get_template_part( 'templates/content', 'page' ); ?>
+				get_template_part( 'templates/content', 'page' );
+			
+				// only allow comments if chosen in theme customizer
+				if ( 'option1' == get_theme_mod( 'sdm_page_comments' ) ) :
+				
+					// if comments are open or we have at least one comment, load up the comment template
+					if ( comments_open() || '0' != get_comments_number() ) :
+						comments_template();
+					endif;
+				endif;
 
-		<?php endwhile; // end of the loop. ?>
+			endwhile; // end of the loop.
+		?>
 
 	</div>
 
