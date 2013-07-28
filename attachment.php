@@ -1,14 +1,15 @@
 <?php
 /**
- * the template for displaying image attachments
+ * the template for displaying attachments
  *
- * To edit the image attachment template, do so in a child theme by COPYING
- * and pasting the templates/content-image.php file into your child
- * folder in the same structural location. Then, WordPress will use your child
- * theme's content-image.php file instead of Quota's. 
+ * To edit the attachment template, do so in a child theme by COPYING
+ * and pasting the templates/content-attachment.php file into your child
+ * folder in the same structural location. Then, WordPress will use
+ * your child theme's content-image.php file instead. 
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<div class="content attached">
 
@@ -16,9 +17,12 @@ get_header(); ?>
 			// start the loop
 			while ( have_posts() ) : the_post();
 
+				// get main template HTML from template file
 				get_template_part( 'templates/content', 'attachment' );			
 
 			endwhile; // end the loop
+			
+			sdm_attachment_nav();
 		?>
 
 	</div>
