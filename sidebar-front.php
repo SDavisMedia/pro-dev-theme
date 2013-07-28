@@ -1,6 +1,6 @@
 <?php
 /**
- * the main sidebar widget area
+ * the front page sidebar widget area
  */
 ?>
 

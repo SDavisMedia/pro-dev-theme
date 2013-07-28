@@ -1,6 +1,6 @@
 <?php
 /**
- * the template part for image attachments 
+ * the template part for attachments 
  */
 ?>
 
@@ -52,13 +52,4 @@
 		?>
 		
 	</section>
-
-	<nav role="navigation" class="navigation-image">
-		<div class="nav-previous">
-			<?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', 'sdm' ) ); ?>
-		</div>
-		<div class="nav-next">
-			<?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', 'sdm' ) ); ?>
-		</div>
-	</nav>
 </article>

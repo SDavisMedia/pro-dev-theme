@@ -61,6 +61,7 @@ if ( have_posts() ) : ?>
 		// start the Loop
 		while ( have_posts() ) : the_post();
 		
+			// get main template HTML from template file
 			get_template_part( 'templates/content', get_post_format() );
 
 		endwhile; // end the loop

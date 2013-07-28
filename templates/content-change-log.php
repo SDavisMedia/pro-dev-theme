@@ -1,6 +1,6 @@
 <?php
 /**
- * the template part for versions
+ * the template part for change log output
  */
 ?>
 

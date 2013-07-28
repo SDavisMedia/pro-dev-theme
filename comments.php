@@ -1,14 +1,12 @@
 <?php
 /**
- * the templates for displaying comments and pingbacks
+ * the template for displaying comments and pingbacks
  */
 
 
 
 /** ===============
- * Template for comments and pingbacks.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
+ * template for comments and pingbacks
  */ 
 if ( ! function_exists( 'sdm_comment' ) ) :
 	function sdm_comment( $comment, $args, $depth ) {
@@ -25,7 +23,7 @@ if ( ! function_exists( 'sdm_comment' ) ) :
 		<?php else : ?>
 	
 			<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
-				<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+				<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 					<footer class="comment-meta">
 						<div class="comment-author vcard clear-sdm">
 							<span class="comment-avatar">
@@ -54,7 +52,7 @@ if ( ! function_exists( 'sdm_comment' ) ) :
 					<div class="comment-reply">
 						<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 					</div>
-				</article>
+				</div>
 			</li>
 	
 		<?php endif; // ends check for comment type (comment or ping)
@@ -69,17 +67,18 @@ endif; // ends check for sdm_comment()
  * return early without loading the comments.
  */
 if ( post_password_required() )
-	return;
-?>
+	return; ?>
 
 	<div id="comments" class="comments-area">
 
 	<?php if ( have_comments() ) : ?>
 		<span class="comments-title">
+		
 			<?php
 				printf( _nx( 'One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'sdm' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 			?>
+			
 		</span>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
@@ -95,9 +94,9 @@ if ( post_password_required() )
 				/** 
 				 * Loop through and list the comments. Tell wp_list_comments()
 				 * to use sdm_comment() to format the comments.
-				 * If you want to overload this in a child theme then you can
+				 * 
+				 * If you want to override this in a child theme you can
 				 * define sdm_comment() and that will be used instead.
-				 * See sdm_comment() in inc/template-tags.php for more.
 				 */
 				wp_list_comments( array( 'callback' => 'sdm_comment' ) );
 			?>
@@ -106,7 +105,6 @@ if ( post_password_required() )
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-below" class="navigation-comment" role="navigation">
-				<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'sdm' ); ?></h1>
 				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'sdm' ) ); ?></div>
 				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'sdm' ) ); ?></div>
 			</nav>
@@ -118,7 +116,7 @@ if ( post_password_required() )
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'sdm' ); ?></p>
+			<p class="no-comments"><?php _e( 'Comments are closed.', 'sdm' ); ?></p>
 	<?php endif; ?>
 
 	<?php 

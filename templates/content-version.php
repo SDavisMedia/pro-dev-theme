@@ -15,6 +15,15 @@
 		</div>
 	</header>
 	<section class="entry-content">
-		<?php the_content(); ?>
+	
+		<?php 
+			// display post content with pages if necessary
+			the_content(); 
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'sdm' ),
+				'after'  => '</div>',
+			) );
+		?>
+		
 	</section>
 </article>

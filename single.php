@@ -4,8 +4,8 @@
  *
  * To edit the single post template, do so in a child theme by COPYING
  * and pasting the templates/content-single.php file into your child
- * folder in the same structural location. Then, WordPress will use your child
- * theme's content-single.php file instead. 
+ * folder in the same structural location. Then, WordPress will use 
+ * your child theme's content-single.php file instead. 
  */
 ?>
 
@@ -17,6 +17,7 @@
 			// start the loop
 			while ( have_posts() ) : the_post();
 			
+				// get main template HTML from template file
 				get_template_part( 'templates/content', 'single' );
 					
 				// if comments are open or we have at least one comment, load the comment template

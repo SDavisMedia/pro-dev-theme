@@ -4,11 +4,12 @@
  *
  * To edit the versions template, do so in a child theme by COPYING
  * and pasting the templates/content-version.php file into your child
- * folder in the same structural location. Then, WordPress will use your child
- * theme's content-version.php file instead. 
+ * folder in the same structural location. Then, WordPress will use 
+ * your child theme's content-version.php file instead. 
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<div class="content clear">
 
@@ -16,6 +17,7 @@ get_header(); ?>
 			// start the loop
 			while ( have_posts() ) : the_post();
 			
+				// get main template HTML from template file
 				get_template_part( 'templates/content', 'version' );
 				
 				sdm_content_nav( 'nav-below' );

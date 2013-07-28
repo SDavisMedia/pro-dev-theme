@@ -14,7 +14,7 @@
 				// Start the Loop
 				while ( have_posts() ) : the_post();
 		
-					// call the templates/content.php file
+					// get main template HTML from template file
 					get_template_part( 'templates/content', get_post_format() );
 				
 				endwhile;
@@ -23,9 +23,10 @@
 	
 			else :
 	
+				// get main template HTML from template file
 				get_template_part( 'templates/no-results', 'index' );
 	
-			endif; 
+			endif; // end the loop
 		?>
 		
 	</div>

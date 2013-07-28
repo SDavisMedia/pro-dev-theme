@@ -1,11 +1,9 @@
 <?php
 /**
- * display menu about the latest major update
+ * display info about the latest major update
  */
 ?>
-
-
-					
+				
 <?php 
 	if ( is_front_page() ) : ?>
 		
@@ -23,15 +21,19 @@
 		</div>
 		
 <?php 
-	else :
+	else : // change to "elseif (your_conditions) :" if necessary (see below)
 
 	/** 
 	 * You are free to place whatever you'd like in the feature box below this comment.
 	 * It will show on every page except the homepage, unless you write a conditional.
+	 * If you write a conditional, simply edit the existing conditional above to
+	 * further the "else if" clauses. Otherwise, as stated above, what you place here
+	 * will appear everywhere except for the front page.
 	 *
 	 * The feature box design is made to where leaving it empty gives you a space 
-	 * above .content-area and below .header-area to create a nice separation. However, 
-	 * if you needed to highlight content, putting it in this feature box looks great.
+	 * above .content-area and below .menu-area to create a nice separation. However, 
+	 * if you needed to highlight content, putting it in this feature box looks
+	 * great as well.
 	 */
 	 
 	endif; // end feature box setup
