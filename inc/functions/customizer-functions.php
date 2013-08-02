@@ -300,7 +300,7 @@ function sdm_customize_register( $wp_customize ) {
 		'blogname', 
 		'blogdescription', 
 		'sdm_read_more',
-		'sdm_credits_copyright',
+		'sdm_credits_copyright'
 	);
 	foreach ( $post_message as $pm ) {
 		$wp_customize->get_setting( $pm )->transport = 'postMessage';
@@ -314,23 +314,33 @@ add_action( 'customize_register', 'sdm_customize_register' );
  * Add Customizer theme styles to <head>
  */
 function sdm_customizer_head_styles() {
-	$sdm_primary_color = get_option( 'sdm_primary_color' );
+	$sdm_primary_color = get_option( 'sdm_primary_color' ); ?>
 	
-	echo '<style type="text/css">';
+	<style type="text/css">
 		
+		<?php 
 		/**
 		 * Only add styles to the head of the document if the styles
 		 * have been changed from default. 
 		 */	
-		 
-		// Primary design color
-		if ('#015F8E' != $sdm_primary_color ) :
-			echo "a, .site-title a:hover { color: {$sdm_primary_color}; }\n.main-menu > ul > li > a:hover, .main-menu > ul > .current-menu-item > a { border-bottom: 3px solid {$sdm_primary_color}; }\n.bypostauthor .comment-meta { border-right: 3px solid {$sdm_primary_color}; }";		
-		endif;
+		if ('#015F8E' != $sdm_primary_color ) : // Primary design color ?>
+		
+			a, .site-title a:hover { 
+				color: <?php echo $sdm_primary_color; ?>; 
+			}
+			.main-menu > ul > li > a:hover, 
+			.main-menu > ul > .current-menu-item > a { 
+				border-bottom: 3px solid <?php echo $sdm_primary_color; ?>; 
+			}
+			.bypostauthor .comment-meta { 
+				border-right: 3px solid <?php echo $sdm_primary_color; ?>; 
+			}
+					
+		<?php endif; ?>
 	
-	echo '</style>';
+	</style>
 	
-}
+<?php }
 add_action( 'wp_head','sdm_customizer_head_styles' );
 
 

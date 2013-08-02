@@ -14,8 +14,7 @@
 /* =shared styles
 -------------------------------------------------------------- */
 
-.sidebar input[type="search"],
-.info-box {
+.sidebar input[type="search"] {
 	background-color: #fff;
 }
 
@@ -24,6 +23,7 @@
 }
 
 .header-area,
+.banner,
 .feature,
 .sidebar,
 .single-post-footer,
@@ -48,7 +48,6 @@ a,
 blockquote,
 .comment-meta,
 .wp-caption-text,
-.info-subtitle span,
 .edd-variable-pricing-desc {
 	color: #999;
 }
@@ -62,13 +61,11 @@ blockquote,
 .main-menu a,
 .entry-title,
 .entry-title h1,
-.info-subtitle,
 .widget-title {
 	color: #000;
 }
 
-h1, h2,
-.info-box h3 {
+h1, h2 {
 	font-size: 24px;
 }
 
@@ -88,7 +85,6 @@ h5, h6
 input[type="search"],
 .entry-meta,
 .comment-meta,
-.info-subtitle,
 .wp-caption-text,
 .post-footer-author a,
 .edd-variable-pricing-desc {
@@ -97,8 +93,7 @@ input[type="search"],
 
 h1, h2, h3, h4, h5, h6,
 .sidebar,
-.comments-title,
-.info-subtitle {
+.comments-title {
 	line-height: 1.4em;
 }
 .site-description {
@@ -110,7 +105,6 @@ h1, h2, h3, h4, h5, h6, dt, b, th,
 .main-menu a,
 .comments-title,
 .cta-title,
-.info-subtitle,
 strong,
 input[type="submit"],
 .button,
@@ -118,7 +112,6 @@ input[type="submit"],
 	font-weight: 700; 
 }
 
-.info-subtitle span,
 caption, 
 th, 
 td { 
@@ -160,12 +153,9 @@ a:hover,
 .page-header,
 .single-post-footer,
 .nocomments,
-.featured-software-info,
 pre,
 [class*="navigation"] .nav-previous,
 [class*="navigation"] .nav-next,
-.info-text,
-.info-cta,
 #comments,
 .aux-col,
 .widget {
@@ -195,7 +185,6 @@ figure,
 
 h1, h2, h3, h4, h5, h6,
 .comments-title,
-.info-subtitle,
 .widget {
 	margin-bottom: 16px;
 }
@@ -227,7 +216,6 @@ pre,
 .entry-title h1,
 .more-link,
 .change-log .entry-header,
-.info-text p:last-child,
 .entry-content p:last-child {
 	margin-bottom: 0;
 }
@@ -236,13 +224,12 @@ pre,
 .header-area,
 .menu-area,
 .main-menu > ul > li,
+.banner,
 .content .wp-caption,
 .single-post-footer,
 #commentform input,
 #commentform textarea,
 .feature,
-.info-box,
-.info-text,
 .sidebar,
 .widget ul,
 .widget li,
@@ -775,10 +762,24 @@ cite.fn {
 }
 
 
+/* =banner
+-------------------------------------------------------------- */
+
+.banner {
+	border-width: 0 1px;
+	padding-bottom: 0;
+}
+
+.banner-img {
+	vertical-align: bottom;
+}
+
+
 /* =feature
 -------------------------------------------------------------- */
 
 .feature {
+	position: relative;
 	border-width: 0 1px 1px;
 	-webkit-border-radius: 0 0 0 3px;
 	-moz-border-radius: 0 0 0 3px;
@@ -787,43 +788,14 @@ cite.fn {
 }
 
 
-/* =info box
--------------------------------------------------------------- */
-
-.info-text,
-.info-cta {
-	float: left;
-}
-
-.info-text {
-	float: left;
-	border-width: 0 1px 0 0;
-	width: 584px;
-}
-
-.info-cta {
-	float: left;
-	width: 344px;
-}
-
-.info-cta .button {
-	margin: 10px 0;
-}
-
-.info-subtitle {
-	display: block;
-}
-
-.info-subtitle span {
-	font-style: italic;
-}
-
-
 /* =sidebar
 -------------------------------------------------------------- */
 
 .sidebar {
 	float: left;	
+	position: relative;
+		z-index: 99;
+	margin-top: -1px;
 	margin-bottom: -1px;
 	border-width: 0 1px 1px;
 	-webkit-border-radius: 0 0 3px 3px;

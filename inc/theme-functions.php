@@ -54,7 +54,17 @@ if ( ! function_exists( 'sdm_setup' ) ) :
 		 * Add default posts and comments RSS feed links to head
 		 */
 		add_theme_support( 'automatic-feed-links' );
-	
+
+		$header_image = array(
+			'default-image'			=> SDM_IMAGES . '/screenshot.jpg',
+			'flex-width'			=> true,
+			'width'					=> 960,
+			'flex-height'			=> true,
+			'height'				=> 140,
+			'uploads'				=> true,
+		);
+		add_theme_support( 'custom-header', $header_image );
+
 		/**
 		 * Enable support for Post Thumbnails on posts and pages
 		 */

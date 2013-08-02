@@ -80,7 +80,7 @@ $ping = get_bloginfo('pingback_url');
 				</div>
 			</div>
 		</div>
-		
+	
 		<?php // site wide feature box area ?>
 		<div class="feature-area full">
 			<div class="main">

@@ -11,18 +11,20 @@
 		<div class="footer-area full">
 			<div class="main">
 				<footer class="site-footer inner">
+					<span class="site-info">
 			
-					<?php
-						$credits = __( 'Built with WordPress & <a href="' . SDM_HOME . '">' . SDM_NAME . '</a>', 'sdm' );
-						
-						// If copyright & credits are left empty or have not been set, display default info.
-						if ( '' == get_theme_mod( 'sdm_credits_copyright' ) ) :
-							echo $credits;
-						else :
-							echo get_theme_mod( 'sdm_credits_copyright' );
-						endif;
-					?>
+						<?php
+							$credits = __( 'Built with WordPress & <a href="' . SDM_HOME . '">' . SDM_NAME . '</a>', 'sdm' );
+							
+							// If copyright & credits are left empty or have not been set, display default info.
+							if ( '' == get_theme_mod( 'sdm_credits_copyright' ) ) :
+								echo $credits;
+							else :
+								echo get_theme_mod( 'sdm_credits_copyright', $credits );
+							endif;
+						?>
 					
+					</span>
 				</footer>
 			</div>
 		</div>
