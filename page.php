@@ -28,5 +28,5 @@
 
 	</div>
 
-<?php get_sidebar(); ?>
+<?php is_bbpress() ? get_sidebar( 'bbpress' ) : get_sidebar(); ?>
 <?php get_footer(); ?>

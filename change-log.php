@@ -16,7 +16,13 @@
 				'post_type' => 'version', 
 				'posts_per_page' => 99999 
 			) ); 
+		?>
+		
+		<div class="page-header">
+			<h1><?php echo the_title(); ?></h1>
+		</div>
 			
+		<?php
 			if ( $version_loop->have_posts() ) :
 	
 				// Start the Loop

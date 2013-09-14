@@ -55,16 +55,6 @@ if ( ! function_exists( 'sdm_setup' ) ) :
 		 */
 		add_theme_support( 'automatic-feed-links' );
 
-		$header_image = array(
-			'default-image'			=> SDM_IMAGES . '/screenshot.jpg',
-			'flex-width'			=> true,
-			'width'					=> 960,
-			'flex-height'			=> true,
-			'height'				=> 140,
-			'uploads'				=> true,
-		);
-		add_theme_support( 'custom-header', $header_image );
-
 		/**
 		 * Enable support for Post Thumbnails on posts and pages
 		 */
@@ -87,6 +77,9 @@ add_action( 'after_setup_theme', 'sdm_setup' );
  */
 function sdm_scripts() {
 	wp_enqueue_style( 'sdm-style', get_stylesheet_uri() );
+	
+	// font awesome fonts
+	wp_enqueue_style( 'fontawesome', SDM_FONTS . '/font-awesome/css/font-awesome.min.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

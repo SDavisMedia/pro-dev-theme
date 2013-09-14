@@ -7,7 +7,7 @@
 <article id="post-0" class="post not-found">
 	<header class="entry-header">
 		<span class="entry-title">
-			<h1><?php _e( 'Oops! It looks like there\'s an error. Let us help.', 'sdm' ); ?></h1>
+			<h1><?php _e( 'Oops! It looks like there&rsquo;s an error.', 'sdm' ); ?></h1>
 		</span>
 	</header>
 

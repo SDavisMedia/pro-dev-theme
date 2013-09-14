@@ -39,9 +39,7 @@ $ping = get_bloginfo('pingback_url');
 		<div class="header-area full">
 			<div class="main">
 				<header class="site-header inner">
-			
 					<span class="site-title">
-									
 						<?php if ( get_theme_mod( 'sdm_logo' ) ) : ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<img src="<?php echo get_theme_mod( 'sdm_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>">
@@ -51,10 +49,48 @@ $ping = get_bloginfo('pingback_url');
 								<?php echo $title; ?>
 							</a>
 						<?php endif; ?>
-						
 					</span>
-					
 					<h1 class="site-description"><?php echo $tagline; ?></h1>
+					<div class="social-nav">
+				
+						<?php 
+							/**
+							 * Built into the Customizer are a fields for social profiles. 
+							 * Using the following array, check to see if the field
+							 * has a URL. If so, create a link for that profile in the post
+							 * footer. If not, do nothing.
+							 */
+							$profiles_menu = array( 
+								'twitter'	=> array(
+									'name' 		=> 'Twitter',
+									'option'	=> get_theme_mod( 'sdm_twitter' ),
+									'icon'		=> '<i class="icon-twitter"></i>'
+								),
+								'facebook'	=> array(
+									'name' 		=> 'Facebook',
+									'option'	=> get_theme_mod( 'sdm_facebook' ),
+									'icon'		=> '<i class="icon-facebook-sign"></i>'
+								),
+								'gplus'	=> array(
+									'name' 		=> 'Google+',
+									'option'	=> get_theme_mod( 'sdm_gplus' ),
+									'icon'		=> '<i class="icon-google-plus-sign"></i>'
+								),
+								'github'	=> array(
+									'name' 		=> 'Github',
+									'option'	=> get_theme_mod( 'sdm_github' ),
+									'icon'		=> '<i class="icon-github-alt"></i>'
+								),
+							);
+							// Build the social networking profile links based on the $social_profiles
+							foreach ( $profiles_menu as $profile ) {
+								if ( '' != $profile[ 'option' ] ) :
+									echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>'; 
+								endif;
+							}
+						?>
+						
+					</div>
 				</header>
 			</div>
 		</div>
@@ -62,22 +98,20 @@ $ping = get_bloginfo('pingback_url');
 		<?php // site wide main menu area ?>
 		<div class="menu-area full">
 			<div class="main">
-				<div class="menu inner clear-sdm">
-				
+				<nav id="site-navigation" class="main-navigation menu inner clear-sdm" role="navigation">
 					<?php
 						// main menu configuration 
 						$menu_args = array( 
-							'theme_location' => 'main', 
+							'theme_location' => 'main',
 							'container_class' => 'main-menu',
 							'fallback_cb' => '' 
 						);
 						wp_nav_menu( $menu_args );
 					?>
-					
 					<div class="search-container">
 						<?php get_search_form(); ?>
 					</div>
-				</div>
+				</nav>
 			</div>
 		</div>
 	
@@ -85,12 +119,10 @@ $ping = get_bloginfo('pingback_url');
 		<div class="feature-area full">
 			<div class="main">
 				<div class="feature inner clear-sdm">
-						
 					<?php
 						// call the templates/content-feature-box.php
 						get_template_part( 'templates/content', 'feature-box' );
 					?>
-						
 				</div>
 			</div>
 		</div>

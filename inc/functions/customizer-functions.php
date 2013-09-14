@@ -108,8 +108,8 @@ function sdm_customize_register( $wp_customize ) {
 			'id'			=> 'sdm_gplus',
 			'default'		=> null
 		),
-		'linkedin'				=> array(
-			'id'			=> 'sdm_linkedin',
+		'github'			=> array(
+			'id'			=> 'sdm_github',
 			'default'		=> null
 		),
 	);
@@ -158,11 +158,11 @@ function sdm_customize_register( $wp_customize ) {
 			'section'	=> 'sdm_social_networks',
 			'settings'	=> 'sdm_gplus',
 		),
-		'sdm_linkedin'	=> array(
-			'id'		=> 'sdm_linkedin',
-			'label'		=> __( 'LinkedIn Profile URL', 'sdm' ),
+		'sdm_github'	=> array(
+			'id'		=> 'sdm_github',
+			'label'		=> __( 'Github Profile URL', 'sdm' ),
 			'section'	=> 'sdm_social_networks',
-			'settings'	=> 'sdm_linkedin',
+			'settings'	=> 'sdm_github',
 		),
 	);
 	// Build the text input controls based on the $add_text_controls

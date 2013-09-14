@@ -173,6 +173,10 @@ function sdm_widgets_init() {
 			'name'			=> __( 'Primary Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-primary',
 		),
+		'bbpress'			=> array(
+			'name'			=> __( 'bbPress Sidebar', 'sdm' ),
+			'id'			=> 'sidebar-bbpress',
+		),
 	);
 	// Register all widgetized areas based on the $register_sidebars information
 	foreach ( $register_sidebars as $sidebars ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * the front page sidebar widget area
+ * the bbpress (forum) sidebar widget area
  */
 ?>
 
@@ -9,11 +9,11 @@
 	<?php do_action( 'before_sidebar' ); ?>
 	
 	<?php 
-	if ( is_active_sidebar( 'sidebar-front' ) ) :
-		dynamic_sidebar( 'sidebar-front' );
+	if ( is_active_sidebar( 'sidebar-bbpress' ) ) :
+		dynamic_sidebar( 'sidebar-bbpress' );
 	else :
 		dynamic_sidebar( 'sidebar-primary' );		
 	endif;
 	?>
-	
+		
 </div>

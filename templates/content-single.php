@@ -108,10 +108,6 @@
 								'name' 		=> 'Google+',
 								'option'	=> get_theme_mod( 'sdm_gplus' )
 							),
-							'linkedin'	=> array(
-								'name' 		=> 'Linkedin',
-								'option'	=> get_theme_mod( 'sdm_linkedin' )
-							),
 						);
 						// Build the social networking profile links based on the $social_profiles
 						foreach ( $social_profiles as $profile ) {
