@@ -25,4 +25,14 @@
 			$( '.site-info' ).text( to );
 		} );
 	} );
+	wp.customize( 'sdm_feature_product_headline', function( value ) {
+		value.bind( function( to ) {
+			$( '.info-box-title' ).text( to );
+		} );
+	} );
+	wp.customize( 'sdm_feature_product_description', function( value ) {
+		value.bind( function( to ) {
+			$( '.info-box-description' ).text( to );
+		} );
+	} );
 } )( jQuery );

@@ -27,6 +27,24 @@ function sdm_customize_register( $wp_customize ) {
 		
 		<?php }
 	}
+	
+	
+	
+	/** ===============
+	 * Extends CONTROLS class to add textarea
+	 */
+	class sdm_customize_textarea_control extends WP_Customize_Control {
+		public $type = 'textarea';
+		public function render_content() { ?>
+	
+		<label>
+			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<textarea rows="5" style="width:98%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+		</label>
+	
+	<?php
+		}
+	}
 
 
 
@@ -39,6 +57,12 @@ function sdm_customize_register( $wp_customize ) {
 			'title'			=> __( 'Content Options', 'sdm' ),
 			'description'	=> __( 'Adjust the display of content on your website. All options have a default value that can be left as-is but you are free to customize.', 'sdm' ),
 			'priority'		=> 30
+		),
+		'feature'			=> array(
+			'id'			=> 'sdm_feature_box',
+			'title'			=> __( 'Feature Box Options', 'sdm' ),
+			'description'	=> __( 'Set the main Feature Box content here which displays on the &rsquo;Front Page&rsquo; only. Further customization is done in template files.', 'sdm' ),
+			'priority'		=> 35
 		),
 		'edd'				=> array(
 			'id'			=> 'sdm_edd_options',
@@ -68,17 +92,13 @@ function sdm_customize_register( $wp_customize ) {
 	 * Add NEW customizer SETTINGS
 	 */
 	$add_settings = array(
-		'excerpt link'		=> array(
-			'id'			=> 'sdm_read_more',
-			'default'		=> 'Read More &rarr;'
-		),
-		'site copyright'	=> array(
-			'id'			=> 'sdm_credits_copyright',
-			'default'		=> null
-		),
 		'post content'		=> array(
 			'id'			=> 'sdm_post_content',
 			'default'		=> 'option1'
+		),
+		'excerpt link'		=> array(
+			'id'			=> 'sdm_read_more',
+			'default'		=> 'Read More &rarr;'
 		),
 		'featured img'		=> array(
 			'id'			=> 'sdm_single_featured_image',
@@ -91,6 +111,22 @@ function sdm_customize_register( $wp_customize ) {
 		'page comments'		=> array(
 			'id'			=> 'sdm_page_comments',
 			'default'		=> 'option2'
+		),
+		'site copyright'	=> array(
+			'id'			=> 'sdm_credits_copyright',
+			'default'		=> null
+		),
+		'fb toggle'	=> array(
+			'id'			=> 'sdm_feature_toggle',
+			'default'		=> 'option1'
+		),
+		'fb product headline'	=> array(
+			'id'			=> 'sdm_feature_product_headline',
+			'default'		=> 'Main Product Headline'
+		),
+		'fb product description'	=> array(
+			'id'			=> 'sdm_feature_product_description',
+			'default'		=> 'Main Product Description'
 		),
 		'download comments'	=> array(
 			'id'			=> 'sdm_download_comments',
@@ -133,12 +169,21 @@ function sdm_customize_register( $wp_customize ) {
 			'label'		=> __( 'Excerpt & More Link Text', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_read_more',
+			'priority'	=> 20,
 		),
 		'sdm_credits_copyright'	=> array(
 			'id'		=> 'sdm_credits_copyright',
 			'label'		=> __( 'Footer Credits & Copyright', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_credits_copyright',
+			'priority'	=> 60,
+		),
+		'sdm_feature_product_headline'	=> array(
+			'id'		=> 'sdm_feature_product_headline',
+			'label'		=> __( 'Main Product Headline', 'sdm' ),
+			'section'	=> 'sdm_feature_box',
+			'settings'	=> 'sdm_feature_product_headline',
+			'priority'	=> 20,
 		),
 		'sdm_twitter'	=> array(
 			'id'		=> 'sdm_twitter',
@@ -170,8 +215,30 @@ function sdm_customize_register( $wp_customize ) {
 		$wp_customize->add_control( $control[ 'id' ], array(
 		    'label' 	=> $control[ 'label' ],
 		    'section' 	=> $control[ 'section' ],
-			'settings' 	=> $control[ 'settings' ]
+			'settings' 	=> $control[ 'settings' ],
+			'priority' 	=> $control[ 'priority' ]
 		) );
+	}
+	
+	
+	// Textarea input control types
+	$add_textarea_controls = array(
+		'sdm_feature_product_description'	=> array(
+			'id'		=> 'sdm_feature_product_description',
+			'label'		=> __( 'Main Product Description', 'sdm' ),
+			'section'	=> 'sdm_feature_box',
+			'settings'	=> 'sdm_feature_product_description',
+			'priority'	=> 30,
+		),
+	);
+	// Build the textarea input controls based on the $add_textarea_controls
+	foreach ( $add_textarea_controls as $control ) {
+		$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, $control[ 'id' ], array(
+		    'label' 	=> $control[ 'label' ],
+		    'section' 	=> $control[ 'section' ],
+			'settings' 	=> $control[ 'settings' ],
+			'priority' 	=> $control[ 'priority' ]
+		) ) );
 	}
 	
 	
@@ -182,6 +249,7 @@ function sdm_customize_register( $wp_customize ) {
 			'label'		=> __( 'Post Feed Content', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_post_content',
+			'priority'	=> 10,
 			'option1'	=> 'Excerpts',
 			'option2'	=> 'Full Content'
 		),
@@ -190,6 +258,7 @@ function sdm_customize_register( $wp_customize ) {
 			'label'		=> __( 'Show Featured Images on Single Posts?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_single_featured_image',
+			'priority'	=> 30,
 			'option1'	=> 'Yes',
 			'option2'	=> 'No'
 		),
@@ -198,6 +267,7 @@ function sdm_customize_register( $wp_customize ) {
 			'label'		=> __( 'Show Post Footer on Single Posts?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_post_footer',
+			'priority'	=> 40,
 			'option1'	=> 'Yes',
 			'option2'	=> 'No'
 		),
@@ -206,6 +276,16 @@ function sdm_customize_register( $wp_customize ) {
 			'label'		=> __( 'Display Comments on Standard Pages?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
 			'settings'	=> 'sdm_page_comments',
+			'priority'	=> 50,
+			'option1'	=> 'Yes',
+			'option2'	=> 'No'
+		),
+		'sdm_feature_toggle'	=> array(
+			'id'		=> 'sdm_feature_toggle',
+			'label'		=> __( 'Display Default Feature Box?', 'sdm' ),
+			'section'	=> 'sdm_feature_box',
+			'settings'	=> 'sdm_feature_toggle',
+			'priority'	=> 10,
 			'option1'	=> 'Yes',
 			'option2'	=> 'No'
 		),
@@ -224,6 +304,7 @@ function sdm_customize_register( $wp_customize ) {
 			'label'     => $control[ 'label' ],
 			'section'   => $control[ 'section' ],
 			'settings'  => $control[ 'settings' ],
+			'priority'  => $control[ 'priority' ],
 			'type'      => 'radio',
 			'choices'   => array(
 			    'option1'   => $control[ 'option1' ],
@@ -300,7 +381,9 @@ function sdm_customize_register( $wp_customize ) {
 		'blogname', 
 		'blogdescription', 
 		'sdm_read_more',
-		'sdm_credits_copyright'
+		'sdm_credits_copyright',
+		'sdm_feature_product_headline',
+		'sdm_feature_product_description'
 	);
 	foreach ( $post_message as $pm ) {
 		$wp_customize->get_setting( $pm )->transport = 'postMessage';
