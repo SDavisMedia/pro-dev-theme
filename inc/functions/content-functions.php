@@ -165,13 +165,13 @@ function sdm_widgets_init() {
 	 * Array with unique information about the various widgetized areas
 	 */
 	$register_sidebars = array(
-		'front'			=> array(
-			'name'			=> __( 'Front Page Sidebar', 'sdm' ),
-			'id'			=> 'sidebar-front',
-		),
 		'primary'			=> array(
 			'name'			=> __( 'Primary Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-primary',
+		),
+		'front'			=> array(
+			'name'			=> __( 'Front Page Sidebar', 'sdm' ),
+			'id'			=> 'sidebar-front',
 		),
 		'bbpress'			=> array(
 			'name'			=> __( 'bbPress Sidebar', 'sdm' ),

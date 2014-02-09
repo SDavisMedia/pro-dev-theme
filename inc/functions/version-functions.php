@@ -66,6 +66,7 @@ function sdm_version_taxonomy() {
 			'hierarchical'	=> true 
 		)
 	);
+	
 	register_taxonomy( 'version_category', 'version', $product_args );
 	register_taxonomy_for_object_type( 'version_category', 'version' );
 }

@@ -64,22 +64,22 @@ $ping = get_bloginfo('pingback_url');
 								'twitter'	=> array(
 									'name' 		=> 'Twitter',
 									'option'	=> get_theme_mod( 'sdm_twitter' ),
-									'icon'		=> '<i class="icon-twitter"></i>'
+									'icon'		=> '<i class="fa fa-twitter"></i>'
 								),
 								'facebook'	=> array(
 									'name' 		=> 'Facebook',
 									'option'	=> get_theme_mod( 'sdm_facebook' ),
-									'icon'		=> '<i class="icon-facebook-sign"></i>'
+									'icon'		=> '<i class="fa fa-facebook-square"></i>'
 								),
 								'gplus'	=> array(
 									'name' 		=> 'Google+',
 									'option'	=> get_theme_mod( 'sdm_gplus' ),
-									'icon'		=> '<i class="icon-google-plus-sign"></i>'
+									'icon'		=> '<i class="fa fa-google-plus-square"></i>'
 								),
 								'github'	=> array(
 									'name' 		=> 'Github',
 									'option'	=> get_theme_mod( 'sdm_github' ),
-									'icon'		=> '<i class="icon-github-alt"></i>'
+									'icon'		=> '<i class="fa fa-github-alt"></i>'
 								),
 							);
 							// Build the social networking profile links based on the $social_profiles

@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 
-	<div class="content"">
+	<div class="content">
 
 		<?php 
 			// start the loop
@@ -28,5 +28,5 @@
 
 	</div>
 
-<?php is_bbpress() ? get_sidebar( 'bbpress' ) : get_sidebar(); ?>
+<?php class_exists( 'bbPress' ) && is_bbpress() ? get_sidebar( 'bbpress' ) : get_sidebar(); ?>
 <?php get_footer(); ?>

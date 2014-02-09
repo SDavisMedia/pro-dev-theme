@@ -4,29 +4,6 @@
  */
 
 function sdm_customize_register( $wp_customize ) {
-
-
-
-	/** ===============
-	 * Extends SECTIONS class to add description text
-	 */
-	class sdm_customize_section extends WP_Customize_Section {
-		public $description = '';
-		protected function render() { ?>
-		
-		<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="control-section accordion-section customize-section">
-			<h3 class="accordion-section-title customize-section-title" tabindex="0"><?php echo esc_html( $this->title ); ?></h3>
-			<ul class="accordion-section-content customize-section-content">
-				<span class="customize-description"><?php echo esc_html( $this->description ); ?></span>
-				<?php
-				foreach ( $this->controls as $control )
-					$control->maybe_render();
-				?>
-			</ul>
-		</li>
-		
-		<?php }
-	}
 	
 	
 	
@@ -58,10 +35,10 @@ function sdm_customize_register( $wp_customize ) {
 			'description'	=> __( 'Adjust the display of content on your website. All options have a default value that can be left as-is but you are free to customize.', 'sdm' ),
 			'priority'		=> 30
 		),
-		'feature'			=> array(
-			'id'			=> 'sdm_feature_box',
-			'title'			=> __( 'Feature Box Options', 'sdm' ),
-			'description'	=> __( 'Set the main Feature Box content here which displays on the &rsquo;Front Page&rsquo; only. Further customization is done in template files.', 'sdm' ),
+		'featured'			=> array(
+			'id'			=> 'sdm_featured_product',
+			'title'			=> __( 'Featured Product Options', 'sdm' ),
+			'description'	=> __( 'Set the main Featured Product details here which displays in the &rsquo;Front Page&rsquo; feature box and the sidebar of all other pages.', 'sdm' ),
 			'priority'		=> 35
 		),
 		'edd'				=> array(
@@ -79,11 +56,11 @@ function sdm_customize_register( $wp_customize ) {
 	);
 	// Build the sections based on the $add_sections array
 	foreach ( $add_sections as $section ) {
-		$wp_customize->add_section( new sdm_customize_section( $wp_customize, $section[ 'id' ], array(
+		$wp_customize->add_section( $section[ 'id' ], array(
 	    	'title'       	=> $section[ 'title' ],
 			'description' 	=> $section[ 'description' ],
 			'priority'   	=> $section[ 'priority' ],
-		) ) );
+		) );
 	}
 	
 	
@@ -92,67 +69,28 @@ function sdm_customize_register( $wp_customize ) {
 	 * Add NEW customizer SETTINGS
 	 */
 	$add_settings = array(
-		'post content'		=> array(
-			'id'			=> 'sdm_post_content',
-			'default'		=> 'option1'
-		),
-		'excerpt link'		=> array(
-			'id'			=> 'sdm_read_more',
-			'default'		=> 'Read More &rarr;'
-		),
-		'featured img'		=> array(
-			'id'			=> 'sdm_single_featured_image',
-			'default'		=> 'option1'
-		),
-		'post footer'		=> array(
-			'id'			=> 'sdm_post_footer',
-			'default'		=> 'option1'
-		),
-		'page comments'		=> array(
-			'id'			=> 'sdm_page_comments',
-			'default'		=> 'option2'
-		),
-		'site copyright'	=> array(
-			'id'			=> 'sdm_credits_copyright',
-			'default'		=> null
-		),
-		'fb toggle'	=> array(
-			'id'			=> 'sdm_feature_toggle',
-			'default'		=> 'option1'
-		),
-		'fb product headline'	=> array(
-			'id'			=> 'sdm_feature_product_headline',
-			'default'		=> 'Main Product Headline'
-		),
-		'fb product description'	=> array(
-			'id'			=> 'sdm_feature_product_description',
-			'default'		=> 'Main Product Description'
-		),
-		'download comments'	=> array(
-			'id'			=> 'sdm_download_comments',
-			'default'		=> 'option2'
-		),
-		'twitter'			=> array(
-			'id'			=> 'sdm_twitter',
-			'default'		=> null
-		),
-		'facebook'			=> array(
-			'id'			=> 'sdm_facebook',
-			'default'		=> null
-		),
-		'gplus'				=> array(
-			'id'			=> 'sdm_gplus',
-			'default'		=> null
-		),
-		'github'			=> array(
-			'id'			=> 'sdm_github',
-			'default'		=> null
-		),
+		'post content' 				=> array( 'id' => 'sdm_post_content', 'default' => 'option1' ),
+		'excerpt link'				=> array( 'id' => 'sdm_read_more', 'default' => 'Read More &rarr;' ),
+		'featured img'				=> array( 'id' => 'sdm_single_featured_image','default' => 'option1' ),
+		'post footer'				=> array( 'id' => 'sdm_post_footer', 'default' => 'option1' ),
+		'page comments'				=> array( 'id' => 'sdm_page_comments', 'default' => 'option2' ),
+		'site copyright'			=> array( 'id' => 'sdm_credits_copyright', 'default' => null ),
+		'fb toggle'					=> array( 'id' => 'sdm_feature_box_toggle', 'default' => 'option1' ),
+		'sidebar feature toggle'	=> array( 'id' => 'sdm_feature_sidebar_toggle', 'default' => 'option1' ),
+		'fb product headline'		=> array( 'id' => 'sdm_featured_product_headline', 'default'=> null ),
+		'fb product description'	=> array( 'id' => 'sdm_featured_product_description', 'default' => null ),
+		'fb product version'		=> array( 'id' => 'sdm_featured_product_version', 'default' => null ),
+		'fb product note'			=> array( 'id' => 'sdm_featured_product_note', 'default' => null ),
+		'download comments'			=> array( 'id' => 'sdm_download_comments', 'default' => 'option2' ),
+		'twitter'					=> array( 'id' => 'sdm_twitter', 'default' => null ),
+		'facebook'					=> array( 'id' => 'sdm_facebook', 'default' => null ),
+		'gplus'						=> array( 'id' => 'sdm_gplus', 'default' => null ),
+		'github'					=> array( 'id' => 'sdm_github', 'default' => null ),
 	);
 	// Build the settings based on the $add_settings
 	foreach ( $add_settings as $setting ) {
 		$wp_customize->add_setting( $setting[ 'id' ], array( 
-			'default' => $setting[ 'default' ] 
+			'default' => $setting[ 'default' ]
 		) );
 	}
 	
@@ -178,36 +116,54 @@ function sdm_customize_register( $wp_customize ) {
 			'settings'	=> 'sdm_credits_copyright',
 			'priority'	=> 60,
 		),
-		'sdm_feature_product_headline'	=> array(
-			'id'		=> 'sdm_feature_product_headline',
+		'sdm_featured_product_headline'	=> array(
+			'id'		=> 'sdm_featured_product_headline',
 			'label'		=> __( 'Main Product Headline', 'sdm' ),
-			'section'	=> 'sdm_feature_box',
-			'settings'	=> 'sdm_feature_product_headline',
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_featured_product_headline',
 			'priority'	=> 20,
+		),
+		'sdm_featured_product_version'	=> array(
+			'id'		=> 'sdm_featured_product_version',
+			'label'		=> __( 'Main Product Version', 'sdm' ),
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_featured_product_version',
+			'priority'	=> 40,
+		),
+		'sdm_featured_product_note'	=> array(
+			'id'		=> 'sdm_featured_product_note',
+			'label'		=> __( 'Main Product Note', 'sdm' ),
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_featured_product_note',
+			'priority'	=> 50,
 		),
 		'sdm_twitter'	=> array(
 			'id'		=> 'sdm_twitter',
 			'label'		=> __( 'Twitter Profile URL', 'sdm' ),
 			'section'	=> 'sdm_social_networks',
 			'settings'	=> 'sdm_twitter',
+			'priority'	=> 10,
 		),
 		'sdm_facebook'	=> array(
 			'id'		=> 'sdm_facebook',
 			'label'		=> __( 'Facebook Profile URL', 'sdm' ),
 			'section'	=> 'sdm_social_networks',
 			'settings'	=> 'sdm_facebook',
+			'priority'	=> 20,
 		),
 		'sdm_gplus'	=> array(
 			'id'		=> 'sdm_gplus',
 			'label'		=> __( 'Google Plus Profile URL', 'sdm' ),
 			'section'	=> 'sdm_social_networks',
 			'settings'	=> 'sdm_gplus',
+			'priority'	=> 30,
 		),
 		'sdm_github'	=> array(
 			'id'		=> 'sdm_github',
 			'label'		=> __( 'Github Profile URL', 'sdm' ),
 			'section'	=> 'sdm_social_networks',
 			'settings'	=> 'sdm_github',
+			'priority'	=> 40,
 		),
 	);
 	// Build the text input controls based on the $add_text_controls
@@ -223,11 +179,11 @@ function sdm_customize_register( $wp_customize ) {
 	
 	// Textarea input control types
 	$add_textarea_controls = array(
-		'sdm_feature_product_description'	=> array(
-			'id'		=> 'sdm_feature_product_description',
+		'sdm_featured_product_description'	=> array(
+			'id'		=> 'sdm_featured_product_description',
 			'label'		=> __( 'Main Product Description', 'sdm' ),
-			'section'	=> 'sdm_feature_box',
-			'settings'	=> 'sdm_feature_product_description',
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_featured_product_description',
 			'priority'	=> 30,
 		),
 	);
@@ -253,6 +209,25 @@ function sdm_customize_register( $wp_customize ) {
 			'option1'	=> 'Excerpts',
 			'option2'	=> 'Full Content'
 		),
+	);
+	// Build the radio input controls based on the $add_radio_controls
+	foreach ( $add_radio_controls as $control ) {
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, $control[ 'id' ], array(
+			'label'     => $control[ 'label' ],
+			'section'   => $control[ 'section' ],
+			'settings'  => $control[ 'settings' ],
+			'priority'  => $control[ 'priority' ],
+			'type'      => 'radio',
+			'choices'   => array(
+			    'option1'   => $control[ 'option1' ],
+			    'option2'   => $control[ 'option2' ],
+			),
+		) ) );
+	}
+	
+	
+	// Checkbox input control types	
+	$add_checkbox_controls = array(
 		'sdm_single_featured_image'	=> array(
 			'id'		=> 'sdm_single_featured_image',
 			'label'		=> __( 'Show Featured Images on Single Posts?', 'sdm' ),
@@ -280,12 +255,21 @@ function sdm_customize_register( $wp_customize ) {
 			'option1'	=> 'Yes',
 			'option2'	=> 'No'
 		),
-		'sdm_feature_toggle'	=> array(
-			'id'		=> 'sdm_feature_toggle',
+		'sdm_feature_box_toggle'	=> array(
+			'id'		=> 'sdm_feature_box_toggle',
 			'label'		=> __( 'Display Default Feature Box?', 'sdm' ),
-			'section'	=> 'sdm_feature_box',
-			'settings'	=> 'sdm_feature_toggle',
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_feature_box_toggle',
 			'priority'	=> 10,
+			'option1'	=> 'Yes',
+			'option2'	=> 'No'
+		),
+		'sdm_feature_sidebar_toggle'	=> array(
+			'id'		=> 'sdm_feature_sidebar_toggle',
+			'label'		=> __( 'Display Default Sidebar Feature?', 'sdm' ),
+			'section'	=> 'sdm_featured_product',
+			'settings'	=> 'sdm_feature_sidebar_toggle',
+			'priority'	=> 15,
 			'option1'	=> 'Yes',
 			'option2'	=> 'No'
 		),
@@ -298,14 +282,14 @@ function sdm_customize_register( $wp_customize ) {
 			'option2'	=> 'No'
 		),
 	);
-	// Build the radio input controls based on the $add_radio_controls
-	foreach ( $add_radio_controls as $control ) {
+	// Build the checkbox input controls based on the $add_checkbox_controls
+	foreach ( $add_checkbox_controls as $control ) {
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, $control[ 'id' ], array(
 			'label'     => $control[ 'label' ],
 			'section'   => $control[ 'section' ],
 			'settings'  => $control[ 'settings' ],
 			'priority'  => $control[ 'priority' ],
-			'type'      => 'radio',
+			'type'      => 'checkbox',
 			'choices'   => array(
 			    'option1'   => $control[ 'option1' ],
 			    'option2'   => $control[ 'option2' ],
@@ -382,8 +366,10 @@ function sdm_customize_register( $wp_customize ) {
 		'blogdescription', 
 		'sdm_read_more',
 		'sdm_credits_copyright',
-		'sdm_feature_product_headline',
-		'sdm_feature_product_description'
+		'sdm_featured_product_headline',
+		'sdm_featured_product_description',
+		'sdm_featured_product_version',
+		'sdm_featured_product_note'
 	);
 	foreach ( $post_message as $pm ) {
 		$wp_customize->get_setting( $pm )->transport = 'postMessage';
@@ -397,18 +383,16 @@ add_action( 'customize_register', 'sdm_customize_register' );
  * Add Customizer theme styles to <head>
  */
 function sdm_customizer_head_styles() {
-	$sdm_primary_color = get_option( 'sdm_primary_color' ); ?>
+	$sdm_primary_color = get_option( 'sdm_primary_color' );
 	
-	<style type="text/css">
-		
-		<?php 
-		/**
-		 * Only add styles to the head of the document if the styles
-		 * have been changed from default. 
-		 */	
-		if ('#015F8E' != $sdm_primary_color ) : // Primary design color ?>
-		
-			a, .site-title a:hover { 
+	/**
+	 * Only add styles to the head of the document if the styles
+	 * have been changed from default. 
+	 */		
+	if ('#015F8E' != $sdm_primary_color ) : // Primary design color ?>
+
+		<style type="text/css">
+			a, .site-title a:hover, .main-menu ul li:hover > ul a:hover { 
 				color: <?php echo $sdm_primary_color; ?>; 
 			}
 			.main-menu > ul > li > a:hover, 
@@ -418,12 +402,10 @@ function sdm_customizer_head_styles() {
 			.bypostauthor .comment-meta { 
 				border-right: 3px solid <?php echo $sdm_primary_color; ?>; 
 			}
-					
-		<?php endif; ?>
-	
-	</style>
-	
-<?php }
+		</style>
+	<?php 
+	endif;
+}
 add_action( 'wp_head','sdm_customizer_head_styles' );
 
 
@@ -433,7 +415,12 @@ add_action( 'wp_head','sdm_customizer_head_styles' );
  */
 function sdm_customizer_styles() { ?>
 	<style type="text/css">
-		.customize-description { display: block; color: #999; margin: 10px 0 1em; font-style: italic; }
+		body { background: #fff; }
+		.description { display: block; color: #999; margin: 2px 0 5px; font-style: italic; }
+		textarea, input, select, .customize-description { font-size: 12px !important; }
+		.customize-control-title { font-size: 13px !important; margin: 10px 0 3px !important; }
+		.customize-control label { font-size: 12px !important; }
+		#customize-control-sdm_read_more { margin-bottom: 20px; }
 	</style>
 <?php }
 add_action('customize_controls_print_styles', 'sdm_customizer_styles');

@@ -79,11 +79,12 @@ body,
 }
 
 h1, h2,
-.info-box h3 {
+.home .info-box h3 {
 	font-size: 24px;
 }
 
-h3, h4 {
+h3, h4,
+.sidebar .info-box h3 {
 	font-size: 20px;
 }
 
@@ -169,11 +170,12 @@ a:hover,
 
 .inner,
 .post,
+.type-download,
 .page-header,
 .single-post-footer,
 .nocomments,
-.info-text,
-.info-cta,
+.home .info-text,
+.home .info-cta,
 .note,
 pre,
 [class*="navigation"] .nav-previous,
@@ -256,7 +258,8 @@ pre,
 #commentform textarea,
 .feature,
 .info-box,
-.info-text,
+.home .info-text,
+.home .info-cta,
 .sidebar,
 .widget ul,
 .widget li,
@@ -298,6 +301,10 @@ fieldset,
 
 /* =general styles
 -------------------------------------------------------------- */
+
+body {
+	background: #fff;
+}
 
 body,
 input,
@@ -850,20 +857,30 @@ cite.fn {
 }
 
 
-/* =info box
+/* =info box (feature & sidebar)
 -------------------------------------------------------------- */
 
-.info-text,
-.info-cta {
+.sidebar .info-box {
+	margin: 0 10px 10px;
+}
+
+.home .info-text,
+.home .info-cta {
 	float: left;
 }
 
-.info-text {
+.sidebar .info-text {
+	margin-bottom: 16px;
+}
+
+.home .info-text {
 	border-width: 0 1px 0 0;
+	margin-right: -1px;
 	width: 584px;
 }
 
-.info-cta {
+.home .info-cta {
+	border-width: 0 0 0 1px;
 	width: 344px;
 }
 
