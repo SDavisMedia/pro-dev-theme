@@ -61,8 +61,8 @@ if ( ! function_exists( 'sdm_content_nav' ) ) :
 	
 		<?php if ( is_single() ) : // navigation links for single posts ?>
 	
-			<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'sdm' ) . '</span> %title' ); ?>
-			<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'sdm' ) . '</span>' ); ?>
+			<?php previous_post_link( '<div class="nav-previous"><span class="post-nav-title">Previous post:</span>%link</div>', '%title' ); ?>
+			<?php next_post_link( '<div class="nav-next"><span class="post-nav-title">Next post:</span>%link</div>', '%title' ); ?>
 	
 		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 	
@@ -244,7 +244,7 @@ add_filter( 'post_class', 'sdm_first_post_class' );
  * Only show regular posts in search results
  */
 function sdm_search_filter($query) {
-	if ( $query->is_search )
+	if ( $query->is_search && !is_admin &&  !is_bbpress() )
 		$query->set( 'post_type', 'post' );
 	return $query;
 }
@@ -255,10 +255,14 @@ add_filter('pre_get_posts','sdm_search_filter');
 /** ===============
  * Adjust excerpt length
  */
-function custom_excerpt_length( $length ) {
-	return 37;
+function sdm_custom_excerpt_length( $length ) {
+	if ( is_page_template( 'store-front.php' ) ) {
+		return 20;
+	} else {
+		return 37;
+	}
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'sdm_custom_excerpt_length', 999 );
 
 
 
@@ -266,7 +270,11 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function sdm_excerpt_more( $more ) {
-	return ' [...]</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) . '</a></div>';
+	if ( is_page_template( 'store-front.php' ) ) {
+		return '...';
+	} else {
+		return ' [...]</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) . '</a></div>';
+	}
 }
 add_filter( 'excerpt_more', 'sdm_excerpt_more' );
 

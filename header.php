@@ -35,7 +35,7 @@ $ping = get_bloginfo('pingback_url');
 	</head>
 	<body <?php body_class(); ?>>
 		
-		<?php // site wide ehader area ?>
+		<?php // site wide header area ?>
 		<div class="header-area full">
 			<div class="main">
 				<header class="site-header inner">

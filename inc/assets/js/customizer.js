@@ -40,4 +40,9 @@
 			$( '.info-note' ).text( to );
 		} );
 	} );
+	wp.customize( 'sdm_featured_product_button_text', function( value ) {
+		value.bind( function( to ) {
+			$( '.cta-button' ).text( to );
+		} );
+	} );
 } )( jQuery );

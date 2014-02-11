@@ -25,7 +25,6 @@
 }
 
 .header-area,
-.banner,
 .feature-box,
 .sidebar,
 .single-post-footer,
@@ -33,7 +32,8 @@
 pre,
 #bbpress-forums li.bbp-header, 
 #bbpress-forums li.bbp-footer,
-input[type="search"] {
+input[type="search"],
+.threecol.product {
  	background-color: #f5f5f5;
 }
 
@@ -43,7 +43,8 @@ input[type="search"] {
 
 a,
 .site-title a:hover,
-.main-menu ul li:hover > ul a:hover {
+.main-menu ul li:hover > ul a:hover,
+.product-title:hover {
 	color: #015F8E;
 }
 
@@ -100,6 +101,7 @@ h5, h6
 input[type="search"],
 .entry-meta,
 .comment-meta,
+.post-nav-title,
 .info-subtitle,
 .wp-caption-text,
 .post-footer-author a,
@@ -181,7 +183,10 @@ pre,
 [class*="navigation"] .nav-previous,
 [class*="navigation"] .nav-next,
 #comments,
-.widget {
+.widget,
+.threecol.product,
+.store-info,
+.store-pagination {
 	padding: 1em;
 }
 
@@ -251,11 +256,14 @@ pre,
 .main-menu > ul > li,
 .main-menu ul li:hover > ul,
 .main-menu ul li:hover > ul a,
-.banner,
 .content .wp-caption,
 .single-post-footer,
+#comments,
 #commentform input,
 #commentform textarea,
+.comment-list > .parent + .children,
+.children > .children,
+.comment-meta,
 .feature-box,
 .info-box,
 .home .info-text,
@@ -274,7 +282,9 @@ pre,
 #bbpress-forums ul.bbp-replies,
 #bbpress-forums ul.bbp-search-results,
 #bbpress-forums li.bbp-header,
-#bbpress-forums li.bbp-footer {
+#bbpress-forums li.bbp-footer,
+#bbpress-forums div.wp-editor-container,
+.threecol.product {
 	border: 1px solid #eaeaea;
 }
 
@@ -399,7 +409,7 @@ i {
 
 pre { 
 	font: 400 .86667em/1.3em "Courier 10 Pitch", Courier, monospace;
-	border-left: 3px solid rgba(0,0,0,.05);
+	border: 3px solid rgba(0,0,0,.05);
 	overflow: auto; 
 	max-width: 100%; 
 }
@@ -765,39 +775,36 @@ input[type="submit"]:hover {
 	border-width: 1px 0 0;
 }
 
-[class*="navigation"] .nav-previous {
-	float: left;
-	width: 50%;
+.site-content #comments + [class*="navigation"] {
+	border: none;
 }
 
-[class*="navigation"] .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+.post-nav-title {
+	display: block;
 }
 
 
 /* =comments
 -------------------------------------------------------------- */
 
+#comments {
+	background: #F5F5F5;
+	border-radius: 3px;
+}
+
 .comment-list {
 	margin-left: 0;
 }
 
-.comment-list > .parent + .children {
-	border-left: 1px solid #eaeaea;
-	margin-left: 0;
-	padding-left: 1em;
-}
-
+.comment-list > .parent + .children,
 .children > .children {
-	border-left: 1px solid #eaeaea;
+	border-width: 0 0 0 1px;
 	margin-left: 0;
 	padding-left: 1em;
 }
 
 .bypostauthor .comment-meta {
-	border-right: 3px solid #015F8E;
+	border-right: 1px solid #015F8E;
 }
 
 .comment {
@@ -835,25 +842,16 @@ cite.fn {
 	height: 150px;
 }
 
+.form-submit {
+	margin-bottom: 0;
+}
+
 .navigation-comment .nav-previous {
 	padding-left: 0;
 }
 
 .navigation-comment .nav-next {
 	padding-right: 0;	
-}
-
-
-/* =banner
--------------------------------------------------------------- */
-
-.banner {
-	border-width: 0 1px;
-	padding-bottom: 0;
-}
-
-.banner-img {
-	vertical-align: bottom;
 }
 
 
@@ -979,6 +977,13 @@ cite.fn {
 	border-width: 1px 0 0;
 }
 
+#bbpress-forums div.wp-editor-container {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
 #bbp_search {
 	margin-right: 0;
 }
@@ -993,6 +998,41 @@ cite.fn {
 
 .widget_display_stats dd {
 	margin: 0 0 1em;
+}
+
+
+/* =easy digital downloads
+-------------------------------------------------------------- */
+
+.store-info {
+	max-width: 635px;
+}
+
+.threecol.product {
+	float: left;
+	width: 310px;
+	margin: 0 15px 30px 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.threecol.product.last {
+	margin-right: 0;
+}
+
+.product-title {
+	color: #222;
+}
+
+.product-title:hover {
+	text-decoration: none;
+}
+
+.product-title h3 {
+	font-size: 18px;
+	margin-top: 5px;
 }
 
 

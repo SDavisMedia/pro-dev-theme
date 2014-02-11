@@ -8,7 +8,7 @@
 /** ===============
  * Version custom post type
  */
-function create_post_type() {
+function sdm_create_version_cpt() {
 	$labels = array(
 		'name' 				=> __( 'Versions', 'sdm' ),
 		'singular_name' 	=> __( 'Version', 'sdm' ),
@@ -32,7 +32,7 @@ function create_post_type() {
 	
 	register_post_type( 'version', $args );
 }
-add_action( 'init', 'create_post_type' );
+add_action( 'init', 'sdm_create_version_cpt' );
 
 
 

@@ -14,15 +14,15 @@ if ( ! function_exists( 'sdm_comment' ) ) :
 	
 		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 	
-			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+			<div id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 				<div class="comment-body">
 					<?php _e( 'Pingback:', 'sdm' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'sdm' ), '<span class="edit-link">', '</span>' ); ?>
 				</div>
-			</li>
+			</div>
 	
 		<?php else : ?>
 	
-			<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+			<div id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 				<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 					<footer class="comment-meta">
 						<div class="comment-author vcard clear-sdm">
@@ -53,7 +53,7 @@ if ( ! function_exists( 'sdm_comment' ) ) :
 						<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 					</div>
 				</div>
-			</li>
+			</div>
 	
 		<?php endif; // ends check for comment type (comment or ping)
 	}
@@ -88,7 +88,7 @@ if ( post_password_required() )
 			</nav>
 		<?php endif; // check for comment navigation ?>
 
-		<ol class="comment-list">
+		<div class="comment-list">
 		
 			<?php
 				/** 
@@ -101,7 +101,7 @@ if ( post_password_required() )
 				wp_list_comments( array( 'callback' => 'sdm_comment' ) );
 			?>
 			
-		</ol>
+		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-below" class="navigation-comment" role="navigation">
