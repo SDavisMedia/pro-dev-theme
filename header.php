@@ -118,7 +118,7 @@ $ping = get_bloginfo('pingback_url');
 		<?php // site wide feature box area ?>
 		<div class="feature-area full">
 			<div class="main">
-				<div class="feature inner clear-sdm">
+				<div class="feature-box inner clear-sdm">
 					<?php
 						// call the templates/content-feature-box.php
 						get_template_part( 'templates/content', 'feature-box' );

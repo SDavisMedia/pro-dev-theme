@@ -8,7 +8,7 @@
 if ( is_front_page() ) : 
 	
 	// display default feature box? -- theme customizer
-	if ( 'option1' == get_theme_mod( 'sdm_feature_box_toggle' ) ) : ?>
+	if ( 1 == get_theme_mod( 'sdm_feature_box_toggle' ) ) : ?>
 
 		<div class="info-box clear-sdm">
 			<div class="info-text">
@@ -30,7 +30,7 @@ if ( is_front_page() ) :
 						<?php echo get_theme_mod( 'sdm_featured_product_note' ); ?>
 					</span>
 				</span>
-				<a href="#" class="button green"><?php _e( 'Download Now', 'sdm' ); ?></a>
+				<a href="#" class="button blue"><?php _e( 'Download Now', 'sdm' ); ?></a>
 			</div>
 		</div>
 

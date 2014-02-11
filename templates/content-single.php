@@ -19,7 +19,7 @@
 	
 		<?php 
 			// display featured image?
-			if ( 'option1' == get_theme_mod( 'sdm_single_featured_image' ) && has_post_thumbnail() ) :
+			if ( 1 == get_theme_mod( 'sdm_single_featured_image' ) && has_post_thumbnail() ) :
 				the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
 			endif;
 			
@@ -78,7 +78,7 @@
 </article>
 
 <?php // show post footer? theme customizer options ?>
-<?php if ( 'option1' == get_theme_mod( 'sdm_post_footer' ) ) : ?>
+<?php if ( 1 == get_theme_mod( 'sdm_post_footer' ) ) : ?>
 	<div class="single-post-footer">
 		<div class="post-footer-header clear-sdm">
 			<div class="post-footer-avatar">

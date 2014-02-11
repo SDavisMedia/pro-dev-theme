@@ -51,7 +51,7 @@ function sdm_customize_register( $wp_customize ) {
 			'id'			=> 'sdm_social_networks',
 			'title'			=> __( 'Social Networking Profiles', 'sdm' ),
 			'description'	=> __( 'Paste full URLs to profiles. The URLs will be used in various places around the theme like the post footer author section on single posts.', 'sdm' ),
-			'priority'		=> 70
+			'priority'		=> 45
 		),
 	);
 	// Build the sections based on the $add_sections array
@@ -71,17 +71,17 @@ function sdm_customize_register( $wp_customize ) {
 	$add_settings = array(
 		'post content' 				=> array( 'id' => 'sdm_post_content', 'default' => 'option1' ),
 		'excerpt link'				=> array( 'id' => 'sdm_read_more', 'default' => 'Read More &rarr;' ),
-		'featured img'				=> array( 'id' => 'sdm_single_featured_image','default' => 'option1' ),
-		'post footer'				=> array( 'id' => 'sdm_post_footer', 'default' => 'option1' ),
-		'page comments'				=> array( 'id' => 'sdm_page_comments', 'default' => 'option2' ),
+		'featured img'				=> array( 'id' => 'sdm_single_featured_image','default' => 1 ),
+		'post footer'				=> array( 'id' => 'sdm_post_footer', 'default' => 1 ),
+		'page comments'				=> array( 'id' => 'sdm_page_comments', 'default' => 0 ),
 		'site copyright'			=> array( 'id' => 'sdm_credits_copyright', 'default' => null ),
-		'fb toggle'					=> array( 'id' => 'sdm_feature_box_toggle', 'default' => 'option1' ),
-		'sidebar feature toggle'	=> array( 'id' => 'sdm_feature_sidebar_toggle', 'default' => 'option1' ),
+		'fb toggle'					=> array( 'id' => 'sdm_feature_box_toggle', 'default' => 1 ),
+		'sidebar feature toggle'	=> array( 'id' => 'sdm_feature_sidebar_toggle', 'default' => 1 ),
 		'fb product headline'		=> array( 'id' => 'sdm_featured_product_headline', 'default'=> null ),
 		'fb product description'	=> array( 'id' => 'sdm_featured_product_description', 'default' => null ),
 		'fb product version'		=> array( 'id' => 'sdm_featured_product_version', 'default' => null ),
 		'fb product note'			=> array( 'id' => 'sdm_featured_product_note', 'default' => null ),
-		'download comments'			=> array( 'id' => 'sdm_download_comments', 'default' => 'option2' ),
+		'download comments'			=> array( 'id' => 'sdm_download_comments', 'default' => 0 ),
 		'twitter'					=> array( 'id' => 'sdm_twitter', 'default' => null ),
 		'facebook'					=> array( 'id' => 'sdm_facebook', 'default' => null ),
 		'gplus'						=> array( 'id' => 'sdm_gplus', 'default' => null ),
@@ -232,69 +232,48 @@ function sdm_customize_register( $wp_customize ) {
 			'id'		=> 'sdm_single_featured_image',
 			'label'		=> __( 'Show Featured Images on Single Posts?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
-			'settings'	=> 'sdm_single_featured_image',
 			'priority'	=> 30,
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
 		),
 		'sdm_post_footer'	=> array(
 			'id'		=> 'sdm_post_footer',
 			'label'		=> __( 'Show Post Footer on Single Posts?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
-			'settings'	=> 'sdm_post_footer',
 			'priority'	=> 40,
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
 		),
 		'sdm_page_comments'	=> array(
 			'id'		=> 'sdm_page_comments',
 			'label'		=> __( 'Display Comments on Standard Pages?', 'sdm' ),
 			'section'	=> 'sdm_content_section',
-			'settings'	=> 'sdm_page_comments',
 			'priority'	=> 50,
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
 		),
 		'sdm_feature_box_toggle'	=> array(
 			'id'		=> 'sdm_feature_box_toggle',
 			'label'		=> __( 'Display Default Feature Box?', 'sdm' ),
 			'section'	=> 'sdm_featured_product',
-			'settings'	=> 'sdm_feature_box_toggle',
 			'priority'	=> 10,
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
 		),
 		'sdm_feature_sidebar_toggle'	=> array(
 			'id'		=> 'sdm_feature_sidebar_toggle',
 			'label'		=> __( 'Display Default Sidebar Feature?', 'sdm' ),
 			'section'	=> 'sdm_featured_product',
-			'settings'	=> 'sdm_feature_sidebar_toggle',
 			'priority'	=> 15,
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
 		),
 		'sdm_download_comments'	=> array(
 			'id'		=> 'sdm_download_comments',
 			'label'		=> __( 'Display Comments on Download Pages?', 'sdm' ),
 			'section'	=> 'sdm_edd_options',
-			'settings'	=> 'sdm_download_comments',
-			'option1'	=> 'Yes',
-			'option2'	=> 'No'
+			'priority'	=> 10,
+			
 		),
 	);
 	// Build the checkbox input controls based on the $add_checkbox_controls
 	foreach ( $add_checkbox_controls as $control ) {
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, $control[ 'id' ], array(
+		$wp_customize->add_control( $control[ 'id' ], array(
 			'label'     => $control[ 'label' ],
 			'section'   => $control[ 'section' ],
-			'settings'  => $control[ 'settings' ],
 			'priority'  => $control[ 'priority' ],
 			'type'      => 'checkbox',
-			'choices'   => array(
-			    'option1'   => $control[ 'option1' ],
-			    'option2'   => $control[ 'option2' ],
-			),
-		) ) );
+		) );
 	}
     
 	
@@ -367,7 +346,6 @@ function sdm_customize_register( $wp_customize ) {
 		'sdm_read_more',
 		'sdm_credits_copyright',
 		'sdm_featured_product_headline',
-		'sdm_featured_product_description',
 		'sdm_featured_product_version',
 		'sdm_featured_product_note'
 	);

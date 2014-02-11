@@ -10,7 +10,7 @@
 if ( ! is_front_page() ) : 
 	
 	// display default sidebar feature? -- theme customizer
-	if ( 'option1' == get_theme_mod( 'sdm_feature_sidebar_toggle' ) ) : ?>
+	if ( 1 == get_theme_mod( 'sdm_feature_sidebar_toggle' ) ) : ?>
 
 		<aside class="info-box widget clear-sdm">
 			<div class="info-text">

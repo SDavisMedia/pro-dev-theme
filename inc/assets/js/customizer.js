@@ -30,11 +30,6 @@
 			$( '.info-box-title' ).text( to );
 		} );
 	} );
-	wp.customize( 'sdm_featured_product_description', function( value ) {
-		value.bind( function( to ) {
-			$( '.info-box-description' ).text( to );
-		} );
-	} );
 	wp.customize( 'sdm_featured_product_version', function( value ) {
 		value.bind( function( to ) {
 			$( '.info-version' ).text( to );

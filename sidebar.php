@@ -10,7 +10,7 @@
 if ( ! is_front_page() ) : 
 	
 	// display default sidebar feature? -- theme customizer
-	if ( 'option1' == get_theme_mod( 'sdm_feature_sidebar_toggle' ) ) : ?>
+	if ( 1 == get_theme_mod( 'sdm_feature_sidebar_toggle' ) ) : ?>
 
 		<aside class="info-box widget clear-sdm">
 			<div class="info-text">
@@ -18,7 +18,7 @@ if ( ! is_front_page() ) :
 					<?php echo get_theme_mod( 'sdm_featured_product_headline', __( 'Main Product Headline', 'sdm' ) ); ?>
 				</h3>
 				<div class="info-box-description">
-					<?php echo get_theme_mod( 'sdm_featured_product_description', __( 'The product description belongs here. Because this is the first thing people will see when they land on your site, explain exactly what your product offers. Keep it short!', 'sdm' ) ); ?>
+					<?php echo wpautop( get_theme_mod( 'sdm_featured_product_description', __( 'The product description belongs here. Because this is the first thing people will see when they land on your site, explain exactly what your product offers. Keep it short!', 'sdm' ) ) ); ?>
 				</div>
 			</div>
 			<div class="info-cta">

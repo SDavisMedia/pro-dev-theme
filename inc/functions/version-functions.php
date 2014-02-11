@@ -37,44 +37,6 @@ add_action( 'init', 'create_post_type' );
 
 
 /** ===============
- * Set up version taxonomy
- */
-function sdm_version_taxonomy() {
-
-	$product_labels = array(
-		'name' 				=> _x( 'Categories', 'taxonomy general name', 'sdm' ),
-		'singular_name' 	=> _x( 'Category', 'taxonomy singular name', 'sdm' ),
-		'search_items' 		=> __( 'Search Categories', 'sdm'  ),
-		'all_items' 		=> __( 'All Categories', 'sdm'  ),
-		'parent_item' 		=> __( 'Parent Category', 'sdm'  ),
-		'parent_item_colon' => __( 'Parent Category:', 'sdm'  ),
-		'edit_item' 		=> __( 'Edit Category', 'sdm'  ),
-		'update_item' 		=> __( 'Update Category', 'sdm'  ),
-		'add_new_item' 		=> __( 'Add New Category', 'sdm'  ),
-		'new_item_name' 	=> __( 'New Category Name', 'sdm'  ),
-		'menu_name' 		=> __( 'Categories', 'sdm'  ),
-	);
-	
-	$product_args = array(
-		'hierarchical' 	=> true,
-		'labels' 		=> $product_labels,
-		'show_ui' 		=> true,
-		'query_var' 	=> true,
-		'rewrite' 		=> array(
-			'slug' 			=> 'changelog', 
-			'with_front' 	=> false, 
-			'hierarchical'	=> true 
-		)
-	);
-	
-	register_taxonomy( 'version_category', 'version', $product_args );
-	register_taxonomy_for_object_type( 'version_category', 'version' );
-}
-add_action( 'init', 'sdm_version_taxonomy', 0 );
-
-
-
-/** ===============
  * Modify the "Enter title here" text on versions
  */
 function sdm_change_default_title( $title ){

@@ -26,7 +26,7 @@
 
 .header-area,
 .banner,
-.feature,
+.feature-box,
 .sidebar,
 .single-post-footer,
 .content .wp-caption,
@@ -169,7 +169,7 @@ a:hover,
 }
 
 .inner,
-.post,
+.hentry,
 .type-download,
 .page-header,
 .single-post-footer,
@@ -213,6 +213,7 @@ h1, h2, h3, h4, h5, h6,
 	margin-bottom: 16px;
 }
 
+.entry-header,
 .comment-meta {
 	margin-bottom: 10px;
 }
@@ -239,9 +240,8 @@ pre,
 
 .entry-title h1,
 .more-link,
-.change-log .entry-header,
 .entry-content p:last-child,
-.info-text p:last-child, {
+.info-box-description p:last-child {
 	margin-bottom: 0;
 }
 
@@ -256,7 +256,7 @@ pre,
 .single-post-footer,
 #commentform input,
 #commentform textarea,
-.feature,
+.feature-box,
 .info-box,
 .home .info-text,
 .home .info-cta,
@@ -503,41 +503,37 @@ input[type="search"] {
 }
 
 .blue {
-	background-color: #a5b8da;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5b8da), color-stop(100%, #7089b3));
-	background-image: -webkit-linear-gradient(top, #a5b8da, #7089b3);
-	background-image: -moz-linear-gradient(top, #a5b8da, #7089b3);
-	background-image: -ms-linear-gradient(top, #a5b8da, #7089b3);
-	background-image: -o-linear-gradient(top, #a5b8da, #7089b3);
-	background-image: linear-gradient(top, #a5b8da, #7089b3);
+	background-color: #015F8E;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1B8DC5), color-stop(100%, #015F8E));
+	background-image: -webkit-linear-gradient(top, #1B8DC5, #015F8E);
+	background-image: -moz-linear-gradient(top, #1B8DC5, #015F8E);
+	background-image: -ms-linear-gradient(top, #1B8DC5, #015F8E);
+	background-image: -o-linear-gradient(top, #1B8DC5, #015F8E);
+	background-image: linear-gradient(top, #1B8DC5, #015F8E);
 	color: #fff;
-	-webkit-text-shadow: 0 -1px 1px #64799e;
-	-moz-text-shadow: 0 -1px 1px #64799e;
-	text-shadow: 0 -1px 1px #64799e;
-	border-top: 1px solid #758fba;
-	border-right: 1px solid #6c84ab;
-	border-bottom: 1px solid #5c6f91;
-	border-left: 1px solid #6c84ab;
-	-webkit-box-shadow: inset 0 1px 0 0 #aec3e5;
-	-moz-box-shadow: inset 0 1px 0 0 #aec3e5;
-	box-shadow: inset 0 1px 0 0 #aec3e5;
+	-webkit-text-shadow: 0 -1px 1px #015F8E;
+	-moz-text-shadow: 0 -1px 1px #015F8E;
+	text-shadow: 0 -1px 1px #015F8E;
+	border-top: 1px solid #1070A0;
+	border-right: 1px solid #1D78A5;
+	border-bottom: 1px solid #3B7EA0;
+	border-left: 1px solid #1070A0;
+	-webkit-box-shadow: inset 0 1px 0 0 #5DBDEC;
+	-moz-box-shadow: inset 0 1px 0 0 #5DBDEC;
+	box-shadow: inset 0 1px 0 0 #5DBDEC;
 }
 
 .blue:hover {
-	background-color: #9badcc;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9badcc), color-stop(100%, #687fa6));
-	background-image: -webkit-linear-gradient(top, #9badcc, #687fa6);
-	background-image: -moz-linear-gradient(top, #9badcc, #687fa6);
-	background-image: -ms-linear-gradient(top, #9badcc, #687fa6);
-	background-image: -o-linear-gradient(top, #9badcc, #687fa6);
-	background-image: linear-gradient(top, #9badcc, #687fa6);
-	border-top: 1px solid #6d86ad;
-	border-right: 1px solid #647a9e;
-	border-bottom: 1px solid #546685;
-	border-left: 1px solid #647a9e;
-	-webkit-box-shadow: inset 0 1px 0 0 #a5b9d9;
-	-moz-box-shadow: inset 0 1px 0 0 #a5b9d9;
-	box-shadow: inset 0 1px 0 0 #a5b9d9;
+	background-color: #014F75;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1887BE), color-stop(100%, #014F75));
+	background-image: -webkit-linear-gradient(top, #1887BE, #014F75);
+	background-image: -moz-linear-gradient(top, #1887BE, #014F75);
+	background-image: -ms-linear-gradient(top, #1887BE, #014F75);
+	background-image: -o-linear-gradient(top, #1887BE, #014F75);
+	background-image: linear-gradient(top, #1887BE, #014F75);
+	-webkit-box-shadow: inset 0 1px 0 0 #5DBDEC;
+	-moz-box-shadow: inset 0 1px 0 0 #5DBDEC;
+	box-shadow: inset 0 1px 0 0 #5DBDEC;
 }
 
 .gray,
@@ -588,6 +584,10 @@ input[type="submit"]:hover {
 
 .site-header {
 	padding: .6em 14px .5em;
+}
+
+.site-title img {
+	vertical-align: bottom;
 }
 
 .site-title, 
@@ -705,11 +705,11 @@ input[type="submit"]:hover {
 	width: 680px;
 }
 
-.post {
+.hentry {
 	margin-bottom: 2em;
 }
 
-.change-log .post {
+.change-log .hentry {
 	margin-bottom: 0;
 }
 
@@ -896,7 +896,7 @@ cite.fn {
 /* =feature
 -------------------------------------------------------------- */
 
-.feature {
+.feature-box {
 	position: relative;
 	border-width: 0 1px 1px;
 	-webkit-border-radius: 0 0 0 3px;
@@ -1016,7 +1016,7 @@ cite.fn {
 }
 
 .clear-sdm:after,
-.post:after {
+.hentry:after {
 	content: ".";
 	display: block;
 	clear: both;
