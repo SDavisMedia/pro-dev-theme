@@ -12,7 +12,7 @@
 			// get main template HTML from template file 
 			get_template_part( 'templates/content', 'front-page' ); 
 		?>
-		asdf
+		
 	</div>
 
 <?php get_sidebar( 'front' ); ?>

@@ -252,6 +252,23 @@ function sdm_customize_register( $wp_customize ) {
 			'priority'	=> 10,
 			'type'      => 'checkbox',
 		) );
+		// store front/downloads archive headline
+		$wp_customize->get_setting( 'sdm_edd_store_archives_title' )->transport = 'postMessage';
+		$wp_customize->add_setting( 'sdm_edd_store_archives_title', array( 'default' => null ) );
+		$wp_customize->add_control( 'sdm_edd_store_archives_title', array(
+			'label'		=> __( 'Store/Download Archives Main Title', 'sdm' ),
+			'section'	=> 'sdm_edd_options',
+			'settings'	=> 'sdm_edd_store_archives_title',
+			'priority'	=> 20,
+		) );
+		// store front/downloads archive description
+		$wp_customize->add_setting( 'sdm_edd_store_archives_description', array( 'default' => null ) );
+		$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, 'sdm_edd_store_archives_description', array(
+			'label'		=> __( 'Store/Download Archives Description', 'sdm' ),
+			'section'	=> 'sdm_edd_options',
+			'settings'	=> 'sdm_edd_store_archives_description',
+			'priority'	=> 30,
+		) ) );
 	}
 	
 	

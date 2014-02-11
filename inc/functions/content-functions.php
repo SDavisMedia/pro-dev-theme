@@ -168,14 +168,22 @@ function sdm_widgets_init() {
 		'primary'			=> array(
 			'name'			=> __( 'Primary Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-primary',
+			'description'	=> 'ALL sidebars default to this sidebar when they are empty.',
 		),
-		'front'			=> array(
+		'front'				=> array(
 			'name'			=> __( 'Front Page Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-front',
+			'description'	=> 'This sidebar only displays on the front page of your site. If it is empty, it defaults to the Primary Sidebar.',
+		),
+		'edd'				=> array(
+			'name'			=> __( 'Easy Digital Downloads Sidebar', 'sdm' ),
+			'id'			=> 'sidebar-edd',
+			'description'	=> 'This sidebar only displays on EDD downloads and templates. If it is empty, it defaults to the Primary Sidebar.',
 		),
 		'bbpress'			=> array(
 			'name'			=> __( 'bbPress Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-bbpress',
+			'description'	=> 'This sidebar only displays on the bbPress pages. If it is empty, it defaults to the Primary Sidebar.',
 		),
 	);
 	// Register all widgetized areas based on the $register_sidebars information
@@ -183,6 +191,7 @@ function sdm_widgets_init() {
 		register_sidebar( array(
 			'name'			=> $sidebars[ 'name' ],
 			'id'			=> $sidebars[ 'id' ],
+			'description'	=> $sidebars[ 'description' ],
 			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'	=> '</aside>',
 			'before_title'	=> '<h4 class="widget-title">&raquo; ',
@@ -209,11 +218,18 @@ function sdm_body_classes( $classes ) {
 		// add .singular body class to posts, pages, and versions
 		$classes[] = 'singular';
 		
-		if ( is_page_template( 'change-log.php' ) ) :
-		
-			// add .change-log body class to Change Log page templates
-			$classes[] = 'change-log';
-			
+		if ( is_page_template( 'change-log.php' ) ) :		
+			$classes[] = 'change-log';		
+		elseif ( is_page_template( 'edd-store-front.php' ) ) :		
+			$classes[] = 'store-front-template';
+		elseif ( is_page_template( 'edd-checkout.php' ) ) :		
+			$classes[] = 'checkout-template';	
+		elseif ( is_page_template( 'edd-confirmation.php' ) ) :		
+			$classes[] = 'confirmation-template';
+		elseif ( is_page_template( 'edd-history.php' ) ) :		
+			$classes[] = 'history-template';
+		elseif ( is_page_template( 'edd-members.php' ) ) :		
+			$classes[] = 'members-template';				
 		endif;
 		
 	endif;
@@ -256,11 +272,7 @@ add_filter('pre_get_posts','sdm_search_filter');
  * Adjust excerpt length
  */
 function sdm_custom_excerpt_length( $length ) {
-	if ( is_page_template( 'store-front.php' ) ) {
-		return 20;
-	} else {
-		return 37;
-	}
+	return 37;
 }
 add_filter( 'excerpt_length', 'sdm_custom_excerpt_length', 999 );
 
@@ -270,10 +282,10 @@ add_filter( 'excerpt_length', 'sdm_custom_excerpt_length', 999 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function sdm_excerpt_more( $more ) {
-	if ( is_page_template( 'store-front.php' ) ) {
+	if ( is_page_template( 'edd-store-front.php' ) ) {
 		return '...';
 	} else {
-		return ' [...]</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) . '</a></div>';
+		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) . '</a></div>';
 	}
 }
 add_filter( 'excerpt_more', 'sdm_excerpt_more' );
