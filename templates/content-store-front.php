@@ -8,7 +8,7 @@
  */
  
 $current_page = get_query_var( 'paged' );
-$per_page = get_option( 'posts_per_page' );
+$per_page = apply_filters( 'store_quantity', 9 );
 $offset = $current_page > 0 ? $per_page * ( $current_page-1 ) : 0;
 $product_args = array(
 	'post_type'			=> 'download',
@@ -47,7 +47,9 @@ $products = new WP_Query( $product_args );
 						<?php the_excerpt(); ?>
 					</div>
 				</div>
-				<a href="<?php the_permalink(); ?>">View Details</a>
+				<?php if ( get_theme_mod( 'sdm_product_view_details' ) ) : ?>
+					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'sdm_product_view_details' ); ?></a>
+				<?php endif; ?>
 			</div>
 
 			<?php $i+=1; ?>

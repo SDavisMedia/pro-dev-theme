@@ -38,7 +38,9 @@
 						<?php the_excerpt(); ?>
 					</div>
 				</div>
-				<a href="<?php the_permalink(); ?>">View Details</a>
+				<?php if ( get_theme_mod( 'sdm_product_view_details' ) ) : ?>
+					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'sdm_product_view_details' ); ?></a>
+				<?php endif; ?>
 			</div>
 
 			<?php $i+=1; ?>

@@ -21,7 +21,7 @@ if ( have_posts() ) : ?>
 					 * what author we're dealing with (if that is the case).
 					 */
 					the_post();
-					printf( __( 'Author: %s', 'sdm' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
+					printf( __( 'Author: %s', 'sdm' ), '<span class="vcard">' . get_the_author() . '</span>' );
 					
 					/* Since we called the_post() above, we need to
 					 * rewind the loop back to the beginning that way

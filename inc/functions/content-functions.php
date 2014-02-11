@@ -170,11 +170,6 @@ function sdm_widgets_init() {
 			'id'			=> 'sidebar-primary',
 			'description'	=> 'ALL sidebars default to this sidebar when they are empty.',
 		),
-		'front'				=> array(
-			'name'			=> __( 'Front Page Sidebar', 'sdm' ),
-			'id'			=> 'sidebar-front',
-			'description'	=> 'This sidebar only displays on the front page of your site. If it is empty, it defaults to the Primary Sidebar.',
-		),
 		'edd'				=> array(
 			'name'			=> __( 'Easy Digital Downloads Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-edd',

@@ -269,6 +269,15 @@ function sdm_customize_register( $wp_customize ) {
 			'settings'	=> 'sdm_edd_store_archives_description',
 			'priority'	=> 30,
 		) ) );
+		// read more link
+		$wp_customize->get_setting( 'sdm_product_view_details' )->transport = 'postMessage';
+		$wp_customize->add_setting( 'sdm_product_view_details', array( 'default' => __( 'View Details', 'sdm' ) ) );		
+		$wp_customize->add_control( 'sdm_product_view_details', array(
+		    'label' 	=> __( 'Store Item Link Text', 'sdm' ),
+		    'section' 	=> 'sdm_edd_options',
+			'settings' 	=> 'sdm_product_view_details',
+			'priority'	=> 40,
+		) );
 	}
 	
 	

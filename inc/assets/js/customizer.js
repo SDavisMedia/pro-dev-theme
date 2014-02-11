@@ -45,4 +45,14 @@
 			$( '.cta-button' ).text( to );
 		} );
 	} );
+	wp.customize( 'sdm_edd_store_archives_title', function( value ) {
+		value.bind( function( to ) {
+			$( '.store-title' ).text( to );
+		} );
+	} );
+	wp.customize( 'sdm_product_view_details', function( value ) {
+		value.bind( function( to ) {
+			$( '.view-details' ).text( to );
+		} );
+	} );
 } )( jQuery );
