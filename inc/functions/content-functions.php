@@ -217,17 +217,17 @@ function sdm_body_classes( $classes ) {
 		
 		if ( is_page_template( 'change-log.php' ) ) :		
 			$classes[] = 'change-log';		
-		elseif ( is_page_template( 'edd-store-front.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-store-front.php' ) ) :		
 			$classes[] = 'store-front-template no-sidebar';
-		elseif ( is_page_template( 'edd-checkout.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-checkout.php' ) ) :		
 			$classes[] = 'checkout-template no-sidebar';	
-		elseif ( is_page_template( 'edd-confirmation.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-confirmation.php' ) ) :		
 			$classes[] = 'confirmation-template no-sidebar';
-		elseif ( is_page_template( 'edd-history.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-history.php' ) ) :		
 			$classes[] = 'history-template no-sidebar';
-		elseif ( is_page_template( 'edd-members.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-members.php' ) ) :		
 			$classes[] = 'members-template no-sidebar';
-		elseif ( is_page_template( 'edd-failed.php' ) ) :		
+		elseif ( is_page_template( 'edd_templates/edd-failed.php' ) ) :		
 			$classes[] = 'failed-template no-sidebar';				
 		endif;
 		
@@ -249,7 +249,7 @@ add_filter( 'body_class', 'sdm_body_classes');
 /** ===============
  * Add .top class to the first post in a loop
  */
-function sdm_first_post_class($classes) {
+function sdm_first_post_class( $classes ) {
 	global $wp_query;
 	if ( 0 == $wp_query->current_post )
 		$classes[] = 'top';
@@ -262,12 +262,12 @@ add_filter( 'post_class', 'sdm_first_post_class' );
 /** ===============
  * Only show regular posts in search results
  */
-function sdm_search_filter($query) {
+function sdm_search_filter( $query ) {
 	if ( $query->is_search && !is_admin &&  !is_bbpress() )
 		$query->set( 'post_type', 'post' );
 	return $query;
 }
-add_filter('pre_get_posts','sdm_search_filter');
+add_filter( 'pre_get_posts','sdm_search_filter' );
 
 
 
@@ -285,7 +285,7 @@ add_filter( 'excerpt_length', 'sdm_custom_excerpt_length', 999 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function sdm_excerpt_more( $more ) {
-	if ( is_page_template( 'edd-store-front.php' ) ) {
+	if ( is_page_template( 'edd_templates/edd-store-front.php' ) ) {
 		return '...';
 	} else {
 		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) . '</a></div>';

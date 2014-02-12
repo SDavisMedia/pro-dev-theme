@@ -160,7 +160,7 @@ function sdm_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_section( 'sdm_featured_info', array(
     	'title'       	=> __( 'Featured Information Options', 'sdm' ),
-		'description' 	=> __( 'Share featured information details here. This content displays in the &rsquo;Front Page&rsquo; feature box and the sidebar of all other pages.', 'sdm' ),
+		'description' 	=> __( 'Share featured information details here. This content displays in the &rsquo;Front Page&rsquo; feature box and the sidebar of all other pages. Highlight a product. Link to important information. Do whatever you&rsquo;d like. What you don&rsquo;t use won&rsquo;t appear.', 'sdm' ),
 		'priority'   	=> 40,
 	) );
 	// feature box toggle
