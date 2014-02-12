@@ -162,31 +162,33 @@ endif; // sdm_the_attached_image
 function sdm_widgets_init() {
 	
 	/**
-	 * Array with unique information about the various widgetized areas
+	 * Register sidebars by default or only if their associate plugins are activated
 	 */
-	$register_sidebars = array(
-		'primary'			=> array(
-			'name'			=> __( 'Primary Sidebar', 'sdm' ),
-			'id'			=> 'sidebar-primary',
-			'description'	=> 'ALL sidebars default to this sidebar when they are empty.',
-		),
-		'edd'				=> array(
+	register_sidebar( array(
+		'name'			=> __( 'Primary Sidebar', 'sdm' ),
+		'id'			=> 'sidebar-primary',
+		'description'	=> __( 'ALL sidebars default to this sidebar when they are empty.', 'sdm' ),
+		'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</aside>',
+		'before_title'	=> '<h4 class="widget-title">&raquo; ',
+		'after_title'	=> '</h4>',
+	) );
+	if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+		register_sidebar( array(
 			'name'			=> __( 'Easy Digital Downloads Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-edd',
-			'description'	=> 'This sidebar only displays on EDD downloads and templates. If it is empty, it defaults to the Primary Sidebar.',
-		),
-		'bbpress'			=> array(
+			'description'	=> __( 'This sidebar only displays on EDD downloads and templates. If it is empty, it defaults to the Primary Sidebar.', 'sdm' ),
+			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'	=> '</aside>',
+			'before_title'	=> '<h4 class="widget-title">&raquo; ',
+			'after_title'	=> '</h4>',
+		) );
+	}
+	if ( class_exists( 'bbPress' ) ) {
+		register_sidebar( array(
 			'name'			=> __( 'bbPress Sidebar', 'sdm' ),
 			'id'			=> 'sidebar-bbpress',
-			'description'	=> 'This sidebar only displays on the bbPress pages. If it is empty, it defaults to the Primary Sidebar.',
-		),
-	);
-	// Register all widgetized areas based on the $register_sidebars information
-	foreach ( $register_sidebars as $sidebars ) {
-		register_sidebar( array(
-			'name'			=> $sidebars[ 'name' ],
-			'id'			=> $sidebars[ 'id' ],
-			'description'	=> $sidebars[ 'description' ],
+			'description'	=> __( 'This sidebar only displays on the bbPress pages. If it is empty, it defaults to the Primary Sidebar.', 'sdm' ),
 			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'	=> '</aside>',
 			'before_title'	=> '<h4 class="widget-title">&raquo; ',

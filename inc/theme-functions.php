@@ -23,7 +23,7 @@ define( 'SDM_THEME_URI', get_stylesheet_directory_uri() );
 define( 'SDM_LANGUAGES', SDM_DIR . '/languages' );
 define( 'SDM_INC', SDM_THEME_URI . '/inc' );
 define( 'SDM_FUNCTIONS', SDM_DIR . '/inc/functions' );
-define( 'SDM_FONTS', SDM_INC . '/assets/fonts' );
+define( 'SDM_FONTS', SDM_DIR_URI . '/inc/assets/fonts' );
 define( 'SDM_IMAGES', SDM_INC . '/assets/images' );
 
 require( SDM_FUNCTIONS . '/content-functions.php' );
@@ -78,6 +78,9 @@ add_action( 'after_setup_theme', 'sdm_setup' );
  */
 function sdm_scripts() {
 	wp_enqueue_style( 'sdm-style', get_stylesheet_uri() );
+	
+	// responsive menu
+	wp_enqueue_script( 'sdm-navigation', SDM_DIR_URI . '/inc/assets/js/navigation.js', array(), '20120206', true );
 	
 	// font awesome fonts
 	wp_enqueue_style( 'fontawesome', SDM_FONTS . '/font-awesome/css/font-awesome.min.css' );

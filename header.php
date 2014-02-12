@@ -99,6 +99,7 @@ $ping = get_bloginfo('pingback_url');
 		<div class="menu-area full">
 			<div class="main">
 				<nav id="site-navigation" class="main-navigation menu inner clear-sdm" role="navigation">
+					<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'sdm' ); ?></span>
 					<?php
 						// main menu configuration 
 						$menu_args = array( 

@@ -4,9 +4,16 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php get_header(); 
 
-	<div class="content">
+		if ( is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :
+			$bbpress_fw = 'bbpress-content ';
+		else :
+			$bbpress_fw = 'content';
+		endif; 
+	?>
+
+	<div class="<?php echo $bbpress_fw; ?>">
 
 		<?php 
 			// start the loop
@@ -28,5 +35,13 @@
 
 	</div>
 
-<?php class_exists( 'bbPress' ) && is_bbpress() ? get_sidebar( 'bbpress' ) : get_sidebar(); ?>
+<?php 
+	if ( class_exists( 'bbPress' ) && is_bbpress() ) :
+		if ( 1 != get_theme_mod( 'sdm_bbpress_full_width' ) ) :
+			get_sidebar( 'bbpress' );
+		endif;
+	else :
+		get_sidebar();
+	endif;
+?>
 <?php get_footer(); ?>

@@ -235,14 +235,36 @@ function sdm_customize_register( $wp_customize ) {
 	
 
 	/** ===============
+	 * bbPress Options
+	 */
+	// only if bbPress is activated
+	if ( class_exists( 'bbPress' ) ) {
+		$wp_customize->add_section( 'sdm_bbpress_options', array(
+	    	'title'       	=> __( 'bbPress Options', 'sdm' ),
+			'description' 	=> __( 'These options are specific to all pages that display bbPress forums and its components.', 'sdm' ),
+			'priority'   	=> 50,
+		) );
+		// full-width forums?
+		$wp_customize->add_setting( 'sdm_bbpress_full_width', array( 'default' => 0 ) );
+		$wp_customize->add_control( 'sdm_bbpress_full_width', array(
+			'label'		=> __( 'Remove sidebar & display full-width?', 'sdm' ),
+			'section'	=> 'sdm_bbpress_options',
+			'priority'	=> 10,
+			'type'      => 'checkbox',
+		) );
+	}
+	
+	
+
+	/** ===============
 	 * Easy Digital Downloads Options
 	 */
 	// only if EDD is activated
 	if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 		$wp_customize->add_section( 'sdm_edd_options', array(
 	    	'title'       	=> __( 'Easy Digital Downloads', 'sdm' ),
-			'description' 	=> __( 'You must set the \'Store Front Headline\' if using the Store Front page template. All other EDD options are under Dashboard => Downloads.', 'sdm' ),
-			'priority'   	=> 50,
+			'description' 	=> __( 'All other EDD options are under Dashboard => Downloads.', 'sdm' ),
+			'priority'   	=> 60,
 		) );
 		// show comments on downloads?
 		$wp_customize->add_setting( 'sdm_download_comments', array( 'default' => 0 ) );
@@ -288,7 +310,7 @@ function sdm_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'sdm_social_networks', array(
     	'title'       	=> __( 'Social Networking Profiles', 'sdm' ),
 		'description' 	=> __( 'Paste full URLs to profiles. The URLs will be used in various places around the theme like the post footer author section on single posts.', 'sdm' ),
-		'priority'   	=> 60,
+		'priority'   	=> 70,
 	) );
 	// twitter url
 	$wp_customize->add_setting( 'sdm_twitter', array( 'default' => null ) );
@@ -330,7 +352,7 @@ function sdm_customize_register( $wp_customize ) {
 	 */
 	// section adjustments
 	$wp_customize->get_section( 'nav' )->title = __( 'Navigation Menu', 'sdm' );
-	$wp_customize->get_section( 'nav' )->priority = 70;
+	$wp_customize->get_section( 'nav' )->priority = 80;
 	
 	
 
@@ -338,7 +360,7 @@ function sdm_customize_register( $wp_customize ) {
 	 * Static Front Page
 	 */
 	// section adjustments
-	$wp_customize->get_section( 'static_front_page' )->priority = 80;	
+	$wp_customize->get_section( 'static_front_page' )->priority = 90;	
 }
 add_action( 'customize_register', 'sdm_customize_register' );
 
@@ -357,15 +379,23 @@ function sdm_customizer_head_styles() {
 	if ( '#015F8E' != $sdm_primary_color ) : // Primary design color ?>
 
 		<style type="text/css">
-			a, .site-title a:hover, .main-menu ul li:hover > ul a:hover, .product-title:hover { 
+			a, .site-title a:hover, .product-title:hover { 
 				color: <?php echo $sdm_primary_color; ?>; 
-			}
-			.main-menu > ul > li > a:hover, 
-			.main-menu > ul > .current-menu-item > a { 
-				border-bottom: 3px solid <?php echo $sdm_primary_color; ?>; 
 			}
 			.bypostauthor .comment-meta { 
 				border-right: 1px solid <?php echo $sdm_primary_color; ?>; 
+			}
+			@media screen and (min-width: 768px) {
+				.main-menu > ul > li > a:hover, 
+				.main-menu > ul > .current-menu-item > a { 
+					border-color: <?php echo $sdm_primary_color; ?>; 
+				}
+			}
+			@media screen and (max-width: 767px) {
+				.main-menu a:hover,
+				.main-menu ul li:hover > ul a:hover { 
+					color: <?php echo $sdm_primary_color; ?>; 
+				}
 			}
 		</style>
 	<?php 
