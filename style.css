@@ -1037,10 +1037,6 @@ cite.fn {
 	margin: 0 15px 30px 0;
 }
 
-.threecol.product.last {
-	margin-right: 0;
-}
-
 .product-title {
 	color: #222;
 }
@@ -1179,6 +1175,31 @@ object {
 	.feature-box {
 		border-width: 0 1px 1px;
 	}
+	
+	.threecol.product:nth-child(3n+3) {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 975px) {
+
+	.store-front {
+		padding: 1em;
+	}
+
+	.threecol.product {
+		float: left;
+		width: 48.8%;
+		margin: 0 2% 30px 0;
+	}
+	
+	.threecol.product:nth-child(3n+3) {
+		margin-right: 2%;
+	}
+	
+	.threecol.product:nth-child(even) {
+		margin-right: 0;
+	}
 }
 
 @media screen and (max-width: 959px) {
@@ -1239,6 +1260,13 @@ object {
 		-moz-border-radius: 0 0 0 3px;
 		-o-border-radius: 0 0 0 3px;
 		border-radius: 0 0 0 3px;
+	}
+	
+	.no-sidebar .feature-box {
+		-webkit-border-radius: 0 0 3px 3px;
+		-moz-border-radius: 0 0 3px 3px;
+		-o-border-radius: 0 0 3px 3px;
+		border-radius: 0 0 3px 3px;
 	}
 
 	.feature-box .info-text,
@@ -1327,5 +1355,18 @@ object {
 	
 	.feature-box .info-text {
 		padding-bottom: 0;
+	}
+}
+
+@media screen and (max-width: 550px) {
+
+	.threecol.product {
+		float: none;
+		width: 100%;
+		margin: 0 0 30px 0;
+	}
+	
+	.threecol.product:nth-child(3n+3) {
+		margin-right: 0;
 	}
 }

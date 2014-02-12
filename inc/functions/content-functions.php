@@ -218,17 +218,23 @@ function sdm_body_classes( $classes ) {
 		if ( is_page_template( 'change-log.php' ) ) :		
 			$classes[] = 'change-log';		
 		elseif ( is_page_template( 'edd-store-front.php' ) ) :		
-			$classes[] = 'store-front-template';
+			$classes[] = 'store-front-template no-sidebar';
 		elseif ( is_page_template( 'edd-checkout.php' ) ) :		
-			$classes[] = 'checkout-template';	
+			$classes[] = 'checkout-template no-sidebar';	
 		elseif ( is_page_template( 'edd-confirmation.php' ) ) :		
-			$classes[] = 'confirmation-template';
+			$classes[] = 'confirmation-template no-sidebar';
 		elseif ( is_page_template( 'edd-history.php' ) ) :		
-			$classes[] = 'history-template';
+			$classes[] = 'history-template no-sidebar';
 		elseif ( is_page_template( 'edd-members.php' ) ) :		
-			$classes[] = 'members-template';				
+			$classes[] = 'members-template no-sidebar';
+		elseif ( is_page_template( 'edd-failed.php' ) ) :		
+			$classes[] = 'failed-template no-sidebar';				
 		endif;
 		
+	endif;
+	
+	if ( is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :		
+		$classes[] = 'no-sidebar';
 	endif;
 	
 	if ( is_multi_author() ) 

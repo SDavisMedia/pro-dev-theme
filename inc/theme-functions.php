@@ -59,7 +59,7 @@ if ( ! function_exists( 'sdm_setup' ) ) :
 		 * Enable support for Post Thumbnails on posts and pages
 		 */
 		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'product-img', 450, 300, true );
+		add_image_size( 'product-img', 540, 360, true );
 	
 		/**
 		 * Register navigation menus

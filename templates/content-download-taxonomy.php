@@ -22,7 +22,7 @@
 	<div class="store-front clear-sdm">
 		<?php while ( have_posts() ) : the_post(); ?>
 			
-			<div class="threecol product<?php if ( $i % 3 == 0 ) { echo ' last'; } ?>">
+			<div class="threecol product">
 				<div class="product-image">
 					<?php if ( has_post_thumbnail() ) { ?>
 						<a href="<?php the_permalink(); ?>">
