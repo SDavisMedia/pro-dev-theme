@@ -167,8 +167,10 @@ td {
 
 a,
 .content a:hover,
+.feature-box a:hover,
 mark, 
 ins,
+a.button,
 .button:hover,
 .logout-link:hover,
 .site-title a:hover,
@@ -181,7 +183,8 @@ ins,
 }
 
 a:hover,
-.content a {
+.content a,
+.feature-box a {
 	text-decoration: underline;
 }
 
@@ -193,6 +196,7 @@ a:hover,
 .nocomments,
 .feature-box .info-text,
 .feature-box .info-cta,
+.sidebar .info-box,
 .note,
 .tip,
 pre,
@@ -261,7 +265,6 @@ pre,
 	margin-bottom: 1.2em;
 }
 
-.change-log .entry-title h1,
 .site-description,
 .entry-title,
 .info-box-description p:last-child {
@@ -470,6 +473,14 @@ var {
 	font: 1em Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; 
 }
 
+code {
+	background: #F5F5F5;
+	color: #666;
+	font-size: 12px;
+	padding: 2px 4px;
+	border: 1px solid #DBDBDB;
+}
+
 abbr, 
 acronym { 
 	border-bottom: 1px dotted #666; 
@@ -637,6 +648,10 @@ input[type="submit"]:hover {
 	border-bottom: 1px solid rgba(0,0,0,.15);
 }
 
+.button {
+	text-decoration: none !important;
+}
+
 
 /* =header
 -------------------------------------------------------------- */
@@ -749,6 +764,11 @@ input[type="submit"]:hover {
 	margin-bottom: 0;
 }
 
+.change-log .entry-content {
+	padding-left: 15px;
+	border-left: 10px solid #F5F5F5;
+}
+
 .entry-headline,
 .title-icon {
 	display: inline-block;
@@ -760,10 +780,6 @@ input[type="submit"]:hover {
 
 .entry-title:hover .title-icon {
 	color: #666
-}
-
-.change-log .entry-title h1 {
-	font-size: 18px;
 }
 
 .sticky {
@@ -1234,7 +1250,6 @@ object {
 	}
 
 	.menu-toggle {
-		cursor: pointer;
 		display: none;
 	}
 	
@@ -1300,6 +1315,10 @@ object {
 	.main-navigation.toggled .nav-menu {
 		display: block;
 		margin-bottom: 10px
+	}
+
+	.menu-toggle {
+		cursor: pointer;
 	}
 	
 	.main-navigation {

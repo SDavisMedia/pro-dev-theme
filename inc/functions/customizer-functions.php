@@ -158,16 +158,16 @@ function sdm_customize_register( $wp_customize ) {
 	/** ===============
 	 * Feature Box Options
 	 */
-	$wp_customize->add_section( 'sdm_featured_product', array(
-    	'title'       	=> __( 'Featured Product Options', 'sdm' ),
-		'description' 	=> __( 'Set the main Featured Product details here which displays in the &rsquo;Front Page&rsquo; feature box and the sidebar of all other pages.', 'sdm' ),
+	$wp_customize->add_section( 'sdm_featured_info', array(
+    	'title'       	=> __( 'Featured Information Options', 'sdm' ),
+		'description' 	=> __( 'Share featured information details here. This content displays in the &rsquo;Front Page&rsquo; feature box and the sidebar of all other pages.', 'sdm' ),
 		'priority'   	=> 40,
 	) );
 	// feature box toggle
 	$wp_customize->add_setting( 'sdm_feature_box_toggle', array( 'default' => 1 ) );
 	$wp_customize->add_control( 'sdm_feature_box_toggle', array(
 		'label'		=> __( 'Display Default Feature Box?', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
+		'section'	=> 'sdm_featured_info',
 		'priority'	=> 10,
 		'type'      => 'checkbox',
 	) );
@@ -175,60 +175,50 @@ function sdm_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'sdm_feature_sidebar_toggle', array( 'default' => 1 ) );
 	$wp_customize->add_control( 'sdm_feature_sidebar_toggle', array(
 		'label'		=> __( 'Display Default Sidebar Feature?', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
+		'section'	=> 'sdm_featured_info',
 		'priority'	=> 20,
 		'type'      => 'checkbox',
 	) );
 	// featured product headline
-	$wp_customize->get_setting( 'sdm_featured_product_headline' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'sdm_featured_product_headline', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_featured_product_headline', array(
-		'label'		=> __( 'Main Product Headline', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_headline',
+	$wp_customize->get_setting( 'sdm_featured_info_headline' )->transport = 'postMessage';
+	$wp_customize->add_setting( 'sdm_featured_info_headline', array( 'default' => null ) );
+	$wp_customize->add_control( 'sdm_featured_info_headline', array(
+		'label'		=> __( 'Featured Information Headline', 'sdm' ),
+		'section'	=> 'sdm_featured_info',
+		'settings'	=> 'sdm_featured_info_headline',
 		'priority'	=> 30,
 	) );
 	// featured product description
-	$wp_customize->add_setting( 'sdm_featured_product_description', array( 'default' => null ) );
-	$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, 'sdm_featured_product_description', array(
-		'label'		=> __( 'Main Product Description', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_description',
+	$wp_customize->add_setting( 'sdm_featured_info_description', array( 'default' => null ) );
+	$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, 'sdm_featured_info_description', array(
+		'label'		=> __( 'Featured Information Description', 'sdm' ),
+		'section'	=> 'sdm_featured_info',
+		'settings'	=> 'sdm_featured_info_description',
 		'priority'	=> 40,
 	) ) );
-	// featured product version
-	$wp_customize->get_setting( 'sdm_featured_product_version' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'sdm_featured_product_version', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_featured_product_version', array(
-		'label'		=> __( 'Main Product Version', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_version',
-		'priority'	=> 50,
-	) );
-	// featured product note
-	$wp_customize->get_setting( 'sdm_featured_product_note' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'sdm_featured_product_note', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_featured_product_note', array(
-		'label'		=> __( 'Main Product Note', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_note',
+	// featured info notes
+	$wp_customize->add_setting( 'sdm_featured_info_note', array( 'default' => null ) );
+	$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, 'sdm_featured_info_note', array(
+		'label'		=> __( 'Featured Information Additional Notes', 'sdm' ),
+		'section'	=> 'sdm_featured_info',
+		'settings'	=> 'sdm_featured_info_note',
 		'priority'	=> 60,
-	) );
+	) ) );
 	// featured product url
-	$wp_customize->add_setting( 'sdm_featured_product_url', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_featured_product_url', array(
-		'label'		=> __( 'URL to Product Page', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_url',
+	$wp_customize->add_setting( 'sdm_featured_info_url', array( 'default' => null ) );
+	$wp_customize->add_control( 'sdm_featured_info_url', array(
+		'label'		=> __( 'URL to More Information', 'sdm' ),
+		'section'	=> 'sdm_featured_info',
+		'settings'	=> 'sdm_featured_info_url',
 		'priority'	=> 70,
 	) );
 	// featured product button text
-	$wp_customize->get_setting( 'sdm_featured_product_button_text' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'sdm_featured_product_button_text', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_featured_product_button_text', array(
+	$wp_customize->get_setting( 'sdm_featured_info_button_text' )->transport = 'postMessage';
+	$wp_customize->add_setting( 'sdm_featured_info_button_text', array( 'default' => null ) );
+	$wp_customize->add_control( 'sdm_featured_info_button_text', array(
 		'label'		=> __( 'Button Text', 'sdm' ),
-		'section'	=> 'sdm_featured_product',
-		'settings'	=> 'sdm_featured_product_button_text',
+		'section'	=> 'sdm_featured_info',
+		'settings'	=> 'sdm_featured_info_button_text',
 		'priority'	=> 80,
 	) );
 	

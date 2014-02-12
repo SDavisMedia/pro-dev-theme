@@ -11,7 +11,20 @@
 		</span>
 
 		<div class="entry-meta">
-			<?php sdm_posted_on(); ?>
+			<?php	
+				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+			
+				$time_string = sprintf( $time_string,
+					esc_attr( get_the_date( 'c' ) ),
+					esc_html( get_the_date() ),
+					esc_attr( get_the_modified_date( 'c' ) ),
+					esc_html( get_the_modified_date() )
+				);
+			
+				printf( __( 'Released on %s ', 'sdm' ), $time_string );
+				
+				edit_post_link( __( 'Edit', 'sdm' ), '<span class="edit-link">', '</span>' ); 
+			?>
 		</div>
 	</header>
 	<section class="entry-content">

@@ -25,22 +25,17 @@
 			$( '.site-info' ).text( to );
 		} );
 	} );
-	wp.customize( 'sdm_featured_product_headline', function( value ) {
+	wp.customize( 'sdm_featured_info_headline', function( value ) {
 		value.bind( function( to ) {
 			$( '.info-box-title' ).text( to );
 		} );
 	} );
-	wp.customize( 'sdm_featured_product_version', function( value ) {
-		value.bind( function( to ) {
-			$( '.info-version' ).text( to );
-		} );
-	} );
-	wp.customize( 'sdm_featured_product_note', function( value ) {
+	wp.customize( 'sdm_featured_info_note', function( value ) {
 		value.bind( function( to ) {
 			$( '.info-note' ).text( to );
 		} );
 	} );
-	wp.customize( 'sdm_featured_product_button_text', function( value ) {
+	wp.customize( 'sdm_featured_info_button_text', function( value ) {
 		value.bind( function( to ) {
 			$( '.cta-button' ).text( to );
 		} );

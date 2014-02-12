@@ -6,9 +6,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 	<header class="entry-header">
-		<span class="entry-title" href="<?php the_permalink(); ?>">
+		<span class="entry-title">
 			<h1><?php the_title(); ?></h1>
-		</span>			
+		</span>
 		<div class="entry-meta">
 		
 			<?php	
@@ -23,7 +23,7 @@
 			
 				printf( __( 'Released on %s ', 'sdm' ), $time_string );
 				
-				edit_post_link( __( 'Edit', 'quota' ), '<span class="edit-link">', '</span>' ); 
+				edit_post_link( __( 'Edit', 'sdm' ), '<span class="edit-link">', '</span>' ); 
 			?>
 
 		</div>

@@ -19,8 +19,6 @@
 			
 				// get main template HTML from template file
 				get_template_part( 'templates/content', 'version' );
-				
-				sdm_content_nav( 'nav-below' );
 
 			endwhile; // end the loop
 		?>
