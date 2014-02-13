@@ -50,7 +50,9 @@ $ping = get_bloginfo('pingback_url');
 							</a>
 						<?php endif; ?>
 					</span>
-					<h1 class="site-description"><?php echo $tagline; ?></h1>
+					<?php if ( 1 != get_theme_mod( 'sdm_hide_tagline' ) ) : ?>
+						<h1 class="site-description"><?php echo $tagline; ?></h1>
+					<?php endif; ?>
 					<div class="social-nav">
 				
 						<?php 
@@ -110,7 +112,7 @@ $ping = get_bloginfo('pingback_url');
 						wp_nav_menu( $menu_args );
 					?>
 					<div class="search-container">
-						<?php get_search_form(); ?>
+						<i class="fa fa-search main-search-icon"></i><?php get_search_form(); ?>
 					</div>
 				</nav>
 			</div>
