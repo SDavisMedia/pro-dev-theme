@@ -30,11 +30,6 @@
 			$( '.info-box-title' ).text( to );
 		} );
 	} );
-	wp.customize( 'sdm_featured_info_note', function( value ) {
-		value.bind( function( to ) {
-			$( '.info-note' ).text( to );
-		} );
-	} );
 	wp.customize( 'sdm_featured_info_button_text', function( value ) {
 		value.bind( function( to ) {
 			$( '.cta-button' ).text( to );
