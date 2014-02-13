@@ -543,7 +543,8 @@ input[type="search"] {
 }
 
 .button,
-#commentform input[type="submit"] {
+#commentform input[type="submit"],
+.menu-area .search-form {
 	display: inline-block;
 }
 
@@ -1259,6 +1260,10 @@ object {
 			top: 9px;
 	}
 
+	.menu-area .search-form {
+		margin-left: 6px;
+	}
+
 	.content {
 		float: left;
 		width: 67%;
@@ -1356,6 +1361,10 @@ object {
 	
 	.social-nav-item:first-child {
 		margin-left: 0;
+	}
+	
+	.menu-area .fa.main-search-icon {
+		display: none;
 	}
 	
 	.sidebar {
