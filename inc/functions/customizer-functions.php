@@ -31,15 +31,34 @@ function sdm_customize_register( $wp_customize ) {
 	// section adjustments
 	$wp_customize->get_section( 'title_tagline' )->title = __( 'Site Title (Logo) & Tagline', 'sdm' );
 	$wp_customize->get_section( 'title_tagline' )->priority = 10;
+	$wp_customize->get_control( 'blogname' )->priority = 10;
+	$wp_customize->get_control( 'blogdescription' )->priority = 30;
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 	// logo uploader
 	$wp_customize->add_setting( 'sdm_logo', array( 'default' => null ) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sdm_logo', array(
-		'label'    => __( 'Custom Site Logo', 'sdm' ),
-		'section'  => 'title_tagline',
-		'settings' => 'sdm_logo',
+		'label'		=> __( 'Custom Site Logo (replaces title)', 'sdm' ),
+		'section'	=> 'title_tagline',
+		'settings'	=> 'sdm_logo',
+		'priority'	=> 20
 	) ) );	
+	// hide the tagline?
+	$wp_customize->add_setting( 'sdm_hide_tagline', array( 'default' => 0 ) );
+	$wp_customize->add_control( 'sdm_hide_tagline', array(
+		'label'		=> __( 'Hide Tagline', 'sdm' ),
+		'section'	=> 'title_tagline',
+		'priority'	=> 40,
+		'type'      => 'checkbox',
+	) );
+	// use big header
+	$wp_customize->add_setting( 'sdm_big_header', array( 'default' => 0 ) );
+	$wp_customize->add_control( 'sdm_big_header', array(
+		'label'		=> __( 'Use Big Header', 'sdm' ),
+		'section'	=> 'title_tagline',
+		'priority'	=> 50,
+		'type'      => 'checkbox',
+	) );
 	
 
 
@@ -179,7 +198,7 @@ function sdm_customize_register( $wp_customize ) {
 		'priority'	=> 20,
 		'type'      => 'checkbox',
 	) );
-	// featured product headline
+	// featured info headline
 	$wp_customize->get_setting( 'sdm_featured_info_headline' )->transport = 'postMessage';
 	$wp_customize->add_setting( 'sdm_featured_info_headline', array( 'default' => null ) );
 	$wp_customize->add_control( 'sdm_featured_info_headline', array(
@@ -188,7 +207,7 @@ function sdm_customize_register( $wp_customize ) {
 		'settings'	=> 'sdm_featured_info_headline',
 		'priority'	=> 30,
 	) );
-	// featured product description
+	// featured info description
 	$wp_customize->add_setting( 'sdm_featured_info_description', array( 'default' => null ) );
 	$wp_customize->add_control( new sdm_customize_textarea_control( $wp_customize, 'sdm_featured_info_description', array(
 		'label'		=> __( 'Featured Information Description', 'sdm' ),
@@ -204,7 +223,7 @@ function sdm_customize_register( $wp_customize ) {
 		'settings'	=> 'sdm_featured_info_note',
 		'priority'	=> 60,
 	) ) );
-	// featured product url
+	// featured info url
 	$wp_customize->add_setting( 'sdm_featured_info_url', array( 'default' => null ) );
 	$wp_customize->add_control( 'sdm_featured_info_url', array(
 		'label'		=> __( 'URL to More Information', 'sdm' ),
@@ -212,7 +231,7 @@ function sdm_customize_register( $wp_customize ) {
 		'settings'	=> 'sdm_featured_info_url',
 		'priority'	=> 70,
 	) );
-	// featured product button text
+	// featured info button text
 	$wp_customize->get_setting( 'sdm_featured_info_button_text' )->transport = 'postMessage';
 	$wp_customize->add_setting( 'sdm_featured_info_button_text', array( 'default' => null ) );
 	$wp_customize->add_control( 'sdm_featured_info_button_text', array(
@@ -360,37 +379,29 @@ add_action( 'customize_register', 'sdm_customize_register' );
  * Add Customizer theme styles to <head>
  */
 function sdm_customizer_head_styles() {
-	$sdm_primary_color = get_option( 'sdm_primary_color' );
-	
-	/**
-	 * Only add styles to the head of the document if the styles
-	 * have been changed from default. 
-	 */		
-	if ( '#015F8E' != $sdm_primary_color ) : // Primary design color ?>
+	$sdm_primary_color = get_option( 'sdm_primary_color' ); ?>
 
-		<style type="text/css">
-			a, .site-title a:hover, .product-title:hover { 
-				color: <?php echo $sdm_primary_color; ?>; 
-			}
-			.bypostauthor .comment-meta { 
-				border-right: 1px solid <?php echo $sdm_primary_color; ?>; 
-			}
+	<style type="text/css">
+	
+		<?php if ( get_theme_mod( 'sdm_big_header' ) ) : // big header ?>
+			.site-header { padding: 2em 14px; }
+			.site-title { font-size: 24px; }
+			.social-nav { top: 31px; }
+		<?php endif; ?>
+
+		<?php if ( '#015F8E' != $sdm_primary_color ) : // Primary design color ?>
+			a, .site-title a:hover, .product-title:hover { color: <?php echo $sdm_primary_color; ?>; }
+			.bypostauthor .comment-meta { border-right: 1px solid <?php echo $sdm_primary_color; ?>; }
 			@media screen and (min-width: 768px) {
-				.main-menu > ul > li > a:hover, 
-				.main-menu > ul > .current-menu-item > a { 
-					border-color: <?php echo $sdm_primary_color; ?>; 
-				}
+				.main-menu > ul > li > a:hover, .main-menu > ul > .current-menu-item > a { border-color: <?php echo $sdm_primary_color; ?>; }
 			}
 			@media screen and (max-width: 767px) {
-				.main-menu a:hover,
-				.main-menu ul li:hover > ul a:hover { 
-					color: <?php echo $sdm_primary_color; ?>; 
-				}
+				.main-menu a:hover, .main-menu ul li:hover > ul a:hover { color: <?php echo $sdm_primary_color; ?>; }
 			}
-		</style>
-	<?php 
-	endif;
-}
+		<?php endif; ?>
+		
+	</style>
+<?php }
 add_action( 'wp_head','sdm_customizer_head_styles' );
 
 
