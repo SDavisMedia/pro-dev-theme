@@ -309,6 +309,14 @@ function sdm_customize_register( $wp_customize ) {
 			'settings' 	=> 'sdm_product_view_details',
 			'priority'	=> 40,
 		) );
+		// store front/archive item count
+		$wp_customize->add_setting( 'sdm_store_front_count', array( 'default' => 9 ) );		
+		$wp_customize->add_control( 'sdm_store_front_count', array(
+		    'label' 	=> __( 'How many items per store front page?', 'sdm' ),
+		    'section' 	=> 'sdm_edd_options',
+			'settings' 	=> 'sdm_store_front_count',
+			'priority'	=> 50,
+		) );
 	}
 	
 	
@@ -412,11 +420,12 @@ add_action( 'wp_head','sdm_customizer_head_styles' );
 function sdm_customizer_styles() { ?>
 	<style type="text/css">
 		body { background: #fff; }
-		.description { display: block; color: #999; margin: 2px 0 5px; font-style: italic; }
+		#customize-controls #customize-theme-controls .description { display: block; color: #999; margin: 2px 0 15px; font-style: italic; }
 		textarea, input, select, .customize-description { font-size: 12px !important; }
 		.customize-control-title { font-size: 13px !important; margin: 10px 0 3px !important; }
 		.customize-control label { font-size: 12px !important; }
 		#customize-control-sdm_read_more { margin-bottom: 20px; }
+		#customize-control-sdm_store_front_count input[type="text"] { width: 50px; }
 	</style>
 <?php }
 add_action('customize_controls_print_styles', 'sdm_customizer_styles');
