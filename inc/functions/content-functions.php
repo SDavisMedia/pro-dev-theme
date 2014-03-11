@@ -233,7 +233,7 @@ function sdm_body_classes( $classes ) {
 		
 	endif;
 	
-	if ( is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :		
+	if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :		
 		$classes[] = 'no-sidebar';
 	endif;
 	

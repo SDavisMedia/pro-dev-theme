@@ -6,7 +6,7 @@
 
 <?php get_header(); 
 
-		if ( is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :
+		if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :
 			$bbpress_fw = 'bbpress-content ';
 		else :
 			$bbpress_fw = 'content';
