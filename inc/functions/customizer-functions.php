@@ -398,7 +398,7 @@ function sdm_customizer_head_styles() {
 		<?php endif; ?>
 
 		<?php if ( '#015F8E' != $sdm_primary_color ) : // Primary design color ?>
-			a, .site-title a:hover, .product-title:hover { color: <?php echo $sdm_primary_color; ?>; }
+			a, .site-title a:hover, .main-menu ul li:hover > ul a:hover, .product-title:hover { color: <?php echo $sdm_primary_color; ?>; }
 			.bypostauthor .comment-meta { border-right: 1px solid <?php echo $sdm_primary_color; ?>; }
 			@media screen and (min-width: 768px) {
 				.main-menu > ul > li > a:hover, .main-menu > ul > .current-menu-item > a { border-color: <?php echo $sdm_primary_color; ?>; }
