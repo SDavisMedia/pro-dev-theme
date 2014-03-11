@@ -9,7 +9,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-feed' ); ?>>
 	<header class="entry-header">
 		<a class="entry-title" href="<?php the_permalink(); ?>">
-			<h1 class="entry-headline"><?php the_title(); ?></h1><span class="title-icon"><i class="fa fa-link"></i></span>
+			<span class="title-icon"><i class="fa fa-link"></i></span>
+			<h1 class="entry-headline"><?php the_title(); ?></h1>
 		</a>
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">

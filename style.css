@@ -725,10 +725,6 @@ input[type="submit"]:hover {
 	border-bottom: 3px solid #015F8E;
 }
 
-.current-menu-item a {
-	cursor: text;
-}
-
 .main-menu ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	display: none;
@@ -771,17 +767,20 @@ input[type="submit"]:hover {
 	border-left: 10px solid #F5F5F5;
 }
 
-.entry-headline,
-.title-icon {
-	display: inline-block;
+.entry-title {
+	position: relative;
 }
 
 .title-icon {
-	margin-left: 10px;
+	display: none;
 }
 
 .entry-title:hover .title-icon {
-	color: #666
+	display: inline-block;;
+	position: absolute;
+		top: 5px;
+		left: -2em;
+	color: #666;
 }
 
 .sticky {
