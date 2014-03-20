@@ -34,9 +34,6 @@
 					<a class="product-title" href="<?php the_permalink(); ?>">
 						<h3><?php the_title(); ?></h3>
 					</a>
-					<div class="product-info">
-						<?php the_excerpt(); ?>
-					</div>
 				</div>
 				<?php if ( get_theme_mod( 'sdm_product_view_details' ) ) : ?>
 					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'sdm_product_view_details' ); ?></a>
