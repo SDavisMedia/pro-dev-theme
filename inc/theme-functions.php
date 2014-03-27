@@ -27,7 +27,6 @@ define( 'SDM_FONTS', SDM_DIR_URI . '/inc/assets/fonts' );
 define( 'SDM_IMAGES', SDM_INC . '/assets/images' );
 
 require( SDM_FUNCTIONS . '/content-functions.php' );
-require( SDM_FUNCTIONS . '/version-functions.php' );
 require( SDM_FUNCTIONS . '/customizer-functions.php' );
 require( SDM_FUNCTIONS . '/edd-functions.php' );
 require( SDM_FUNCTIONS . '/updater.php' );	

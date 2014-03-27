@@ -3,7 +3,7 @@
 	Theme URI: http://seandavis.co/
 	Author: Sean Davis
 	Author URI: http://sdavismedia.com
-	Description: The Professional Developer Theme is designed to be the hub for software developers. PD handles version updates, support, and digital ecommerce functionality making it the ideal theme for software developers.
+	Description: The Professional Developer Theme is designed to be a hub for software developers.
 	Version: 1.0
 	License: GNU General Public License
 	License URI: license.txt
@@ -65,7 +65,7 @@ a,
 .entry-meta,
 blockquote,
 .comment-meta,
-.info-subtitle span,
+.info-note,
 .wp-caption-text,
 .edd-variable-pricing-desc {
 	color: #999;
@@ -116,7 +116,7 @@ input[type="search"],
 .entry-meta,
 .comment-meta,
 .post-nav-title,
-.info-subtitle,
+.info-note,
 .wp-caption-text,
 .post-footer-author a,
 .edd-variable-pricing-desc {
@@ -126,7 +126,7 @@ input[type="search"],
 h1, h2, h3, h4, h5, h6,
 .sidebar,
 .comments-title,
-.info-subtitle {
+.info-note {
 	line-height: 1.4em;
 }
 .site-description {
@@ -148,7 +148,6 @@ input[type="submit"],
 	font-weight: 700; 
 }
 
-.info-subtitle span,
 caption, 
 th, 
 td { 
@@ -758,15 +757,6 @@ input[type="submit"]:hover {
 	margin-bottom: 2em;
 }
 
-.change-log .hentry {
-	margin-bottom: 0;
-}
-
-.change-log .entry-content {
-	padding-left: 15px;
-	border-left: 10px solid #F5F5F5;
-}
-
 .entry-title {
 	position: relative;
 }
@@ -924,7 +914,7 @@ cite.fn {
 	display: block;
 }
 
-.info-subtitle span {
+.info-note {
 	font-style: italic;
 }
 

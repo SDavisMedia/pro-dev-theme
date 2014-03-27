@@ -19,10 +19,11 @@
 	</div>
 	<div class="info-cta">
 		<?php if ( get_theme_mod( 'sdm_featured_info_note' ) ) : ?>
-			<span class="info-subtitle"><?php _e( 'Additional Notes: ', 'sdm' ); ?>
-				<span class="info-note">
-					<?php echo wpautop( get_theme_mod( 'sdm_featured_info_note' ) ); ?>
-				</span>
+			<span class="info-subtitle">
+				<?php _e( 'Additional Notes: ', 'sdm' ); ?>
+			</span>
+			<span class="info-note">
+				<?php echo wpautop( get_theme_mod( 'sdm_featured_info_note' ) ); ?>
 			</span>
 		<?php endif; ?>
 		<?php

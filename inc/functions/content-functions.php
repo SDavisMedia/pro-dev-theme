@@ -157,7 +157,7 @@ endif; // sdm_the_attached_image
 
 
 /** ===============
- * Register sidebar areas and version sidebars with default widgets
+ * Register sidebar areas with default widgets
  */
 function sdm_widgets_init() {
 	
@@ -210,9 +210,9 @@ function sdm_body_classes( $classes ) {
 		// add .homepage body class to the home page
 		$classes[] = 'homepage';
 		
-	elseif ( is_single() || is_page() || ( 'version' == get_post_type() ) ) :
+	elseif ( is_single() || is_page() ) :
 		
-		// add .singular body class to posts, pages, and versions
+		// add .singular body class to posts and pages
 		$classes[] = 'singular';
 		
 		if ( is_page_template( 'change-log.php' ) ) :		
