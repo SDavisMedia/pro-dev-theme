@@ -25,7 +25,7 @@
 					comments_template();
 				endif;
 				
-				sdm_content_nav( 'nav-below' );
+				pdt_content_nav( 'nav-below' );
 
 			endwhile; // end the loop
 		?>

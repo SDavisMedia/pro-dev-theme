@@ -171,6 +171,10 @@ $edd_updater = new EDD_SL_Theme_Updater( array(
 * Add our menu item
 ***********************************************/
 
+function edd_sample_theme_license_menu() {
+	add_theme_page( __( 'Pro Dev Theme', 'pdt' ), __( 'Pro Dev Theme', 'pdt' ), 'manage_options', 'pro-dev-license', 'edd_sample_theme_license_page' );
+}
+add_action('admin_menu', 'edd_sample_theme_license_menu');
 
 
 /***********************************************
@@ -182,7 +186,7 @@ function edd_sample_theme_license_page() {
 	$status 	= get_option( 'edd_sample_theme_license_key_status' );
 	?>
 	<div class="wrap">
-		<h2><?php _e('Theme License Options', 'sdm'); ?></h2>
+		<h2><?php echo PDT_NAME . __( ' Settings', 'pdt' ); ?></h2>
 		<form method="post" action="options.php">
 		
 			<?php settings_fields('edd_sample_theme_license'); ?>
@@ -191,26 +195,25 @@ function edd_sample_theme_license_page() {
 				<tbody>
 					<tr valign="top">	
 						<th scope="row" valign="top">
-							<?php _e('License Key', 'sdm'); ?>
+							<?php _e('License Key', 'pdt'); ?>
 						</th>
 						<td>
-							<input id="edd_sample_theme_license_key" name="edd_sample_theme_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
-							<label class="description" for="edd_sample_theme_license_key"><?php _e('Enter your license key', 'sdm'); ?></label>
+							<input id="edd_sample_theme_license_key" name="edd_sample_theme_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" placeholder="Enter your license key" />
 						</td>
 					</tr>
 					<?php if( false !== $license ) { ?>
 						<tr valign="top">	
 							<th scope="row" valign="top">
-								<?php _e('Activate License', 'sdm'); ?>
+								<?php _e('Activate License', 'pdt'); ?>
 							</th>
 							<td>
 								<?php if( $status !== false && $status == 'valid' ) { ?>
-									<span style="color:green;"><?php _e('active', 'sdm'); ?></span>
+									<span style="color:green;"><?php _e('active', 'pdt'); ?></span>
 									<?php wp_nonce_field( 'edd_sample_nonce', 'edd_sample_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="edd_theme_license_deactivate" value="<?php _e('Deactivate License', 'sdm'); ?>"/>
+									<input type="submit" class="button-secondary" name="edd_theme_license_deactivate" value="<?php _e('Deactivate License', 'pdt'); ?>"/>
 								<?php } else {
 									wp_nonce_field( 'edd_sample_nonce', 'edd_sample_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="edd_theme_license_activate" value="<?php _e('Activate License', 'sdm'); ?>"/>
+									<input type="submit" class="button-secondary" name="edd_theme_license_activate" value="<?php _e('Activate License', 'pdt'); ?>"/>
 								<?php } ?>
 							</td>
 						</tr>

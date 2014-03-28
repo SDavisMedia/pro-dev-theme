@@ -6,7 +6,7 @@
 
 <?php get_header(); 
 
-		if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'sdm_bbpress_full_width' ) ) :
+		if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'pdt_bbpress_full_width' ) ) :
 			$bbpress_fw = 'bbpress-content ';
 		else :
 			$bbpress_fw = 'content';
@@ -22,7 +22,7 @@
 				get_template_part( 'templates/content', 'page' );
 			
 				// only allow comments if chosen in theme customizer
-				if ( 1 == get_theme_mod( 'sdm_page_comments' ) ) :
+				if ( 1 == get_theme_mod( 'pdt_page_comments' ) ) :
 				
 					// if comments are open or we have at least one comment, load up the comment template
 					if ( comments_open() || '0' != get_comments_number() ) :
@@ -37,7 +37,7 @@
 
 <?php 
 	if ( class_exists( 'bbPress' ) && is_bbpress() ) :
-		if ( 1 != get_theme_mod( 'sdm_bbpress_full_width' ) ) :
+		if ( 1 != get_theme_mod( 'pdt_bbpress_full_width' ) ) :
 			get_sidebar( 'bbpress' );
 		endif;
 	else :

@@ -15,7 +15,7 @@
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
 			
-				<?php sdm_posted_on(); ?>
+				<?php pdt_posted_on(); ?>
 				
 			</div>
 		<?php endif; ?>
@@ -23,24 +23,24 @@
 	
 	<?php 
 		// change <section> class based on post feed content options
-		$post_content_type = ( 'option2' == get_theme_mod( 'sdm_post_content' ) ? 'entry-content' : 'entry-summary' ); 
+		$post_content_type = ( 'option2' == get_theme_mod( 'pdt_post_content' ) ? 'entry-content' : 'entry-summary' ); 
 	?>
 	
 	<section class="<?php echo $post_content_type; ?>">
 		
 		<?php
 			// display either full posts or excerpts based on theme customizer options
-			if ( 'option2' == get_theme_mod( 'sdm_post_content' ) ) :
+			if ( 'option2' == get_theme_mod( 'pdt_post_content' ) ) :
 			
 				// display featured image full
 				if ( has_post_thumbnail() ) :
 					the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
 				endif;
 				
-				the_content( get_theme_mod( 'sdm_read_more', __( 'Read More &rarr;', 'sdm' ) ) );
+				the_content( get_theme_mod( 'pdt_read_more', __( 'Read More &rarr;', 'pdt' ) ) );
 	
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'sdm' ),
+					'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),
 					'after'  => '</div>',
 				) );
 				

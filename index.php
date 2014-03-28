@@ -19,7 +19,7 @@
 				
 				endwhile;
 	
-				sdm_content_nav( 'nav-below' );
+				pdt_content_nav( 'nav-below' );
 	
 			else :
 	

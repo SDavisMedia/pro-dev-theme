@@ -25,7 +25,7 @@ $ping = get_bloginfo('pingback_url');
 			(!empty($tagline) && (is_home() || is_front_page()) ? " | $tagline" : ''),
 
 			// Add a page number if necessary:
-			($paged >= 2 || $page >= 2 ? ' | ' . sprintf(__('Page %s', 'sdm'), max($paged, $page)) : ''); 
+			($paged >= 2 || $page >= 2 ? ' | ' . sprintf(__('Page %s', 'pdt'), max($paged, $page)) : ''); 
 		?>
 		
 		</title>
@@ -40,9 +40,9 @@ $ping = get_bloginfo('pingback_url');
 			<div class="main">
 				<header class="site-header inner">
 					<span class="site-title">
-						<?php if ( get_theme_mod( 'sdm_logo' ) ) : ?>
+						<?php if ( get_theme_mod( 'pdt_logo' ) ) : ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<img src="<?php echo get_theme_mod( 'sdm_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+								<img src="<?php echo get_theme_mod( 'pdt_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>">
 							</a>
 						<?php else : ?>
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $title ); ?>">
@@ -50,7 +50,7 @@ $ping = get_bloginfo('pingback_url');
 							</a>
 						<?php endif; ?>
 					</span>
-					<?php if ( 1 != get_theme_mod( 'sdm_hide_tagline' ) ) : ?>
+					<?php if ( 1 != get_theme_mod( 'pdt_hide_tagline' ) ) : ?>
 						<h1 class="site-description"><?php echo $tagline; ?></h1>
 					<?php endif; ?>
 					<div class="social-nav">
@@ -65,22 +65,22 @@ $ping = get_bloginfo('pingback_url');
 							$profiles_menu = array( 
 								'github'	=> array(
 									'name' 		=> 'Github',
-									'option'	=> get_theme_mod( 'sdm_github' ),
+									'option'	=> get_theme_mod( 'pdt_github' ),
 									'icon'		=> '<i class="fa fa-github-alt"></i>'
 								),
 								'twitter'	=> array(
 									'name' 		=> 'Twitter',
-									'option'	=> get_theme_mod( 'sdm_twitter' ),
+									'option'	=> get_theme_mod( 'pdt_twitter' ),
 									'icon'		=> '<i class="fa fa-twitter"></i>'
 								),
 								'facebook'	=> array(
 									'name' 		=> 'Facebook',
-									'option'	=> get_theme_mod( 'sdm_facebook' ),
+									'option'	=> get_theme_mod( 'pdt_facebook' ),
 									'icon'		=> '<i class="fa fa-facebook-square"></i>'
 								),
 								'gplus'	=> array(
 									'name' 		=> 'Google+',
-									'option'	=> get_theme_mod( 'sdm_gplus' ),
+									'option'	=> get_theme_mod( 'pdt_gplus' ),
 									'icon'		=> '<i class="fa fa-google-plus-square"></i>'
 								),
 							);
@@ -100,8 +100,8 @@ $ping = get_bloginfo('pingback_url');
 		<?php // site wide main menu area ?>
 		<div class="menu-area full">
 			<div class="main">
-				<nav id="site-navigation" class="main-navigation menu inner clear-sdm" role="navigation">
-					<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'sdm' ); ?></span>
+				<nav id="site-navigation" class="main-navigation menu inner clear-pdt" role="navigation">
+					<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'pdt' ); ?></span>
 					<?php
 						// main menu configuration 
 						$menu_args = array( 
@@ -121,7 +121,7 @@ $ping = get_bloginfo('pingback_url');
 		<?php // site wide feature box area ?>
 		<div class="feature-area full">
 			<div class="main">
-				<div class="feature-box inner clear-sdm">
+				<div class="feature-box inner clear-pdt">
 					<?php
 						// call the templates/content-feature-box.php
 						get_template_part( 'templates/content', 'feature-box' );
@@ -133,4 +133,4 @@ $ping = get_bloginfo('pingback_url');
 		<?php // site wide content area... closes in footer.php ?>
 		<div class="content-area full">
 			<div class="main">
-				<div class="site-content clear-sdm">
+				<div class="site-content clear-pdt">

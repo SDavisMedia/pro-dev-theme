@@ -21,7 +21,7 @@ if ( have_posts() ) : ?>
 					 * what author we're dealing with (if that is the case).
 					 */
 					the_post();
-					printf( __( 'Author: %s', 'sdm' ), '<span class="vcard">' . get_the_author() . '</span>' );
+					printf( __( 'Author: %s', 'pdt' ), '<span class="vcard">' . get_the_author() . '</span>' );
 					
 					/* Since we called the_post() above, we need to
 					 * rewind the loop back to the beginning that way
@@ -30,16 +30,16 @@ if ( have_posts() ) : ?>
 					rewind_posts();
 
 				elseif ( is_day() ) :
-					printf( __( 'Day: %s', 'sdm' ), '<span>' . get_the_date() . '</span>' );
+					printf( __( 'Day: %s', 'pdt' ), '<span>' . get_the_date() . '</span>' );
 
 				elseif ( is_month() ) :
-					printf( __( 'Month: %s', 'sdm' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+					printf( __( 'Month: %s', 'pdt' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
 
 				elseif ( is_year() ) :
-					printf( __( 'Year: %s', 'sdm' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+					printf( __( 'Year: %s', 'pdt' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 
 				else :
-					_e( 'Archives', 'sdm' );
+					_e( 'Archives', 'pdt' );
 
 				endif; // end taxonomy-specific title output
 			?>
@@ -66,7 +66,7 @@ if ( have_posts() ) : ?>
 
 		endwhile; // end the loop
 
-		sdm_content_nav( 'nav-below' );
+		pdt_content_nav( 'nav-below' );
 
 else :
 	

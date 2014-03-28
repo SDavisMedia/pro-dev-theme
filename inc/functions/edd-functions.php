@@ -8,11 +8,11 @@
 /** ===============
  * Allow comments on downloads
  */
-function sdm_edd_add_comments_support( $supports ) {
+function pdt_edd_add_comments_support( $supports ) {
 	$supports[] = 'comments';
 	return $supports;	
 }
-add_filter( 'edd_download_supports', 'sdm_edd_add_comments_support' );
+add_filter( 'edd_download_supports', 'pdt_edd_add_comments_support' );
 
 	
 	

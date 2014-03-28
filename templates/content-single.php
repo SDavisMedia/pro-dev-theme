@@ -11,7 +11,7 @@
 		</span>
 
 		<div class="entry-meta">
-			<?php sdm_posted_on(); ?>
+			<?php pdt_posted_on(); ?>
 		</div>
 	</header>
 
@@ -19,14 +19,14 @@
 	
 		<?php 
 			// display featured image?
-			if ( 1 == get_theme_mod( 'sdm_single_featured_image' ) && has_post_thumbnail() ) :
+			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) :
 				the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
 			endif;
 			
 			// display post content with pages if necessary
 			the_content();
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'sdm' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -38,27 +38,27 @@
 	
 			<?php
 				// translators: used between list items, there is a space after the comma
-				$category_list = get_the_category_list( __( ', ', 'sdm' ) );
+				$category_list = get_the_category_list( __( ', ', 'pdt' ) );
 	
 				// translators: used between list items, there is a space after the comma
-				$tag_list = get_the_tag_list( '', __( ', ', 'sdm' ) );
+				$tag_list = get_the_tag_list( '', __( ', ', 'pdt' ) );
 	
-				if ( ! sdm_categorized_blog() ) {
+				if ( ! pdt_categorized_blog() ) {
 				
 					// This blog only has 1 category so we just need to worry about tags in the meta text
 					if ( '' != $tag_list ) {
-						$meta_text = __( 'Tagged as %2$s.', 'sdm' );
+						$meta_text = __( 'Tagged as %2$s.', 'pdt' );
 					} else {
-						$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'sdm' );
+						$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'pdt' );
 					}
 	
 				} else {
 				
 					// But this blog has loads of categories so we should probably display them here
 					if ( '' != $tag_list ) {
-						$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'sdm' );
+						$meta_text = __( 'Posted in %1$s and tagged %2$s.', 'pdt' );
 					} else {
-						$meta_text = __( 'Posted in %1$s.', 'sdm' );
+						$meta_text = __( 'Posted in %1$s.', 'pdt' );
 					}
 	
 				} // end check for categories on this blog
@@ -71,21 +71,21 @@
 					the_title_attribute( 'echo=0' )
 				);
 				
-				edit_post_link( __( 'Edit', 'sdm' ), '<span class="edit-link"> ', '</span>' ); 
+				edit_post_link( __( 'Edit', 'pdt' ), '<span class="edit-link"> ', '</span>' ); 
 			?>
 		</div>
 	</footer>
 </article>
 
 <?php // show post footer? theme customizer options ?>
-<?php if ( 1 == get_theme_mod( 'sdm_post_footer' ) ) : ?>
+<?php if ( 1 == get_theme_mod( 'pdt_post_footer' ) ) : ?>
 	<div class="single-post-footer">
-		<div class="post-footer-header clear-sdm">
+		<div class="post-footer-header clear-pdt">
 			<div class="post-footer-avatar">
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), 75, '', get_the_author_meta( 'display_name' ) ); ?>
 			</div>
 			<div class="post-footer-author">
-				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'sdm' ); ?></h3>
+				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'pdt' ); ?></h3>
 				<p>
 				
 					<?php 
@@ -98,19 +98,19 @@
 						$social_profiles = array( 
 							'github'	=> array(
 								'name' 		=> 'Github',
-								'option'	=> get_theme_mod( 'sdm_github' )
+								'option'	=> get_theme_mod( 'pdt_github' )
 							),
 							'twitter'	=> array(
 								'name' 		=> 'Twitter',
-								'option'	=> get_theme_mod( 'sdm_twitter' )
+								'option'	=> get_theme_mod( 'pdt_twitter' )
 							),
 							'facebook'	=> array(
 								'name' 		=> 'Facebook',
-								'option'	=> get_theme_mod( 'sdm_facebook' )
+								'option'	=> get_theme_mod( 'pdt_facebook' )
 							),
 							'gplus'	=> array(
 								'name' 		=> 'Google+',
-								'option'	=> get_theme_mod( 'sdm_gplus' )
+								'option'	=> get_theme_mod( 'pdt_gplus' )
 							),
 						);
 						// Build the social networking profile links based on the $social_profiles

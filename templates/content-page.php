@@ -17,7 +17,7 @@
 			// display page content with pages if necessary
 			the_content(); 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'sdm' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),
 				'after'  => '</div>',
 			) );
 		?>

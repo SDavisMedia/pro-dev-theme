@@ -22,7 +22,7 @@
 
 			endwhile; // end the loop
 			
-			sdm_attachment_nav();
+			pdt_attachment_nav();
 		?>
 
 	</div>

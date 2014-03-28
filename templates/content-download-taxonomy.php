@@ -10,16 +10,16 @@
 
 <?php if ( have_posts() ) : $i = 1; ?>
 	<div class="store-info">
-		<?php if ( get_theme_mod( 'sdm_edd_store_archives_title' ) ) : ?>
-			<h1 class="store-title"><?php echo get_theme_mod( 'sdm_edd_store_archives_title' ); ?></h1>
+		<?php if ( get_theme_mod( 'pdt_edd_store_archives_title' ) ) : ?>
+			<h1 class="store-title"><?php echo get_theme_mod( 'pdt_edd_store_archives_title' ); ?></h1>
 		<?php endif; ?>
-		<?php if ( get_theme_mod( 'sdm_edd_store_archives_description' ) ) : ?>
+		<?php if ( get_theme_mod( 'pdt_edd_store_archives_description' ) ) : ?>
 			<div class="store-description">
-				<?php echo wpautop( get_theme_mod( 'sdm_edd_store_archives_description' ) ); ?>
+				<?php echo wpautop( get_theme_mod( 'pdt_edd_store_archives_description' ) ); ?>
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="store-front clear-sdm">
+	<div class="store-front clear-pdt">
 		<?php while ( have_posts() ) : the_post(); ?>
 			
 			<div class="threecol product">
@@ -35,8 +35,8 @@
 						<h3><?php the_title(); ?></h3>
 					</a>
 				</div>
-				<?php if ( get_theme_mod( 'sdm_product_view_details' ) ) : ?>
-					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'sdm_product_view_details' ); ?></a>
+				<?php if ( get_theme_mod( 'pdt_product_view_details' ) ) : ?>
+					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'pdt_product_view_details' ); ?></a>
 				<?php endif; ?>
 			</div>
 
@@ -56,8 +56,8 @@
 	</div>
 <?php else : ?>
 
-	<h2 class="center"><?php _e( 'Not Found', 'sdm' ); ?></h2>
-	<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'sdm' ); ?></p>
+	<h2 class="center"><?php _e( 'Not Found', 'pdt' ); ?></h2>
+	<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'pdt' ); ?></p>
 	<?php get_search_form(); ?>
 
 <?php endif;

@@ -1124,7 +1124,7 @@ cite.fn {
 	margin: 0 auto; 
 }
 
-.clear-sdm:after,
+.clear-pdt:after,
 .hentry:after {
 	content: ".";
 	display: block;

@@ -14,13 +14,13 @@
 					<span class="site-info">
 			
 						<?php
-							$credits = __( 'Built with WordPress & <a href="' . SDM_HOME . '">' . SDM_NAME . '</a>', 'sdm' );
+							$credits = __( 'Built with WordPress & <a href="' . PDT_HOME . '">' . PDT_NAME . '</a>', 'pdt' );
 							
 							// If copyright & credits are left empty or have not been set, display default info.
-							if ( '' == get_theme_mod( 'sdm_credits_copyright' ) ) :
+							if ( '' == get_theme_mod( 'pdt_credits_copyright' ) ) :
 								echo $credits;
 							else :
-								echo get_theme_mod( 'sdm_credits_copyright', $credits );
+								echo get_theme_mod( 'pdt_credits_copyright', $credits );
 							endif;
 						?>
 					
