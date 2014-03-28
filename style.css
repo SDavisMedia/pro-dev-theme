@@ -1,8 +1,8 @@
 /*
 	Theme Name: Professional Developer Theme
-	Theme URI: http://seandavis.co/
+	Theme URI: http://buildwpyourself.com/downloads/professional-developer-theme/
 	Author: Sean Davis
-	Author URI: http://sdavismedia.com
+	Author URI: http://seandavis.co/
 	Description: The Professional Developer Theme is designed to be a hub for software developers.
 	Version: 1.0
 	License: GNU General Public License
@@ -114,7 +114,6 @@ h5, h6
 .main-menu a,
 input[type="search"],
 .entry-meta,
-.comment-meta,
 .post-nav-title,
 .info-note,
 .wp-caption-text,
@@ -754,7 +753,7 @@ input[type="submit"]:hover {
 
 .hentry,
 .page-header {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 .entry-title {
@@ -856,7 +855,12 @@ body:not(.single) [class*="navigation"] .nav-next {
 }
 
 .comment-meta {
+	font-size: 12px;
 	padding-right: 10px;
+}
+
+.comment-info {
+	padding-top: 4px;
 }
 
 .comment-avatar { 
@@ -864,7 +868,7 @@ body:not(.single) [class*="navigation"] .nav-next {
 }
 
 .comment-avatar img { 
-	margin-right: 1em;
+	margin-right: 10px;
 	vertical-align: top; 
 }
 
