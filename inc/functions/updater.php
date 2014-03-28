@@ -6,11 +6,8 @@
  * https://easydigitaldownloads.com/extensions/software-licensing?ref=184
  */
 
-// This is the URL our updater / license checker pings. This should be the URL of the site with EDD installed
-define( 'EDD_SL_STORE_URL', 'http://volatylthemes.com' ); // add your own unique prefix to prevent conflicts
-
-// The name of your product. This should match the download name in EDD exactly
-define( 'EDD_SL_THEME_NAME', 'Professional Developer Theme' ); // add your own unique prefix to prevent conflicts
+define( 'PDT_SL_STORE_URL', 'http://buildwpyourself.com' );
+define( 'PDT_SL_THEME_NAME', 'Professional Developer Theme' );
 
 
 /***********************************************
@@ -161,10 +158,10 @@ class EDD_SL_Theme_Updater {
 $test_license = trim( get_option( 'edd_sample_theme_license_key' ) );
 
 $edd_updater = new EDD_SL_Theme_Updater( array( 
-		'remote_api_url' 	=> EDD_SL_STORE_URL, 	// Our store URL that is running EDD
+		'remote_api_url' 	=> PDT_SL_STORE_URL, 	// Our store URL that is running EDD
 		'version' 			=> THEME_VERSION, 		// The current theme version we are running
 		'license' 			=> $test_license, 		// The license key (used get_option above to retrieve from DB)
-		'item_name' 		=> EDD_SL_THEME_NAME,	// The name of this theme
+		'item_name' 		=> PDT_SL_THEME_NAME,	// The name of this theme
 		'author'			=> THEME_AUTHOR			// The author's name
 	)
 );
@@ -263,10 +260,10 @@ function edd_sample_theme_activate_license() {
 		$api_params = array( 
 			'edd_action' => 'activate_license', 
 			'license' => $license, 
-			'item_name' => urlencode( EDD_SL_THEME_NAME ) 
+			'item_name' => urlencode( PDT_SL_THEME_NAME ) 
 		);
 		
-		$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+		$response = wp_remote_get( add_query_arg( $api_params, PDT_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		if ( is_wp_error( $response ) )
 			return false;
@@ -303,11 +300,11 @@ function edd_sample_theme_deactivate_license() {
 		$api_params = array( 
 			'edd_action'=> 'deactivate_license', 
 			'license' 	=> $license, 
-			'item_name' => urlencode( EDD_SL_THEME_NAME ) // the name of our product in EDD
+			'item_name' => urlencode( PDT_SL_THEME_NAME ) // the name of our product in EDD
 		);
 		
 		// Call the custom API.
-		$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+		$response = wp_remote_get( add_query_arg( $api_params, PDT_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 		// make sure the response came back okay
 		if ( is_wp_error( $response ) )
@@ -339,10 +336,10 @@ function edd_sample_theme_check_license() {
 	$api_params = array( 
 		'edd_action' => 'check_license', 
 		'license' => $license, 
-		'item_name' => urlencode( EDD_SL_THEME_NAME ) 
+		'item_name' => urlencode( PDT_SL_THEME_NAME ) 
 	);
 	
-	$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+	$response = wp_remote_get( add_query_arg( $api_params, PDT_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 
 	if ( is_wp_error( $response ) )
 		return false;
