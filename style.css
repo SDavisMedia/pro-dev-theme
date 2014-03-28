@@ -102,7 +102,7 @@ h3, h4,
 	font-size: 20px;
 }
 
-h5, h6
+h5, h6,
 .comments-title,
 .page-title {
 	font-size: 16px;
@@ -257,7 +257,7 @@ blockquote,
 pre,
 .button,
 #commentform input[type="submit"],
-.featured-img,
+.featured-image,
 .content .wp-caption,
 .single-post-footer {
 	margin-bottom: 1.2em;
@@ -270,8 +270,7 @@ pre,
 }
 
 .entry-title h1,
-.more-link,
-.entry-content p:last-child {
+.more-link {
 	margin-bottom: 0;
 }
 
