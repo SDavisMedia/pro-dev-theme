@@ -96,6 +96,10 @@
 						 * footer. If not, do nothing.
 						 */
 						$social_profiles = array( 
+							'github'	=> array(
+								'name' 		=> 'Github',
+								'option'	=> get_theme_mod( 'sdm_github' )
+							),
 							'twitter'	=> array(
 								'name' 		=> 'Twitter',
 								'option'	=> get_theme_mod( 'sdm_twitter' )
@@ -107,10 +111,6 @@
 							'gplus'	=> array(
 								'name' 		=> 'Google+',
 								'option'	=> get_theme_mod( 'sdm_gplus' )
-							),
-							'github'	=> array(
-								'name' 		=> 'Github',
-								'option'	=> get_theme_mod( 'sdm_github' )
 							),
 						);
 						// Build the social networking profile links based on the $social_profiles

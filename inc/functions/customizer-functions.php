@@ -329,13 +329,21 @@ function sdm_customize_register( $wp_customize ) {
 		'description' 	=> __( 'Paste full URLs to profiles. The URLs will be used in various places around the theme like the post footer author section on single posts.', 'sdm' ),
 		'priority'   	=> 70,
 	) );
+	// github url
+	$wp_customize->add_setting( 'sdm_github', array( 'default' => null ) );
+	$wp_customize->add_control( 'sdm_github', array(
+		'label'		=> __( 'Github Profile URL', 'sdm' ),
+		'section'	=> 'sdm_social_networks',
+		'settings'	=> 'sdm_github',
+		'priority'	=> 10,
+	) );
 	// twitter url
 	$wp_customize->add_setting( 'sdm_twitter', array( 'default' => null ) );
 	$wp_customize->add_control( 'sdm_twitter', array(
 		'label'		=> __( 'Twitter Profile URL', 'sdm' ),
 		'section'	=> 'sdm_social_networks',
 		'settings'	=> 'sdm_twitter',
-		'priority'	=> 10,
+		'priority'	=> 20,
 	) );
 	// facebook url
 	$wp_customize->add_setting( 'sdm_facebook', array( 'default' => null ) );
@@ -343,7 +351,7 @@ function sdm_customize_register( $wp_customize ) {
 		'label'		=> __( 'Facebook Profile URL', 'sdm' ),
 		'section'	=> 'sdm_social_networks',
 		'settings'	=> 'sdm_facebook',
-		'priority'	=> 20,
+		'priority'	=> 30,
 	) );
 	// google plus url
 	$wp_customize->add_setting( 'sdm_gplus', array( 'default' => null ) );
@@ -351,14 +359,6 @@ function sdm_customize_register( $wp_customize ) {
 		'label'		=> __( 'Google Plus Profile URL', 'sdm' ),
 		'section'	=> 'sdm_social_networks',
 		'settings'	=> 'sdm_gplus',
-		'priority'	=> 30,
-	) );
-	// github url
-	$wp_customize->add_setting( 'sdm_github', array( 'default' => null ) );
-	$wp_customize->add_control( 'sdm_github', array(
-		'label'		=> __( 'Github Profile URL', 'sdm' ),
-		'section'	=> 'sdm_social_networks',
-		'settings'	=> 'sdm_github',
 		'priority'	=> 40,
 	) );
 	

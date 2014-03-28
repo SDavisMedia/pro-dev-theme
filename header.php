@@ -63,6 +63,11 @@ $ping = get_bloginfo('pingback_url');
 							 * footer. If not, do nothing.
 							 */
 							$profiles_menu = array( 
+								'github'	=> array(
+									'name' 		=> 'Github',
+									'option'	=> get_theme_mod( 'sdm_github' ),
+									'icon'		=> '<i class="fa fa-github-alt"></i>'
+								),
 								'twitter'	=> array(
 									'name' 		=> 'Twitter',
 									'option'	=> get_theme_mod( 'sdm_twitter' ),
@@ -77,11 +82,6 @@ $ping = get_bloginfo('pingback_url');
 									'name' 		=> 'Google+',
 									'option'	=> get_theme_mod( 'sdm_gplus' ),
 									'icon'		=> '<i class="fa fa-google-plus-square"></i>'
-								),
-								'github'	=> array(
-									'name' 		=> 'Github',
-									'option'	=> get_theme_mod( 'sdm_github' ),
-									'icon'		=> '<i class="fa fa-github-alt"></i>'
 								),
 							);
 							// Build the social networking profile links based on the $social_profiles
