@@ -63,12 +63,12 @@ function pdt_customize_register( $wp_customize ) {
 
 
 	/** ===============
-	 * Color Settings
+	 * Color Options
 	 */ 
 	// sections adjustments
-	$wp_customize->get_section( 'colors' )->title = __( 'Color Settings', 'pdt' );
+	$wp_customize->get_section( 'colors' )->title = __( 'Color Options', 'pdt' );
 	$wp_customize->get_section( 'colors' )->priority = 20;
-	// color settings
+	// color options
 	$colors = array();
 	$colors[] = array(
 		'slug'		=>'pdt_primary_color', 
@@ -77,7 +77,7 @@ function pdt_customize_register( $wp_customize ) {
 	);
 	// Build settings from $colors array
 	foreach( $colors as $color ) {	
-		// color settings
+		// color options
 		$wp_customize->add_setting( $color['slug'], array(
 				'default'		=> $color['default'],
 				'type'			=> 'option', 
