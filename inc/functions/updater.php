@@ -7,7 +7,7 @@
  */
 
 define( 'PDT_SL_STORE_URL', 'http://buildwpyourself.com' );
-define( 'PDT_SL_THEME_NAME', 'Professional Developer Theme' );
+define( 'PDT_DOWNLOAD_TITLE', 'Professional Developer Theme' );
 
 
 /***********************************************
@@ -159,10 +159,10 @@ $test_license = trim( get_option( 'pdt_license_key' ) );
 
 $edd_updater = new PDT_SL_Theme_Updater( array( 
 		'remote_api_url' 	=> PDT_SL_STORE_URL, 	// Our store URL that is running EDD
-		'version' 			=> THEME_VERSION, 		// The current theme version we are running
+		'version' 			=> PDT_VERSION, 		// The current theme version we are running
 		'license' 			=> $test_license, 		// The license key (used get_option above to retrieve from DB)
-		'item_name' 		=> PDT_SL_THEME_NAME,	// The name of this theme
-		'author'			=> THEME_AUTHOR			// The author's name
+		'item_name' 		=> PDT_DOWNLOAD_TITLE,	// The name of this theme
+		'author'			=> PDT_AUTHOR			// The author's name
 	)
 );
 
@@ -264,7 +264,7 @@ function pdt_activate_license() {
 		$api_params = array( 
 			'edd_action' => 'activate_license', 
 			'license' => $license, 
-			'item_name' => urlencode( PDT_SL_THEME_NAME ) 
+			'item_name' => urlencode( PDT_DOWNLOAD_TITLE ) 
 		);
 		
 		$response = wp_remote_get( add_query_arg( $api_params, PDT_SL_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
@@ -304,7 +304,7 @@ function pdt_deactivate_license() {
 		$api_params = array( 
 			'edd_action'=> 'deactivate_license', 
 			'license' 	=> $license, 
-			'item_name' => urlencode( PDT_SL_THEME_NAME ) // the name of our product in EDD
+			'item_name' => urlencode( PDT_DOWNLOAD_TITLE ) // the name of our product in EDD
 		);
 		
 		// Call the custom API.
