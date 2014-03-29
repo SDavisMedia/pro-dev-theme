@@ -15,7 +15,7 @@
 define( 'PDT_NAME', 'Professional Developer Theme' );
 define( 'PDT_AUTHOR', 'Sean Davis' );
 define( 'PDT_VERSION', '1.0' );
-define( 'PDT_HOME', 'http://sdavismedia.com' );
+define( 'PDT_HOME', 'http://buildwpyourself.com/downloads/professional-developer-theme/' );
 define( 'PDT_DIR', get_template_directory() );
 define( 'PDT_DIR_URI', get_template_directory_uri() );
 define( 'PDT_THEME_URI', get_stylesheet_directory_uri() );
