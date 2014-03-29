@@ -1,32 +1,11 @@
-The Professional Developer's Theme for WordPress
+Professional Developer Theme for WordPress
 =======================
 
-by Sean Davis - SDavisMedia.com & VolatylThemes.com
-
-
-Status
-=======================
-
-***INCOMPLETE***
-
-
-What Is This?
-=======================
-
-Professional Developers is a free WordPress Theme created to be a one-stop shop 
-for software downloads, documentation, change logs, and support.
-
-The theme is not flashy. Styles are kept to a minimum and the focus is kept on
-logical functionality.
-
-The ideal user would be some type of software developer (doesn't matter what kind
-of software) that has a software to sell or giveaway that requires a place to handle
-all needs such as support forums, documentation, changelogs, etc. 
+Theme URI: [Build WordPress Yourself - Pro Dev Theme](http://buildwpyourself.com/downloads/professional-developer-theme/)
+by [Sean Davis](http://seandavis.co/)
+Description: The Professional Developer Theme is designed to be a hub for software developers.
 
 
 Integration
 =======================
-The Professional Developer's Theme for WordPress is designed to work with other
-software to achieve the above goals. WordPress plugins like Easy Digital Downloads
-and bbPress are integrated into the system so that minimal adjustments need to be
-made to the theme to use them.
+The Professional Developer Theme is designed to work with other popular WordPress software. WordPress plugins like Easy Digital Downloads and bbPress are integrated into the system so that minimal adjustments, if any, need to be made to the theme to use them.
