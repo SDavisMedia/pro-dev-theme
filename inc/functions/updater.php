@@ -14,7 +14,7 @@ define( 'PDT_SL_THEME_NAME', 'Professional Developer Theme' );
 * updater class
 ***********************************************/
 
-class EDD_SL_Theme_Updater {
+class PDT_SL_Theme_Updater {
 	private $remote_api_url;
 	private $request_data;
 	private $response_key;
@@ -152,12 +152,12 @@ class EDD_SL_Theme_Updater {
 
 
 /***********************************************
-* This is our updater
+* the updater
 ***********************************************/
 
-$test_license = trim( get_option( 'edd_sample_theme_license_key' ) );
+$test_license = trim( get_option( 'pdt_license_key' ) );
 
-$edd_updater = new EDD_SL_Theme_Updater( array( 
+$edd_updater = new PDT_SL_Theme_Updater( array( 
 		'remote_api_url' 	=> PDT_SL_STORE_URL, 	// Our store URL that is running EDD
 		'version' 			=> THEME_VERSION, 		// The current theme version we are running
 		'license' 			=> $test_license, 		// The license key (used get_option above to retrieve from DB)
@@ -168,28 +168,28 @@ $edd_updater = new EDD_SL_Theme_Updater( array(
 
 
 /***********************************************
-* Add our menu item
+* add menu item
 ***********************************************/
 
-function edd_sample_theme_license_menu() {
-	add_theme_page( __( 'Pro Dev Theme', 'pdt' ), __( 'Pro Dev Theme', 'pdt' ), 'manage_options', 'pro-dev-license', 'edd_sample_theme_license_page' );
+function pdt_license_menu() {
+	add_theme_page( __( 'Pro Dev Theme', 'pdt' ), __( 'Pro Dev Theme', 'pdt' ), 'manage_options', 'pro-dev-license', 'pdt_license_page' );
 }
-add_action('admin_menu', 'edd_sample_theme_license_menu');
+add_action('admin_menu', 'pdt_license_menu');
 
 
 /***********************************************
-* Sample settings page, substitute with yours
+* PDT settings page
 ***********************************************/
 
-function edd_sample_theme_license_page() {
-	$license 	= get_option( 'edd_sample_theme_license_key' );
-	$status 	= get_option( 'edd_sample_theme_license_key_status' );
+function pdt_license_page() {
+	$license 	= get_option( 'pdt_license_key' );
+	$status 	= get_option( 'pdt_license_key_status' );
 	?>
 	<div class="wrap">
 		<h2><?php echo PDT_NAME . __( ' Settings', 'pdt' ); ?></h2>
 		<form method="post" action="options.php">
 		
-			<?php settings_fields('edd_sample_theme_license'); ?>
+			<?php settings_fields('pdt_license'); ?>
 			
 			<table class="form-table">
 				<tbody>
@@ -198,7 +198,7 @@ function edd_sample_theme_license_page() {
 							<?php _e('License Key', 'pdt'); ?>
 						</th>
 						<td>
-							<input id="edd_sample_theme_license_key" name="edd_sample_theme_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" placeholder="Enter your license key" />
+							<input id="pdt_license_key" name="pdt_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" placeholder="Enter your license key" />
 						</td>
 					</tr>
 					<?php if( false !== $license ) { ?>
@@ -209,11 +209,11 @@ function edd_sample_theme_license_page() {
 							<td>
 								<?php if( $status !== false && $status == 'valid' ) { ?>
 									<span style="color:green;"><?php _e('active', 'pdt'); ?></span>
-									<?php wp_nonce_field( 'edd_sample_nonce', 'edd_sample_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="edd_theme_license_deactivate" value="<?php _e('Deactivate License', 'pdt'); ?>"/>
+									<?php wp_nonce_field( 'pdt_nonce', 'pdt_nonce' ); ?>
+									<input type="submit" class="button-secondary" name="pdt_license_deactivate" value="<?php _e('Deactivate License', 'pdt'); ?>"/>
 								<?php } else {
-									wp_nonce_field( 'edd_sample_nonce', 'edd_sample_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="edd_theme_license_activate" value="<?php _e('Activate License', 'pdt'); ?>"/>
+									wp_nonce_field( 'pdt_nonce', 'pdt_nonce' ); ?>
+									<input type="submit" class="button-secondary" name="pdt_license_activate" value="<?php _e('Activate License', 'pdt'); ?>"/>
 								<?php } ?>
 							</td>
 						</tr>
@@ -226,39 +226,40 @@ function edd_sample_theme_license_page() {
 	<?php
 }
 
-function edd_sample_theme_register_option() {
-	// creates our settings in the options table
-	register_setting('edd_sample_theme_license', 'edd_sample_theme_license_key', 'edd_theme_sanitize_license' );
+function pdt_register_option() {
+	// settings page license option
+	register_setting('pdt_license', 'pdt_license_key', 'pdt_sanitize_license' );
 }
-add_action('admin_init', 'edd_sample_theme_register_option');
+add_action('admin_init', 'pdt_register_option');
 
 
 /***********************************************
-* Gets rid of the local license status option
+* get rid of the local license status option
 * when adding a new one
 ***********************************************/
 
-function edd_theme_sanitize_license( $new ) {
-	$old = get_option( 'edd_sample_theme_license_key' );
+function pdt_sanitize_license( $new ) {
+	$old = get_option( 'pdt_license_key' );
 	if( $old && $old != $new ) {
-		delete_option( 'edd_sample_theme_license_key_status' ); // new license has been entered, so must reactivate
+		delete_option( 'pdt_license_key_status' ); // new license has been entered, so must reactivate
 	}
 	return $new;
 }
 
+
 /***********************************************
-* Illustrates how to activate a license key.
+* activate license key
 ***********************************************/
 
-function edd_sample_theme_activate_license() {
+function pdt_activate_license() {
 
-	if( isset( $_POST['edd_theme_license_activate'] ) ) { 
-	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) ) 	
+	if( isset( $_POST['pdt_license_activate'] ) ) { 
+	 	if( ! check_admin_referer( 'pdt_nonce', 'pdt_nonce' ) ) 	
 			return; // get out if we didn't click the Activate button
 
 		global $wp_version;
 
-		$license = trim( get_option( 'edd_sample_theme_license_key' ) );
+		$license = trim( get_option( 'pdt_license_key' ) );
 				
 		$api_params = array( 
 			'edd_action' => 'activate_license', 
@@ -275,28 +276,28 @@ function edd_sample_theme_activate_license() {
 		
 		// $license_data->license will be either "active" or "inactive"
 
-		update_option( 'edd_sample_theme_license_key_status', $license_data->license );
+		update_option( 'pdt_license_key_status', $license_data->license );
 
 	}
 }
-add_action('admin_init', 'edd_sample_theme_activate_license');
+add_action('admin_init', 'pdt_activate_license');
+
 
 /***********************************************
-* Illustrates how to deactivate a license key.
-* This will descrease the site count
+* deactivate license key
 ***********************************************/
 
-function edd_sample_theme_deactivate_license() {
+function pdt_deactivate_license() {
 
 	// listen for our activate button to be clicked
-	if( isset( $_POST['edd_theme_license_deactivate'] ) ) {
+	if( isset( $_POST['pdt_license_deactivate'] ) ) {
 
 		// run a quick security check 
-	 	if( ! check_admin_referer( 'edd_sample_nonce', 'edd_sample_nonce' ) ) 	
+	 	if( ! check_admin_referer( 'pdt_nonce', 'pdt_nonce' ) ) 	
 			return; // get out if we didn't click the Activate button
 
 		// retrieve the license from the database
-		$license = trim( get_option( 'edd_sample_theme_license_key' ) );
+		$license = trim( get_option( 'pdt_license_key' ) );
 			
 
 		// data to send in our API request
@@ -318,23 +319,22 @@ function edd_sample_theme_deactivate_license() {
 		
 		// $license_data->license will be either "deactivated" or "failed"
 		if( $license_data->license == 'deactivated' )
-			delete_option( 'edd_sample_theme_license_key' );
+			delete_option( 'pdt_license_key' );
 
 	}
 }
-add_action('admin_init', 'edd_sample_theme_deactivate_license');
-
+add_action('admin_init', 'pdt_deactivate_license');
 
 
 /***********************************************
-* Illustrates how to check if a license is valid
+* is license valid?
 ***********************************************/
 
-function edd_sample_theme_check_license() {
+function pdt_check_license() {
 
 	global $wp_version;
 
-	$license = trim( get_option( 'edd_sample_theme_license_key' ) );
+	$license = trim( get_option( 'pdt_license_key' ) );
 		
 	$api_params = array( 
 		'edd_action' => 'check_license', 
