@@ -850,7 +850,7 @@ body:not(.single) [class*="navigation"] .nav-next {
 }
 
 .comment-meta {
-	background: #fafafa;
+	background: #fff;
 	font-size: 12px;
 	padding-right: 10px;
 }
@@ -874,6 +874,10 @@ cite.fn {
 
 .comment-body {
 	padding: 1em 0 3em;
+}
+
+.pingback .comment-body {
+	padding-bottom: 0;
 }
 
 .comment-content {
