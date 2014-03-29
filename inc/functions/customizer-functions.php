@@ -134,12 +134,20 @@ function pdt_customize_register( $wp_customize ) {
 		'settings' 	=> 'pdt_read_more',
 		'priority'	=> 20,
 	) );
+	// show featured images on feed?
+	$wp_customize->add_setting( 'pdt_feed_featured_image', array( 'default' => 0 ) );
+	$wp_customize->add_control( 'pdt_feed_featured_image', array(
+		'label'		=> __( 'Show Featured Images in blog feed (full content)?', 'pdt' ),
+		'section'	=> 'pdt_content_section',
+		'priority'	=> 30,
+		'type'      => 'checkbox',
+	) );
 	// show featured images on posts?
 	$wp_customize->add_setting( 'pdt_single_featured_image', array( 'default' => 1 ) );
 	$wp_customize->add_control( 'pdt_single_featured_image', array(
 		'label'		=> __( 'Show Featured Images on Single Posts?', 'pdt' ),
 		'section'	=> 'pdt_content_section',
-		'priority'	=> 30,
+		'priority'	=> 40,
 		'type'      => 'checkbox',
 	) );
 	// show single post footer?
@@ -147,7 +155,7 @@ function pdt_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'pdt_post_footer', array(
 		'label'		=> __( 'Show Post Footer on Single Posts?', 'pdt' ),
 		'section'	=> 'pdt_content_section',
-		'priority'	=> 40,
+		'priority'	=> 50,
 		'type'      => 'checkbox',
 	) );
 	// comments on pages?
@@ -155,7 +163,7 @@ function pdt_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'pdt_page_comments', array(
 		'label'		=> __( 'Display Comments on Standard Pages?', 'pdt' ),
 		'section'	=> 'pdt_content_section',
-		'priority'	=> 50,
+		'priority'	=> 60,
 		'type'      => 'checkbox',
 	) );
 	// credits & copyright
@@ -165,7 +173,7 @@ function pdt_customize_register( $wp_customize ) {
 		'label'		=> __( 'Footer Credits & Copyright', 'pdt' ),
 		'section'	=> 'pdt_content_section',
 		'settings'	=> 'pdt_credits_copyright',
-		'priority'	=> 60,
+		'priority'	=> 70,
 	) );	
 	
 
