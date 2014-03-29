@@ -97,26 +97,27 @@ $ping = get_bloginfo('pingback_url');
 			</div>
 		</div>
 	
-		<?php // site wide main menu area ?>
-		<div class="menu-area full">
-			<div class="main">
-				<nav id="site-navigation" class="main-navigation menu inner clear-pdt" role="navigation">
-					<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'pdt' ); ?></span>
-					<?php
-						// main menu configuration 
-						$menu_args = array( 
-							'theme_location' => 'main',
-							'container_class' => 'main-menu',
-							'fallback_cb' => '' 
-						);
-						wp_nav_menu( $menu_args );
-					?>
-					<div class="search-container">
-						<i class="fa fa-search main-search-icon"></i><?php get_search_form(); ?>
-					</div>
-				</nav>
+		<?php if ( has_nav_menu( 'main' ) ) : // show the main menu if it has been assigned a menu ?>
+			<div class="menu-area full">
+				<div class="main">
+					<nav id="site-navigation" class="main-navigation menu inner clear-pdt" role="navigation">
+						<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'pdt' ); ?></span>
+						<?php
+							// main menu configuration 
+							$menu_args = array( 
+								'theme_location' => 'main',
+								'container_class' => 'main-menu',
+								'fallback_cb' => '' 
+							);
+							wp_nav_menu( $menu_args );
+						?>
+						<div class="search-container">
+							<i class="fa fa-search main-search-icon"></i><?php get_search_form(); ?>
+						</div>
+					</nav>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 	
 		<?php // site wide feature box area ?>
 		<div class="feature-area full">
