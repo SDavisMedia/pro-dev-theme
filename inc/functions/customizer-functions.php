@@ -4,6 +4,7 @@
  */
 
 function pdt_customize_register( $wp_customize ) {	
+
 	
 	
 	/** ===============
@@ -21,6 +22,7 @@ function pdt_customize_register( $wp_customize ) {
 	<?php
 		}
 	}	
+
 
 
 	/** ===============
@@ -57,6 +59,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'	=> 50,
 		'type'      => 'checkbox',
 	) );	
+
 
 
 	/** ===============
@@ -102,6 +105,7 @@ function pdt_customize_register( $wp_customize ) {
 			'gray'		=> 'Gray'
 		),
 	) ) );	
+
 
 
 	/** ===============
@@ -175,6 +179,7 @@ function pdt_customize_register( $wp_customize ) {
 		'settings'	=> 'pdt_credits_copyright',
 		'priority'	=> 70,
 	) );	
+	
 	
 
 	/** ===============
@@ -254,6 +259,7 @@ function pdt_customize_register( $wp_customize ) {
 	) );	
 	
 
+
 	/** ===============
 	 * bbPress Options
 	 */
@@ -273,6 +279,7 @@ function pdt_customize_register( $wp_customize ) {
 			'type'      => 'checkbox',
 		) );
 	}	
+	
 	
 
 	/** ===============
@@ -329,6 +336,7 @@ function pdt_customize_register( $wp_customize ) {
 		) );
 	}	
 	
+	
 
 	/** ===============
 	 * Social Network Options
@@ -371,6 +379,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'	=> 40,
 	) );	
 	
+	
 
 	/** ===============
 	 * Navigation Menu
@@ -378,6 +387,7 @@ function pdt_customize_register( $wp_customize ) {
 	// section adjustments
 	$wp_customize->get_section( 'nav' )->title = __( 'Navigation Menu', 'pdt' );
 	$wp_customize->get_section( 'nav' )->priority = 80;	
+	
 	
 
 	/** ===============
@@ -387,6 +397,7 @@ function pdt_customize_register( $wp_customize ) {
 	$wp_customize->get_section( 'static_front_page' )->priority = 90;	
 }
 add_action( 'customize_register', 'pdt_customize_register' );
+
 
 
 /** ===============
@@ -406,27 +417,46 @@ function pdt_customizer_head_styles() {
 			.site-title a:hover, 
 			.main-menu ul li:hover > ul a:hover, 
 			.product-title:hover { 
-				color: <?php echo $pdt_primary_color; ?>; 
+				color: <?php echo sanitize_hex_color( $pdt_primary_color ); ?>; 
 			}
 			.bypostauthor .comment-meta { 
-				border-right: 1px solid <?php echo $pdt_primary_color; ?>; 
+				border-right: 1px solid <?php echo sanitize_hex_color( $pdt_primary_color ); ?>; 
 			}
 			@media screen and (min-width: 768px) {
 				.main-menu > ul > li > a:hover, 
 				.main-menu > ul > .current-menu-item > a { 
-					border-color: <?php echo $pdt_primary_color; ?>; 
+					border-color: <?php echo sanitize_hex_color( $pdt_primary_color ); ?>; 
 				}
 			}
 			@media screen and (max-width: 767px) {
 				.main-menu a:hover, 
 				.main-menu ul li:hover > ul a:hover { 
-					color: <?php echo $pdt_primary_color; ?>; 
+					color: <?php echo sanitize_hex_color( $pdt_primary_color ); ?>; 
 				}
 			}
 		<?php endif; ?>
 	</style>
 <?php }
 add_action( 'wp_head','pdt_customizer_head_styles' );
+
+
+
+/** ===============
+ * sanitize hex colors
+ */
+if ( !function_exists( 'sanitize_hex_color' ) ) {
+	function sanitize_hex_color( $color ) {
+		if ( '' === $color )
+			return '';
+
+		// 3 or 6 hex digits, or the empty string.
+		if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+			return $color;
+
+		return null;
+	}
+}
+
 
 
 /** ===============
@@ -444,6 +474,7 @@ function pdt_customizer_styles() { ?>
 	</style>
 <?php }
 add_action('customize_controls_print_styles', 'pdt_customizer_styles');
+
 
 
 /** ===============
