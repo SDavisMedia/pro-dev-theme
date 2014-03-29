@@ -19,8 +19,11 @@
 	
 		<?php 
 			// display featured image?
-			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) :
-				the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
+			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) : ?>
+				<div class="featured-image">
+					<?php the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) ); ?>
+				</div>
+			<?php
 			endif;
 			
 			// display post content with pages if necessary
