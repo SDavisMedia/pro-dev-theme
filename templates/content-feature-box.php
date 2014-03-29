@@ -24,9 +24,9 @@ if ( is_front_page() ) :
 				<?php endif; ?>
 			</div>
 			<div class="info-cta">
-				<?php if ( get_theme_mod( 'pdt_featured_info_note' ) ) : ?>
+				<?php if ( get_theme_mod( 'pdt_featured_info_note' ) || get_theme_mod( 'pdt_featured_info_notes_headline' ) ) : ?>
 					<span class="info-subtitle">
-						<?php _e( 'Additional Notes: ', 'pdt' ); ?>
+						<?php echo get_theme_mod( 'pdt_featured_info_notes_headline' ); ?>
 					</span>
 					<span class="info-note">
 						<?php echo wpautop( get_theme_mod( 'pdt_featured_info_note' ) ); ?>

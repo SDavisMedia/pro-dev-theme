@@ -30,6 +30,11 @@
 			$( '.info-box-title' ).text( to );
 		} );
 	} );
+	wp.customize( 'pdt_featured_info_notes_headline', function( value ) {
+		value.bind( function( to ) {
+			$( '.info-subtitle' ).text( to );
+		} );
+	} );
 	wp.customize( 'pdt_featured_info_button_text', function( value ) {
 		value.bind( function( to ) {
 			$( '.cta-button' ).text( to );

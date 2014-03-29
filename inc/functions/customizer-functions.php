@@ -205,7 +205,7 @@ function pdt_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'pdt_featured_info_headline' )->transport = 'postMessage';
 	$wp_customize->add_setting( 'pdt_featured_info_headline', array( 'default' => null ) );
 	$wp_customize->add_control( 'pdt_featured_info_headline', array(
-		'label'		=> __( 'Featured Information Headline', 'pdt' ),
+		'label'		=> __( 'Featured Info Headline', 'pdt' ),
 		'section'	=> 'pdt_featured_info',
 		'settings'	=> 'pdt_featured_info_headline',
 		'priority'	=> 30,
@@ -213,15 +213,24 @@ function pdt_customize_register( $wp_customize ) {
 	// featured info description
 	$wp_customize->add_setting( 'pdt_featured_info_description', array( 'default' => null ) );
 	$wp_customize->add_control( new pdt_customize_textarea_control( $wp_customize, 'pdt_featured_info_description', array(
-		'label'		=> __( 'Featured Information Description', 'pdt' ),
+		'label'		=> __( 'Featured Info Description', 'pdt' ),
 		'section'	=> 'pdt_featured_info',
 		'settings'	=> 'pdt_featured_info_description',
 		'priority'	=> 40,
 	) ) );
+	// featured info notes headline
+	$wp_customize->get_setting( 'pdt_featured_info_notes_headline' )->transport = 'postMessage';
+	$wp_customize->add_setting( 'pdt_featured_info_notes_headline', array( 'default' => null ) );
+	$wp_customize->add_control( 'pdt_featured_info_notes_headline', array(
+		'label'		=> __( 'Featured Info Additional Notes Headline', 'pdt' ),
+		'section'	=> 'pdt_featured_info',
+		'settings'	=> 'pdt_featured_info_notes_headline',
+		'priority'	=> 50,
+	) );
 	// featured info notes
 	$wp_customize->add_setting( 'pdt_featured_info_note', array( 'default' => null ) );
 	$wp_customize->add_control( new pdt_customize_textarea_control( $wp_customize, 'pdt_featured_info_note', array(
-		'label'		=> __( 'Featured Information Additional Notes', 'pdt' ),
+		'label'		=> __( 'Featured Info Additional Notes', 'pdt' ),
 		'section'	=> 'pdt_featured_info',
 		'settings'	=> 'pdt_featured_info_note',
 		'priority'	=> 60,
@@ -229,7 +238,7 @@ function pdt_customize_register( $wp_customize ) {
 	// featured info url
 	$wp_customize->add_setting( 'pdt_featured_info_url', array( 'default' => null ) );
 	$wp_customize->add_control( 'pdt_featured_info_url', array(
-		'label'		=> __( 'URL to More Information', 'pdt' ),
+		'label'		=> __( 'URL to More Info', 'pdt' ),
 		'section'	=> 'pdt_featured_info',
 		'settings'	=> 'pdt_featured_info_url',
 		'priority'	=> 70,
