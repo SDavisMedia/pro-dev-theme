@@ -1,4 +1,4 @@
-Professional Developer Theme for WordPress
+Professional Developer Theme
 =======================
 
 Theme URI: [Build WordPress Yourself - Pro Dev Theme](http://buildwpyourself.com/downloads/professional-developer-theme/)
