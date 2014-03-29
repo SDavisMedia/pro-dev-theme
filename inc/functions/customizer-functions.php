@@ -3,8 +3,7 @@
  * Theme Customizer
  */
 
-function pdt_customize_register( $wp_customize ) {
-	
+function pdt_customize_register( $wp_customize ) {	
 	
 	
 	/** ===============
@@ -21,8 +20,7 @@ function pdt_customize_register( $wp_customize ) {
 	
 	<?php
 		}
-	}
-	
+	}	
 
 
 	/** ===============
@@ -58,8 +56,7 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'title_tagline',
 		'priority'	=> 50,
 		'type'      => 'checkbox',
-	) );
-	
+	) );	
 
 
 	/** ===============
@@ -104,8 +101,7 @@ function pdt_customize_register( $wp_customize ) {
 			'blue'		=> 'Blue',
 			'gray'		=> 'Gray'
 		),
-	) ) );
-	
+	) ) );	
 
 
 	/** ===============
@@ -170,8 +166,7 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'pdt_content_section',
 		'settings'	=> 'pdt_credits_copyright',
 		'priority'	=> 60,
-	) );
-	
+	) );	
 	
 
 	/** ===============
@@ -239,8 +234,7 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'pdt_featured_info',
 		'settings'	=> 'pdt_featured_info_button_text',
 		'priority'	=> 80,
-	) );
-	
+	) );	
 	
 
 	/** ===============
@@ -261,8 +255,7 @@ function pdt_customize_register( $wp_customize ) {
 			'priority'	=> 10,
 			'type'      => 'checkbox',
 		) );
-	}
-	
+	}	
 	
 
 	/** ===============
@@ -317,8 +310,7 @@ function pdt_customize_register( $wp_customize ) {
 			'settings' 	=> 'pdt_store_front_count',
 			'priority'	=> 50,
 		) );
-	}
-	
+	}	
 	
 
 	/** ===============
@@ -360,8 +352,7 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'pdt_social_networks',
 		'settings'	=> 'pdt_gplus',
 		'priority'	=> 40,
-	) );
-	
+	) );	
 	
 
 	/** ===============
@@ -369,8 +360,7 @@ function pdt_customize_register( $wp_customize ) {
 	 */
 	// section adjustments
 	$wp_customize->get_section( 'nav' )->title = __( 'Navigation Menu', 'pdt' );
-	$wp_customize->get_section( 'nav' )->priority = 80;
-	
+	$wp_customize->get_section( 'nav' )->priority = 80;	
 	
 
 	/** ===============
@@ -382,7 +372,6 @@ function pdt_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'pdt_customize_register' );
 
 
-
 /** ===============
  * Add Customizer theme styles to <head>
  */
@@ -390,28 +379,37 @@ function pdt_customizer_head_styles() {
 	$pdt_primary_color = get_option( 'pdt_primary_color' ); ?>
 
 	<style type="text/css">
-	
 		<?php if ( get_theme_mod( 'pdt_big_header' ) ) : // big header ?>
 			.site-header { padding: 2em 14px; }
 			.site-title { font-size: 24px; }
 			.social-nav { top: 31px; }
 		<?php endif; ?>
-
-		<?php if ( '#015F8E' != $pdt_primary_color ) : // Primary design color ?>
-			a, .site-title a:hover, .main-menu ul li:hover > ul a:hover, .product-title:hover { color: <?php echo $pdt_primary_color; ?>; }
-			.bypostauthor .comment-meta { border-right: 1px solid <?php echo $pdt_primary_color; ?>; }
+		<?php if ( '#015F8E' != $pdt_primary_color && '' != $pdt_primary_color ) : // Primary design color ?>
+			a, 
+			.site-title a:hover, 
+			.main-menu ul li:hover > ul a:hover, 
+			.product-title:hover { 
+				color: <?php echo $pdt_primary_color; ?>; 
+			}
+			.bypostauthor .comment-meta { 
+				border-right: 1px solid <?php echo $pdt_primary_color; ?>; 
+			}
 			@media screen and (min-width: 768px) {
-				.main-menu > ul > li > a:hover, .main-menu > ul > .current-menu-item > a { border-color: <?php echo $pdt_primary_color; ?>; }
+				.main-menu > ul > li > a:hover, 
+				.main-menu > ul > .current-menu-item > a { 
+					border-color: <?php echo $pdt_primary_color; ?>; 
+				}
 			}
 			@media screen and (max-width: 767px) {
-				.main-menu a:hover, .main-menu ul li:hover > ul a:hover { color: <?php echo $pdt_primary_color; ?>; }
+				.main-menu a:hover, 
+				.main-menu ul li:hover > ul a:hover { 
+					color: <?php echo $pdt_primary_color; ?>; 
+				}
 			}
 		<?php endif; ?>
-		
 	</style>
 <?php }
 add_action( 'wp_head','pdt_customizer_head_styles' );
-
 
 
 /** ===============
@@ -429,7 +427,6 @@ function pdt_customizer_styles() { ?>
 	</style>
 <?php }
 add_action('customize_controls_print_styles', 'pdt_customizer_styles');
-
 
 
 /** ===============
