@@ -18,7 +18,7 @@ $ping = get_bloginfo('pingback_url');
 		<?php 
 			// page title configuration
 			echo
-			wp_title( '|', true, 'right' ),
+			wp_title( '|', false, 'right' ),
 			$title,
 
 			// Add the blog description for the home/front page.
