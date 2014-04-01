@@ -922,6 +922,10 @@ cite.fn {
 	font-style: italic;
 }
 
+.sidebar .edd_purchase_submit_wrapper .button {
+	margin-bottom: 0;
+}
+
 
 /* =feature
 -------------------------------------------------------------- */
