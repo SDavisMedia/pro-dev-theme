@@ -23,7 +23,7 @@
 	
 			else :
 	
-				// get main template HTML from template file
+				// get main template HTML from no-results template file
 				get_template_part( 'templates/no-results', 'index' );
 	
 			endif; // end the loop
