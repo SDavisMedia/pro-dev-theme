@@ -1,6 +1,6 @@
 <?php
 /**
- * the bbpress (forum) sidebar widget area
+ * the EDD sidebar widget area
  */
 ?>
 
