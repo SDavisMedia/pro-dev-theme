@@ -285,7 +285,7 @@ add_filter( 'excerpt_length', 'pdt_custom_excerpt_length', 999 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function pdt_excerpt_more( $more ) {
-	if ( is_page_template( 'edd_templates/edd-store-front.php' ) ) {
+	if ( is_page_template( 'edd_templates/edd-store-front.php' ) || is_post_type_archive( 'download') ) {
 		return '...';
 	} else {
 		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'pdt_read_more', __( 'Read More &rarr;', 'pdt' ) ) . '</a></div>';
