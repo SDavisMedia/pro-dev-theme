@@ -872,6 +872,10 @@ cite.fn {
 	font-style: normal; 
 } 
 
+.comment-awaiting-moderation {
+	color: #f00;
+}
+
 .comment-body {
 	padding: 1em 0 3em;
 }

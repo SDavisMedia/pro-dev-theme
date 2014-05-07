@@ -39,11 +39,11 @@ if ( ! function_exists( 'pdt_comment' ) ) :
 								<?php edit_comment_link( __( 'Edit', 'pdt' ), '<span class="edit-link">', '</span>' ); ?>
 							</span>
 						</div>
-		
-						<?php if ( '0' == $comment->comment_approved ) : ?>
-						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'pdt' ); ?></p>
-						<?php endif; ?>
 					</footer>
+		
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+					<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'pdt' ); ?></p>
+					<?php endif; ?>
 		
 					<div class="comment-content">
 						<?php comment_text(); ?>
