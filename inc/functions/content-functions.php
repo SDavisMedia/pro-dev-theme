@@ -6,6 +6,21 @@
 
 
 /** ===============
+ * fallback function for empty menus
+ */
+function pdt_menu_fallback() { ?>
+	<div class="main-menu">
+		<ul id="menu-main-menu" class="menu nav-menu">
+			<li class="menu-item">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>"><?php _e( 'Home', 'pdt' ); ?></a>
+			</li>
+		</ul>
+	</div>
+<?php }
+
+
+
+/** ===============
  * Prints HTML with meta information for the current post-date/time and author.
  */
 if ( ! function_exists( 'pdt_posted_on' ) ) :
