@@ -1091,7 +1091,9 @@ cite.fn {
 
 .tax-download_tag .continue-reading,
 .tax-download_category .continue-reading,
-.post-type-archive-download div.sharedaddy, div.sharedaddy .sd-block {
+.post-type-archive-download div.sharedaddy,
+.tax-download_category div.sharedaddy,
+.tax-download_tag div.sharedaddy {
 	display: none;
 }
 
