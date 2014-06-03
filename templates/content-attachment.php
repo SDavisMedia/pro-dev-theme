@@ -6,11 +6,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-attachment' ); ?>>
 	<header class="entry-header">
-		<span class="entry-title">
-			<h1><?php the_title(); ?></h1>
-		</span>
+		<?php the_title( '<span class="entry-title"><h1>', '</h1></span>' ); ?>
 		<div class="entry-meta">
-		
 			<?php
 				// image byline information
 				$metadata = wp_get_attachment_metadata();
@@ -27,7 +24,7 @@
 
 				edit_post_link( __( 'Edit', 'pdt' ), '<span class="edit-link">', '</span>' );
 			?>
-			
+
 		</div>
 	</header>
 

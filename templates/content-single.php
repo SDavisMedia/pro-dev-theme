@@ -6,24 +6,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 	<header class="entry-header">
-		<span class="entry-title">
-			<h1><?php the_title(); ?></h1>
-		</span>
-
+		<?php the_title( '<span class="entry-title"><h1>', '</h1></span>' ); ?>
 		<div class="entry-meta">
 			<?php pdt_posted_on(); ?>
 		</div>
 	</header>
 
 	<section class="entry-content">
-	
 		<?php 
 			// display featured image?
 			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) : ?>
 				<div class="featured-image">
 					<?php the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) ); ?>
 				</div>
-			<?php
+				<?php
 			endif;
 			
 			// display post content with pages if necessary
@@ -33,12 +29,10 @@
 				'after'  => '</div>',
 			) );
 		?>
-		
 	</section>
 
 	<footer class="entry-footer">
 		<div class="entry-meta">
-	
 			<?php
 				// translators: used between list items, there is a space after the comma
 				$category_list = get_the_category_list( __( ', ', 'pdt' ) );
@@ -90,7 +84,6 @@
 			<div class="post-footer-author">
 				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'pdt' ); ?></h3>
 				<p>
-				
 					<?php 
 						/**
 						 * Built into the Customizer are a fields for social networking
@@ -101,19 +94,19 @@
 						$social_profiles = array( 
 							'github'	=> array(
 								'name' 		=> 'Github',
-								'option'	=> get_theme_mod( 'pdt_github' )
+								'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
 							),
 							'twitter'	=> array(
 								'name' 		=> 'Twitter',
-								'option'	=> get_theme_mod( 'pdt_twitter' )
+								'option'	=> esc_url( get_theme_mod( 'pdt_twitter' ) ),
 							),
 							'facebook'	=> array(
 								'name' 		=> 'Facebook',
-								'option'	=> get_theme_mod( 'pdt_facebook' )
+								'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
 							),
 							'gplus'	=> array(
 								'name' 		=> 'Google+',
-								'option'	=> get_theme_mod( 'pdt_gplus' )
+								'option'	=> esc_url( get_theme_mod( 'pdt_gplus' ) ),
 							),
 						);
 						// Build the social networking profile links based on the $social_profiles
@@ -122,13 +115,14 @@
 								echo '<a href="', $profile[ 'option' ], '">', $profile[ 'name' ], '</a>'; 
 							endif;
 						}
-					?>
-										
+					?>			
 				</p>
 			</div>
 		</div>
-		<div class="post-footer-body">
-			<p><?php echo get_the_author_meta( 'description' ); ?></p>
-		</div>
+		<?php if ( get_the_author_meta( 'description' ) ) : ?>
+			<div class="post-footer-body">
+				<p><?php echo get_the_author_meta( 'description' ); ?></p>
+			</div>
+		<?php endif; ?>
 	</div>
 <?php endif; ?>

@@ -108,9 +108,9 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'	=> 20,
 		'type'      => 'radio',
 		'choices'   => array(
-			'green'		=> 'Green',
-			'blue'		=> 'Blue',
-			'gray'		=> 'Gray'
+			'green'		=> __( 'Green', 'pdt' ),
+			'blue'		=> __( 'Blue', 'pdt' ),
+			'gray'		=> __( 'Gray', 'pdt' ),
 		),
 	) ) );	
 
@@ -136,14 +136,14 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'	=> 10,
 		'type'      => 'radio',
 		'choices'   => array(
-			'option1'	=> 'Excerpts',
-			'option2'	=> 'Full Content'
+			'option1'	=> __( 'Excerpts', 'pdt' ),
+			'option2'	=> __( 'Full Content', 'pdt' ),
 		),
 	) ) );
 	// read more link
 	$wp_customize->get_setting( 'pdt_read_more' )->transport = 'postMessage';
 	$wp_customize->add_setting( 'pdt_read_more', array(
-		'default' => 'Read More &rarr;',
+		'default' => __( 'Read More', 'pdt' ) . ' &rarr;',
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );		
 	$wp_customize->add_control( 'pdt_read_more', array(
@@ -342,7 +342,7 @@ function pdt_customize_register( $wp_customize ) {
 	// only if EDD is activated
 	if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 		$wp_customize->add_section( 'pdt_edd_options', array(
-	    	'title'       	=> __( 'Easy Digital Downloads', 'pdt' ),
+	    	'title'       	=> 'Easy Digital Downloads',
 			'description' 	=> __( 'All other EDD options are under Dashboard => Downloads.', 'pdt' ),
 			'priority'   	=> 60,
 		) );
@@ -382,7 +382,7 @@ function pdt_customize_register( $wp_customize ) {
 		// read more link
 		$wp_customize->get_setting( 'pdt_product_view_details' )->transport = 'postMessage';
 		$wp_customize->add_setting( 'pdt_product_view_details', array( 
-			'default' => __( 'View Details', 'pdt' ),
+			'default' => __( 'View Details', 'pdt' ) . ' &rarr;',
 			'sanitize_callback' => 'pdt_sanitize_text' 
 		) );		
 		$wp_customize->add_control( 'pdt_product_view_details', array(
@@ -481,11 +481,11 @@ add_action( 'customize_register', 'pdt_customize_register' );
  * Sanitize checkbox options
  */
 function pdt_sanitize_checkbox( $input ) {
-    if ( $input == 1 ) {
-        return 1;
-    } else {
-        return 0;
-    }
+	if ( 1 == $input ) :
+	    return 1;
+	else :
+	    return 0;
+	endif;
 }
 
 
@@ -499,11 +499,11 @@ function pdt_sanitize_content_radio( $input ) {
 		'option2'	=> 'Full Content'
     );
  
-    if ( array_key_exists( $input, $content ) ) {
+    if ( array_key_exists( $input, $content ) ) :
         return $input;
-    } else {
+    else :
         return '';
-    }
+    endif;
 }
 function pdt_sanitize_color_radio( $input ) {
     $color = array(
@@ -512,11 +512,11 @@ function pdt_sanitize_color_radio( $input ) {
 		'gray'		=> 'Gray'
     );
  
-    if ( array_key_exists( $input, $color ) ) {
+    if ( array_key_exists( $input, $color ) ) :
         return $input;
-    } else {
+    else :
         return '';
-    }
+    endif;
 }
 
 
@@ -603,7 +603,7 @@ function pdt_customizer_styles() { ?>
 		#customize-control-pdt_store_front_count input[type="text"] { width: 50px; }
 	</style>
 <?php }
-add_action('customize_controls_print_styles', 'pdt_customizer_styles');
+add_action( 'customize_controls_print_styles', 'pdt_customizer_styles' );
 
 
 
@@ -611,6 +611,6 @@ add_action('customize_controls_print_styles', 'pdt_customizer_styles');
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function pdt_customize_preview_js() {
-	wp_enqueue_script( 'pdt_customizer', get_template_directory_uri() . '/inc/assets/js/customizer.js', array( 'customize-preview' ), '20130727', true );
+	wp_enqueue_script( 'pdt_customizer', get_template_directory_uri() . '/inc/assets/js/customizer.js', array( 'customize-preview' ), PDT_VERSION, true );
 }
 add_action( 'customize_preview_init', 'pdt_customize_preview_js' );

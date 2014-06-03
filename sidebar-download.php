@@ -18,18 +18,17 @@ if ( ! is_front_page() ) :
 					<?php	
 						// custom price template filters 
 						$item_info = apply_filters( 'item_info', array(
-							'price'				=> 'Price:',
-							'starting_price'	=> 'Starting at:',
-							'free'				=> 'Free'
+							'price'				=> __( 'Price:', 'pdt' ),
+							'starting_price'	=> __( 'Starting at:', 'pdt' ),
+							'free'				=> __( 'Free', 'pdt' ),
 						));
 					?>
-						
 					<?php if ( edd_has_variable_prices( get_the_ID() ) ) : ?>
-						<h3><?php _e( $item_info[ 'starting_price' ] . ' ', 'pdt'); edd_price( get_the_ID() ); ?></h3>						
+						<h3><?php echo $item_info[ 'starting_price' ] . ' '; edd_price( get_the_ID() ); ?></h3>						
 					<?php elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) : ?>			
-						<h3><?php _e( $item_info[ 'price' ] . ' ', 'pdt' ); edd_price( get_the_ID() ); ?></h3> 
+						<h3><?php echo $item_info[ 'price' ] . ' '; edd_price( get_the_ID() ); ?></h3> 
 					<?php else : ?>
-						<h3><?php _e( $item_info[ 'free' ] . ' ','pdt' ); ?></h3>
+						<h3><?php echo $item_info[ 'free' ] . ' '; ?></h3>
 					<?php endif;  ?>
 				</div>	
 				<div class="product-download-buy-button">

@@ -6,7 +6,6 @@
 if ( have_posts() ) : ?>
 	<header class="page-header">
 		<h1 class="page-title">
-		
 			<?php
 				// display taxonomy information before post feed
 				if ( is_category() ) :
@@ -43,18 +42,17 @@ if ( have_posts() ) : ?>
 
 				endif; // end taxonomy-specific title output
 			?>
-			
 		</h1>
-		
 		<?php
-			// show optional description
 			$term_description = term_description();
-			
-			if ( ! empty( $term_description ) ) :
-				printf( '<div class="taxonomy-description">%s</div>', $term_description );
+			if ( is_author() && '' != get_the_author_meta( 'description' ) ) : // show author user bio if it exists ?>
+				<div class="user-description"><?php echo get_the_author_meta( 'description' ); ?></div>
+				<?php					
+			elseif ( is_category() || is_tag() && ! empty( $term_description ) ) : ?>
+				<div class="taxonomy-description"><?php echo $term_description; ?></div>
+				<?php
 			endif;
 		?>
-		
 	</header>
 
 	<?php 
@@ -70,6 +68,6 @@ if ( have_posts() ) : ?>
 
 else :
 	
-	get_template_part( 'no-results', 'archive' );
+	get_template_part( 'no-results' );
 		
 endif; // end check for posts

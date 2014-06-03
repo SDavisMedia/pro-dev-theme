@@ -76,17 +76,21 @@ if ( ! function_exists( 'pdt_content_nav' ) ) :
 	
 		<?php if ( is_single() ) : // navigation links for single posts ?>
 	
-			<?php previous_post_link( '<div class="nav-previous"><span class="post-nav-title">Previous post:</span>%link</div>', '%title' ); ?>
-			<?php next_post_link( '<div class="nav-next"><span class="post-nav-title">Next post:</span>%link</div>', '%title' ); ?>
+			<?php previous_post_link( '<div class="nav-previous"><span class="post-nav-title">' . __( 'Previous post:', 'pdt' ) . '</span>%link</div>', '%title' ); ?>
+			<?php next_post_link( '<div class="nav-next"><span class="post-nav-title">' . __( 'Next post:', 'pdt' ) . '</span>%link</div>', '%title' ); ?>
 	
 		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 	
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'pdt' ) ); ?></div>
+				<div class="nav-previous">
+					<?php next_posts_link( '<span class="meta-nav">&larr;</span> ' . __( 'Older posts', 'pdt' ) ); ?>
+				</div>
 			<?php endif; ?>
 	
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'pdt' ) ); ?></div>
+				<div class="nav-next">
+					<?php previous_posts_link( __( 'Newer posts', 'pdt' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
+				</div>
 			<?php endif; ?>
 	
 		<?php endif; ?>
@@ -107,10 +111,10 @@ if ( ! function_exists( 'pdt_attachment_nav' ) ) :
 
 		<nav role="navigation" class="navigation-image">
 			<div class="nav-previous">
-				<?php previous_image_link( false, __( '<span class="meta-nav">&larr;</span> Previous', 'pdt' ) ); ?>
+				<?php previous_image_link( false, '<span class="meta-nav">&larr;</span> ' . __( 'Previous', 'pdt' ) ); ?>
 			</div>
 			<div class="nav-next">
-				<?php next_image_link( false, __( 'Next <span class="meta-nav">&rarr;</span>', 'pdt' ) ); ?>
+				<?php next_image_link( false, __( 'Next', 'pdt' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
 			</div>
 		</nav>
 		
@@ -262,13 +266,43 @@ add_filter( 'body_class', 'pdt_body_classes');
 
 
 /** ===============
+ * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ */
+function pdt_wp_title( $title, $sep ) {
+	if ( is_feed() ) {
+		return $title;
+	}
+
+	global $page, $paged;
+
+	// Add the blog name
+	$title .= get_bloginfo( 'name', 'display' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title .= " $sep $site_description";
+	}
+
+	// Add a page number if necessary:
+	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+		$title .= " $sep " . sprintf( __( 'Page %s', '_s' ), max( $paged, $page ) );
+	}
+
+	return $title;
+}
+add_filter( 'wp_title', 'pdt_wp_title', 10, 2 );
+
+
+
+/** ===============
  * Add .top class to the first post in a loop
  */
 function pdt_first_post_class( $classes ) {
 	global $wp_query;
 	if ( 0 == $wp_query->current_post )
 		$classes[] = 'top';
-		return $classes;
+	return $classes;
 }
 add_filter( 'post_class', 'pdt_first_post_class' );
 
@@ -300,11 +334,11 @@ add_filter( 'excerpt_length', 'pdt_custom_excerpt_length', 999 );
  * Replace excerpt ellipses with new ellipses and link to full article
  */
 function pdt_excerpt_more( $more ) {
-	if ( is_page_template( 'edd_templates/edd-store-front.php' ) || is_post_type_archive( 'download') ) {
+	if ( is_page_template( 'edd_templates/edd-store-front.php' ) || is_post_type_archive( 'download' ) ) :
 		return '...';
-	} else {
-		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'pdt_read_more', __( 'Read More &rarr;', 'pdt' ) ) . '</a></div>';
-	}
+	else :
+		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'pdt_read_more', __( 'Read More', 'pdt' ) . ' &rarr;' ) . '</a></div>';
+	endif;
 }
 add_filter( 'excerpt_more', 'pdt_excerpt_more' );
 

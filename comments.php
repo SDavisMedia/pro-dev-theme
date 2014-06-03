@@ -83,8 +83,8 @@ if ( post_password_required() )
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-above" class="navigation-comment" role="navigation">
-				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'pdt' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'pdt' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( '&larr; ' . __( 'Older Comments', 'pdt' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'pdt' ) . ' &rarr;' ); ?></div>
 			</nav>
 		<?php endif; // check for comment navigation ?>
 
@@ -105,8 +105,8 @@ if ( post_password_required() )
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-below" class="navigation-comment" role="navigation">
-				<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'pdt' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'pdt' ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( '&larr; ' . __( 'Older Comments', 'pdt' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'pdt' ) . ' &rarr;' ); ?></div>
 			</nav>
 		<?php endif; // check for comment navigation ?>
 
@@ -137,11 +137,11 @@ if ( post_password_required() )
 				'fields'				=> apply_filters( 'comment_form_default_fields', 
 				
 					array(
-						'author'	=> '<p class="comment-form-author">' . '<input id="author" name="author" type="text" placeholder="Name" size="30" class="comment-form-field required" ' . $aria_req . ' /></p>',
+						'author'	=> '<p class="comment-form-author">' . '<input id="author" name="author" type="text" placeholder="' . __( 'Name', 'pdt' ) . '" size="30" class="comment-form-field required" ' . $aria_req . ' /></p>',
 						
-						'email'		=> '<p class="comment-form-email">' . '<input id="email" name="email" type="text" placeholder="Email" size="30" class="comment-form-field required"' . $aria_req . ' /></p>',
+						'email'		=> '<p class="comment-form-email">' . '<input id="email" name="email" type="text" placeholder="' . __( 'Email', 'pdt' ) . '" size="30" class="comment-form-field required"' . $aria_req . ' /></p>',
 						
-						'url'		=> '<p class="comment-form-url"><input id="url" name="url" type="text" placeholder="Website" size="30" class="comment-form-field" /></p>'
+						'url'		=> '<p class="comment-form-url"><input id="url" name="url" type="text" placeholder="' . __( 'Website', 'pdt' ) . '" size="30" class="comment-form-field" /></p>'
 					)
 				)
 			) 

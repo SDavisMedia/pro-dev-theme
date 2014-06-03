@@ -14,7 +14,7 @@
  */
 define( 'PDT_NAME', 'Professional Developer Theme' );
 define( 'PDT_AUTHOR', 'Sean Davis' );
-define( 'PDT_VERSION', '1.0.3' );
+define( 'PDT_VERSION', '1.0.4' );
 define( 'PDT_HOME', 'http://buildwpyourself.com/downloads/professional-developer-theme/' );
 define( 'PDT_DIR', get_template_directory() );
 define( 'PDT_DIR_URI', get_template_directory_uri() );
@@ -42,7 +42,7 @@ if ( ! function_exists( 'pdt_setup' ) ) :
 		/**
 		 * WordPress says it's required. *Shoulder shrug*
 		 */
-		if ( !isset( $content_width ) ) $content_width = 960;
+		if ( !isset( $content_width ) ) $content_width = 615;
 	
 		/**
 		 * Make theme available for translation
@@ -58,6 +58,7 @@ if ( ! function_exists( 'pdt_setup' ) ) :
 		 * Enable support for Post Thumbnails on posts and pages
 		 */
 		add_theme_support( 'post-thumbnails' );
+		// add size for downloads
 		add_image_size( 'product-img', 540, 360, true );
 	
 		/**
@@ -79,13 +80,13 @@ function pdt_scripts() {
 	wp_enqueue_style( 'pdt-style', get_stylesheet_uri() );
 	
 	// responsive menu
-	wp_enqueue_script( 'pdt-navigation', PDT_DIR_URI . '/inc/assets/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'pdt-navigation', PDT_DIR_URI . '/inc/assets/js/navigation.js', array(), PDT_VERSION, true );
 	
 	// font awesome fonts
 	wp_enqueue_style( 'fontawesome', PDT_FONTS . '/font-awesome/css/font-awesome.min.css' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) :
 		wp_enqueue_script( 'comment-reply' );
-	}
+	endif;
 }
 add_action( 'wp_enqueue_scripts', 'pdt_scripts' );

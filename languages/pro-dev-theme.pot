@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Professional Developer Theme\n"
-"POT-Creation-Date: 2014-03-28 16:39-0600\n"
-"PO-Revision-Date: 2014-03-28 16:40-0600\n"
+"POT-Creation-Date: 2014-06-02 23:56-0600\n"
+"PO-Revision-Date: 2014-06-02 23:56-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: comments.php:19 comments.php:39 templates/content-attachment.php:28
-#: templates/content-single.php:74
+#: comments.php:19 comments.php:39 templates/content-attachment.php:25
+#: templates/content-single.php:71
 msgid "Edit"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgctxt "1: date"
 msgid "%1$s"
 msgstr ""
 
-#: comments.php:44
+#: comments.php:45
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
@@ -51,11 +51,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: comments.php:86 comments.php:108
-msgid "&larr; Older Comments"
+msgid "Older Comments"
 msgstr ""
 
 #: comments.php:87 comments.php:109
-msgid "Newer Comments &rarr;"
+msgid "Newer Comments"
 msgstr ""
 
 #: comments.php:119
@@ -74,8 +74,21 @@ msgstr ""
 msgid "Submit Comment"
 msgstr ""
 
-#: footer.php:17
-msgid "Built with WordPress & <a href=\""
+#: comments.php:140
+msgid "Name"
+msgstr ""
+
+#: comments.php:142
+msgid "Email"
+msgstr ""
+
+#: comments.php:144
+msgid "Website"
+msgstr ""
+
+#: footer.php:16
+#, php-format
+msgid "Built with WordPress & %s"
 msgstr ""
 
 #: form-search.php:14
@@ -83,20 +96,19 @@ msgctxt "placeholder"
 msgid "Search Forums&hellip;"
 msgstr ""
 
-#: form-search.php:15 inc/functions/content-functions.php:307
+#: form-search.php:15 inc/functions/content-functions.php:356
 msgid "Submit"
 msgstr ""
 
-#: header.php:28
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: header.php:104
+#: header.php:84
 msgid "Menu"
 msgstr ""
 
-#: inc/functions/content-functions.php:23
+#: inc/functions/content-functions.php:15
+msgid "Home"
+msgstr ""
+
+#: inc/functions/content-functions.php:38
 #, php-format
 msgid ""
 "Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\">%3$s</a><span "
@@ -104,60 +116,74 @@ msgid ""
 "\"%4$s\" title=\"%5$s\" rel=\"author\">%6$s</a></span></span>"
 msgstr ""
 
-#: inc/functions/content-functions.php:28
+#: inc/functions/content-functions.php:43
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: inc/functions/content-functions.php:70
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+#: inc/functions/content-functions.php:79
+msgid "Previous post:"
 msgstr ""
 
-#: inc/functions/content-functions.php:74
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+#: inc/functions/content-functions.php:80
+msgid "Next post:"
 msgstr ""
 
-#: inc/functions/content-functions.php:95
-msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+#: inc/functions/content-functions.php:86
+msgid "Older posts"
 msgstr ""
 
-#: inc/functions/content-functions.php:98
-msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+#: inc/functions/content-functions.php:92
+msgid "Newer posts"
 msgstr ""
 
-#: inc/functions/content-functions.php:168
+#: inc/functions/content-functions.php:114
+msgid "Previous"
+msgstr ""
+
+#: inc/functions/content-functions.php:117
+msgid "Next"
+msgstr ""
+
+#: inc/functions/content-functions.php:187
 msgid "Primary Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:170
+#: inc/functions/content-functions.php:189
 msgid "ALL sidebars default to this sidebar when they are empty."
 msgstr ""
 
-#: inc/functions/content-functions.php:178
+#: inc/functions/content-functions.php:197
 msgid "Easy Digital Downloads Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:180
+#: inc/functions/content-functions.php:199
 msgid ""
 "This sidebar only displays on EDD downloads and templates. If it is empty, "
 "it defaults to the Primary Sidebar."
 msgstr ""
 
-#: inc/functions/content-functions.php:189
+#: inc/functions/content-functions.php:208
 msgid "bbPress Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:191
+#: inc/functions/content-functions.php:210
 msgid ""
 "This sidebar only displays on the bbPress pages. If it is empty, it defaults "
 "to the Primary Sidebar."
 msgstr ""
 
-#: inc/functions/content-functions.php:291 templates/content.php:40
-msgid "Read More &rarr;"
+#: inc/functions/content-functions.php:289
+#, php-format
+msgid "Page %s"
 msgstr ""
 
-#: inc/functions/content-functions.php:306
+#: inc/functions/content-functions.php:340
+#: inc/functions/customizer-functions.php:146 templates/content.php:39
+msgid "Read More"
+msgstr ""
+
+#: inc/functions/content-functions.php:355
 msgid "To view this protected post, enter the password below:"
 msgstr ""
 
@@ -169,65 +195,89 @@ msgstr ""
 msgid "Custom Site Logo (replaces title)"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:49
+#: inc/functions/customizer-functions.php:52
 msgid "Hide Tagline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:57
+#: inc/functions/customizer-functions.php:63
 msgid "Use Big Header"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:69
-msgid "Color Settings"
+#: inc/functions/customizer-functions.php:75
+msgid "Color Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:76
+#: inc/functions/customizer-functions.php:82
 msgid "Primary Design Color"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:97
+#: inc/functions/customizer-functions.php:105
 msgid "Call-to-Action Button Color"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:115
+#: inc/functions/customizer-functions.php:111
+msgid "Green"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:112
+msgid "Blue"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:113
+msgid "Gray"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:123
 msgid "Content Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:116
+#: inc/functions/customizer-functions.php:124
 msgid ""
 "Adjust the display of content on your website. All options have a default "
 "value that can be left as-is but you are free to customize."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:122
+#: inc/functions/customizer-functions.php:133
 msgid "Post Feed Content"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:136
+#: inc/functions/customizer-functions.php:139
+msgid "Excerpts"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:140
+msgid "Full Content"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:150
 msgid "Excerpt & More Link Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:144
+#: inc/functions/customizer-functions.php:161
+msgid "Show Featured Images in blog feed (full content)?"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:172
 msgid "Show Featured Images on Single Posts?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:152
+#: inc/functions/customizer-functions.php:183
 msgid "Show Post Footer on Single Posts?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:160
+#: inc/functions/customizer-functions.php:194
 msgid "Display Comments on Standard Pages?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:169
+#: inc/functions/customizer-functions.php:206
 msgid "Footer Credits & Copyright"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:181
+#: inc/functions/customizer-functions.php:218
 msgid "Featured Information Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:182
+#: inc/functions/customizer-functions.php:219
 msgid ""
 "Share featured information details here. This content displays in the &rsquo;"
 "Front Page&rsquo; feature box and the sidebar of all other pages. Highlight "
@@ -235,107 +285,107 @@ msgid ""
 "you don&rsquo;t use won&rsquo;t appear."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:188
+#: inc/functions/customizer-functions.php:228
 msgid "Display Default Feature Box?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:196
+#: inc/functions/customizer-functions.php:239
 msgid "Display Default Sidebar Feature?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:205
-msgid "Featured Information Headline"
+#: inc/functions/customizer-functions.php:251
+msgid "Featured Info Headline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:213
-msgid "Featured Information Description"
+#: inc/functions/customizer-functions.php:261
+msgid "Featured Info Description"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:221
-msgid "Featured Information Additional Notes"
+#: inc/functions/customizer-functions.php:273
+msgid "Featured Info Additional Notes Headline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:229
-msgid "URL to More Information"
+#: inc/functions/customizer-functions.php:283
+msgid "Featured Info Additional Notes"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:238
+#: inc/functions/customizer-functions.php:294
+msgid "URL to More Info"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:306
 msgid "Button Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:252
+#: inc/functions/customizer-functions.php:320
 msgid "bbPress Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:253
+#: inc/functions/customizer-functions.php:321
 msgid ""
 "These options are specific to all pages that display bbPress forums and its "
 "components."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:259
+#: inc/functions/customizer-functions.php:330
 msgid "Remove sidebar & display full-width?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:274
-msgid "Easy Digital Downloads"
-msgstr ""
-
-#: inc/functions/customizer-functions.php:275
+#: inc/functions/customizer-functions.php:346
 msgid "All other EDD options are under Dashboard => Downloads."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:281
+#: inc/functions/customizer-functions.php:355
 msgid "Display Comments on Download Pages?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:290
+#: inc/functions/customizer-functions.php:367
 msgid "Store/Download Archives Main Title"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:298
+#: inc/functions/customizer-functions.php:377
 msgid "Store/Download Archives Description"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:305
+#: inc/functions/customizer-functions.php:385
 msgid "View Details"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:307
+#: inc/functions/customizer-functions.php:389
 msgid "Store Item Link Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:315
+#: inc/functions/customizer-functions.php:397
 msgid "How many items per store front page?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:328
+#: inc/functions/customizer-functions.php:410
 msgid "Social Networking Profiles"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:329
+#: inc/functions/customizer-functions.php:411
 msgid ""
 "Paste full URLs to profiles. The URLs will be used in various places around "
 "the theme like the post footer author section on single posts."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:335
+#: inc/functions/customizer-functions.php:420
 msgid "Github Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:343
+#: inc/functions/customizer-functions.php:431
 msgid "Twitter Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:351
+#: inc/functions/customizer-functions.php:442
 msgid "Facebook Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:359
+#: inc/functions/customizer-functions.php:453
 msgid "Google Plus Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:371
+#: inc/functions/customizer-functions.php:465
 msgid "Navigation Menu"
 msgstr ""
 
@@ -369,7 +419,7 @@ msgstr ""
 msgid "Deactivate License"
 msgstr ""
 
-#: inc/theme-functions.php:67
+#: inc/theme-functions.php:68
 msgid "Main Menu"
 msgstr ""
 
@@ -388,17 +438,25 @@ msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: sidebar-bbpress.php:31 sidebar-download.php:56 sidebar.php:26
-#: templates/content-archive.php:42
+#: sidebar-bbpress.php:29 sidebar-download.php:55 sidebar.php:26
+#: templates/content-archive.php:41
 msgid "Archives"
 msgstr ""
 
-#: sidebar-bbpress.php:38 sidebar-download.php:63 sidebar.php:33
+#: sidebar-bbpress.php:36 sidebar-download.php:62 sidebar.php:33
 msgid "Meta"
 msgstr ""
 
-#: sidebar-download.php:28 sidebar-download.php:30 sidebar-download.php:32
-msgid " "
+#: sidebar-download.php:21
+msgid "Price:"
+msgstr ""
+
+#: sidebar-download.php:22
+msgid "Starting at:"
+msgstr ""
+
+#: sidebar-download.php:23
+msgid "Free"
 msgstr ""
 
 #: templates/content-404.php:10
@@ -409,27 +467,27 @@ msgstr ""
 msgid "Try using search to find what you were looking for."
 msgstr ""
 
-#: templates/content-archive.php:24
+#: templates/content-archive.php:23
 #, php-format
 msgid "Author: %s"
 msgstr ""
 
-#: templates/content-archive.php:33
+#: templates/content-archive.php:32
 #, php-format
 msgid "Day: %s"
 msgstr ""
 
-#: templates/content-archive.php:36
+#: templates/content-archive.php:35
 #, php-format
 msgid "Month: %s"
 msgstr ""
 
-#: templates/content-archive.php:39
+#: templates/content-archive.php:38
 #, php-format
 msgid "Year: %s"
 msgstr ""
 
-#: templates/content-attachment.php:17
+#: templates/content-attachment.php:14
 #, php-format
 msgid ""
 "Published <span class=\"entry-date\"><time class=\"entry-date\" datetime="
@@ -438,53 +496,49 @@ msgid ""
 "rel=\"gallery\">%8$s</a> "
 msgstr ""
 
-#: templates/content-attachment.php:49 templates/content-download.php:21
-#: templates/content-page.php:20 templates/content-single.php:29
-#: templates/content.php:43
+#: templates/content-attachment.php:46 templates/content-download.php:24
+#: templates/content-page.php:19 templates/content-single.php:28
+#: templates/content.php:42
 msgid "Pages:"
 msgstr ""
 
-#: templates/content-download-taxonomy.php:59
-#: templates/content-store-front.php:68
+#: templates/content-download-taxonomy.php:62
+#: templates/content-store-front.php:71
 msgid "Not Found"
 msgstr ""
 
-#: templates/content-download-taxonomy.php:60
-#: templates/content-store-front.php:69
+#: templates/content-download-taxonomy.php:63
+#: templates/content-store-front.php:72
 msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
 
-#: templates/content-feature-box.php:29 templates/content-sidebar-box.php:23
-msgid "Additional Notes: "
-msgstr ""
-
-#: templates/content-single.php:41 templates/content-single.php:44
+#: templates/content-single.php:38 templates/content-single.php:41
 msgid ", "
 msgstr ""
 
-#: templates/content-single.php:50
+#: templates/content-single.php:47
 #, php-format
 msgid "Tagged as %2$s."
 msgstr ""
 
-#: templates/content-single.php:52
+#: templates/content-single.php:49
 #, php-format
 msgid ""
 "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark"
 "\">permalink</a>."
 msgstr ""
 
-#: templates/content-single.php:59
+#: templates/content-single.php:56
 #, php-format
 msgid "Posted in %1$s and tagged %2$s."
 msgstr ""
 
-#: templates/content-single.php:61
+#: templates/content-single.php:58
 #, php-format
 msgid "Posted in %1$s."
 msgstr ""
 
-#: templates/content-single.php:88
+#: templates/content-single.php:85
 msgid "Written by "
 msgstr ""
 

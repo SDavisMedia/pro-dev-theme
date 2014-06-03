@@ -11,9 +11,7 @@ if ( ! is_front_page() ) :
 	
 	// display default sidebar feature? -- theme customizer
 	if ( 1 == get_theme_mod( 'pdt_feature_sidebar_toggle' ) ) :
-	
 		get_template_part( 'templates/content', 'sidebar-box' );
-
 	endif;
 	
 endif; // end feature box setup ?>

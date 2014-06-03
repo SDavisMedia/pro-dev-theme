@@ -12,9 +12,8 @@
 			<div class="main">
 				<footer class="site-footer inner">
 					<span class="site-info">
-			
 						<?php
-							$credits = __( 'Built with WordPress & <a href="' . PDT_HOME . '">' . PDT_NAME . '</a>', 'pdt' );
+							$credits = sprintf( __( 'Built with WordPress & %s', 'pdt' ), '<a href="' . PDT_HOME . '">' . PDT_NAME . '</a>' );
 							
 							// If copyright & credits are left empty or have not been set, display default info.
 							if ( '' == get_theme_mod( 'pdt_credits_copyright' ) ) :
@@ -23,16 +22,10 @@
 								echo get_theme_mod( 'pdt_credits_copyright', $credits );
 							endif;
 						?>
-					
 					</span>
 				</footer>
 			</div>
 		</div>
-		
-		<?php 
-			// do not remove WordPress' footer hook
-			wp_footer(); 
-		?>
-	
+		<?php wp_footer(); ?>
 	</body>
 </html>

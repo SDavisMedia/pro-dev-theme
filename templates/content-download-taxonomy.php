@@ -23,16 +23,16 @@
 		<?php while ( have_posts() ) : the_post(); ?>
 			
 			<div class="threecol product">
-				<div class="product-image">
-					<?php if ( has_post_thumbnail() ) { ?>
+				<?php if ( has_post_thumbnail() ) : ?>
+					<div class="product-image">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail( 'product-img' ); ?>
 						</a>
-					<?php } ?>
-				</div>
+					</div>
+				<?php endif; ?>
 				<div class="product-description">
 					<a class="product-title" href="<?php the_permalink(); ?>">
-						<h3><?php the_title(); ?></h3>
+						<?php the_title( '<h3>', '</h3>' ); ?>
 					</a>
 					<div class="product-info">
 						<?php the_excerpt(); ?>

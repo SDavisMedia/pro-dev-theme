@@ -2,18 +2,16 @@
 /**
  * the template for the document <head>
  */
-$title = get_bloginfo('name');
-$tagline = get_bloginfo('description');
-$char = get_bloginfo('charset');
-$ping = get_bloginfo('pingback_url');
-?>
-
-<!DOCTYPE html>
+$title = get_bloginfo( 'name' );
+$tagline = get_bloginfo( 'description' );
+$char = get_bloginfo( 'charset' );
+$ping = get_bloginfo( 'pingback_url' );
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php echo $char; ?>" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><?php wp_title(''); ?></title>
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<link rel="profile" href="http://gmpg.org/xfn/11" />
 		<link rel="pingback" href="<?php echo $ping; ?>" />
 		<?php wp_head(); ?>
@@ -39,7 +37,6 @@ $ping = get_bloginfo('pingback_url');
 						<h1 class="site-description"><?php echo $tagline; ?></h1>
 					<?php endif; ?>
 					<div class="social-nav">
-				
 						<?php 
 							/**
 							 * Built into the Customizer are a fields for social profiles. 
@@ -50,33 +47,32 @@ $ping = get_bloginfo('pingback_url');
 							$profiles_menu = array( 
 								'github'	=> array(
 									'name' 		=> 'Github',
-									'option'	=> get_theme_mod( 'pdt_github' ),
+									'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
 									'icon'		=> '<i class="fa fa-github-alt"></i>'
 								),
 								'twitter'	=> array(
 									'name' 		=> 'Twitter',
-									'option'	=> get_theme_mod( 'pdt_twitter' ),
+									'option'	=> esc_url( get_theme_mod( 'pdt_twitter' ) ),
 									'icon'		=> '<i class="fa fa-twitter"></i>'
 								),
 								'facebook'	=> array(
 									'name' 		=> 'Facebook',
-									'option'	=> get_theme_mod( 'pdt_facebook' ),
+									'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
 									'icon'		=> '<i class="fa fa-facebook-square"></i>'
 								),
 								'gplus'	=> array(
 									'name' 		=> 'Google+',
-									'option'	=> get_theme_mod( 'pdt_gplus' ),
+									'option'	=> esc_url( get_theme_mod( 'pdt_gplus' ) ),
 									'icon'		=> '<i class="fa fa-google-plus-square"></i>'
 								),
 							);
 							// Build the social networking profile links based on the $social_profiles
-							foreach ( $profiles_menu as $profile ) {
+							foreach ( $profiles_menu as $profile ) :
 								if ( '' != $profile[ 'option' ] ) :
 									echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>'; 
 								endif;
-							}
+							endforeach;
 						?>
-						
 					</div>
 				</header>
 			</div>

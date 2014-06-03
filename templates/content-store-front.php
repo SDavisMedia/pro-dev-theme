@@ -6,7 +6,7 @@
  ***** TEMPLATE. BE SURE TO MAKE CHANGES TO BOTH TEMPLATES IF YOU EDIT ONE.
  *****
  */
-$store_page_setting = (is_front_page() && is_page_template('edd_templates/edd-store-front.php') ? 'page' : 'paged' );
+$store_page_setting = ( is_front_page() && is_page_template( 'edd_templates/edd-store-front.php' ) ? 'page' : 'paged' );
 $current_page = get_query_var( $store_page_setting );
 $per_page = intval( get_theme_mod( 'pdt_store_front_count' ) );
 $offset = $current_page > 0 ? $per_page * ( $current_page-1 ) : 0;
@@ -32,16 +32,16 @@ $products = new WP_Query( $product_args );
 		<?php while ( $products->have_posts() ) : $products->the_post(); ?>
 			
 			<div class="threecol product">
-				<div class="product-image">
-					<?php if ( has_post_thumbnail() ) { ?>
+				<?php if ( has_post_thumbnail() ) : ?>
+					<div class="product-image">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail( 'product-img' ); ?>
 						</a>
-					<?php } ?>
-				</div>
+					</div>
+				<?php endif; ?>
 				<div class="product-description">
 					<a class="product-title" href="<?php the_permalink(); ?>">
-						<h3><?php the_title(); ?></h3>
+						<?php the_title( '<h3>', '</h3>' ); ?>
 					</a>
 					<div class="product-info">
 						<?php the_excerpt(); ?>
