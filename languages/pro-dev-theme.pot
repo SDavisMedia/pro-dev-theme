@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Professional Developer Theme\n"
-"POT-Creation-Date: 2014-06-02 23:56-0600\n"
-"PO-Revision-Date: 2014-06-02 23:56-0600\n"
+"POT-Creation-Date: 2014-10-11 23:31-0600\n"
+"PO-Revision-Date: 2014-10-11 23:31-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -22,27 +22,27 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: comments.php:19 comments.php:39 templates/content-attachment.php:25
-#: templates/content-single.php:71
+#: comments.php:21 comments.php:41 templates/content-attachment.php:25
+#: templates/content-single.php:64
 msgid "Edit"
 msgstr ""
 
-#: comments.php:33
+#: comments.php:35
 #, php-format
 msgid "Comment by %s on"
 msgstr ""
 
-#: comments.php:36
+#: comments.php:38
 #, php-format
 msgctxt "1: date"
 msgid "%1$s"
 msgstr ""
 
-#: comments.php:45
+#: comments.php:47
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: comments.php:78
+#: comments.php:89
 #, php-format
 msgctxt "comments title"
 msgid "One response to &ldquo;%2$s&rdquo;"
@@ -50,65 +50,64 @@ msgid_plural "%1$s responses to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:86 comments.php:108
+#: comments.php:95 comments.php:113
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:87 comments.php:109
+#: comments.php:96 comments.php:114
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:119
+#: comments.php:121
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:134
+#: comments.php:136
 msgid "Leave a Reply"
 msgstr ""
 
-#: comments.php:135
+#: comments.php:137
 msgid "Cancel Reply"
 msgstr ""
 
-#: comments.php:136
+#: comments.php:138
 msgid "Submit Comment"
 msgstr ""
 
-#: comments.php:140
+#: comments.php:142
 msgid "Name"
 msgstr ""
 
-#: comments.php:142
+#: comments.php:144
 msgid "Email"
 msgstr ""
 
-#: comments.php:144
+#: comments.php:146
 msgid "Website"
 msgstr ""
 
-#: footer.php:16
+#: footer.php:15
 #, php-format
 msgid "Built with WordPress & %s"
 msgstr ""
 
-#: form-search.php:14
-msgctxt "placeholder"
+#: form-search.php:9
 msgid "Search Forums&hellip;"
 msgstr ""
 
-#: form-search.php:15 inc/functions/content-functions.php:356
+#: form-search.php:10 inc/functions/content-functions.php:378
 msgid "Submit"
 msgstr ""
 
-#: header.php:84
+#: header.php:49
 msgid "Menu"
 msgstr ""
 
-#: inc/functions/content-functions.php:15
+#: inc/functions/content-functions.php:54
 msgid "Home"
 msgstr ""
 
-#: inc/functions/content-functions.php:38
+#: inc/functions/content-functions.php:76
 #, php-format
 msgid ""
 "Posted on <a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\">%3$s</a><span "
@@ -116,168 +115,164 @@ msgid ""
 "\"%4$s\" title=\"%5$s\" rel=\"author\">%6$s</a></span></span>"
 msgstr ""
 
-#: inc/functions/content-functions.php:43
+#: inc/functions/content-functions.php:81
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: inc/functions/content-functions.php:79
+#: inc/functions/content-functions.php:118
 msgid "Previous post:"
 msgstr ""
 
-#: inc/functions/content-functions.php:80
+#: inc/functions/content-functions.php:119
 msgid "Next post:"
 msgstr ""
 
-#: inc/functions/content-functions.php:86
+#: inc/functions/content-functions.php:125
 msgid "Older posts"
 msgstr ""
 
-#: inc/functions/content-functions.php:92
+#: inc/functions/content-functions.php:133
 msgid "Newer posts"
 msgstr ""
 
-#: inc/functions/content-functions.php:114
+#: inc/functions/content-functions.php:154
 msgid "Previous"
 msgstr ""
 
-#: inc/functions/content-functions.php:117
+#: inc/functions/content-functions.php:157
 msgid "Next"
 msgstr ""
 
-#: inc/functions/content-functions.php:187
+#: inc/functions/content-functions.php:224
 msgid "Primary Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:189
+#: inc/functions/content-functions.php:226
 msgid "ALL sidebars default to this sidebar when they are empty."
 msgstr ""
 
-#: inc/functions/content-functions.php:197
+#: inc/functions/content-functions.php:234
 msgid "Easy Digital Downloads Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:199
+#: inc/functions/content-functions.php:236
 msgid ""
 "This sidebar only displays on EDD downloads and templates. If it is empty, "
 "it defaults to the Primary Sidebar."
 msgstr ""
 
-#: inc/functions/content-functions.php:208
+#: inc/functions/content-functions.php:245
 msgid "bbPress Sidebar"
 msgstr ""
 
-#: inc/functions/content-functions.php:210
+#: inc/functions/content-functions.php:247
 msgid ""
 "This sidebar only displays on the bbPress pages. If it is empty, it defaults "
 "to the Primary Sidebar."
 msgstr ""
 
-#: inc/functions/content-functions.php:289
+#: inc/functions/content-functions.php:324
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: inc/functions/content-functions.php:340
-#: inc/functions/customizer-functions.php:146 templates/content.php:39
+#: inc/functions/content-functions.php:361
+#: inc/functions/customizer-functions.php:138 templates/content.php:30
 msgid "Read More"
 msgstr ""
 
-#: inc/functions/content-functions.php:355
+#: inc/functions/content-functions.php:376
 msgid "To view this protected post, enter the password below:"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:32
+#: inc/functions/content-functions.php:377
+msgid "Enter Password"
+msgstr ""
+
+#: inc/functions/customizer-functions.php:29
 msgid "Site Title (Logo) & Tagline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:41
+#: inc/functions/customizer-functions.php:40
 msgid "Custom Site Logo (replaces title)"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:52
+#: inc/functions/customizer-functions.php:51
 msgid "Hide Tagline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:63
+#: inc/functions/customizer-functions.php:62
 msgid "Use Big Header"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:75
+#: inc/functions/customizer-functions.php:73
 msgid "Color Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:82
+#: inc/functions/customizer-functions.php:80
 msgid "Primary Design Color"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:105
+#: inc/functions/customizer-functions.php:103
 msgid "Call-to-Action Button Color"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:111
+#: inc/functions/customizer-functions.php:109
 msgid "Green"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:112
+#: inc/functions/customizer-functions.php:110
 msgid "Blue"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:113
+#: inc/functions/customizer-functions.php:111
 msgid "Gray"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:123
+#: inc/functions/customizer-functions.php:120
 msgid "Content Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:124
+#: inc/functions/customizer-functions.php:121
 msgid ""
 "Adjust the display of content on your website. All options have a default "
 "value that can be left as-is but you are free to customize."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:133
+#: inc/functions/customizer-functions.php:130
 msgid "Post Feed Content"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:139
-msgid "Excerpts"
-msgstr ""
-
-#: inc/functions/customizer-functions.php:140
-msgid "Full Content"
-msgstr ""
-
-#: inc/functions/customizer-functions.php:150
+#: inc/functions/customizer-functions.php:142
 msgid "Excerpt & More Link Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:161
+#: inc/functions/customizer-functions.php:153
 msgid "Show Featured Images in blog feed (full content)?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:172
+#: inc/functions/customizer-functions.php:164
 msgid "Show Featured Images on Single Posts?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:183
+#: inc/functions/customizer-functions.php:175
 msgid "Show Post Footer on Single Posts?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:194
+#: inc/functions/customizer-functions.php:186
 msgid "Display Comments on Standard Pages?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:206
+#: inc/functions/customizer-functions.php:197
 msgid "Footer Credits & Copyright"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:218
+#: inc/functions/customizer-functions.php:207
 msgid "Featured Information Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:219
+#: inc/functions/customizer-functions.php:208
 msgid ""
 "Share featured information details here. This content displays in the &rsquo;"
 "Front Page&rsquo; feature box and the sidebar of all other pages. Highlight "
@@ -285,146 +280,145 @@ msgid ""
 "you don&rsquo;t use won&rsquo;t appear."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:228
+#: inc/functions/customizer-functions.php:217
 msgid "Display Default Feature Box?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:239
+#: inc/functions/customizer-functions.php:228
 msgid "Display Default Sidebar Feature?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:251
+#: inc/functions/customizer-functions.php:240
 msgid "Featured Info Headline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:261
+#: inc/functions/customizer-functions.php:251
 msgid "Featured Info Description"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:273
+#: inc/functions/customizer-functions.php:263
 msgid "Featured Info Additional Notes Headline"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:283
+#: inc/functions/customizer-functions.php:274
 msgid "Featured Info Additional Notes"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:294
+#: inc/functions/customizer-functions.php:285
 msgid "URL to More Info"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:306
+#: inc/functions/customizer-functions.php:297
 msgid "Button Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:320
+#: inc/functions/customizer-functions.php:310
 msgid "bbPress Options"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:321
+#: inc/functions/customizer-functions.php:311
 msgid ""
 "These options are specific to all pages that display bbPress forums and its "
 "components."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:330
+#: inc/functions/customizer-functions.php:320
 msgid "Remove sidebar & display full-width?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:346
+#: inc/functions/customizer-functions.php:335
 msgid "All other EDD options are under Dashboard => Downloads."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:355
+#: inc/functions/customizer-functions.php:344
 msgid "Display Comments on Download Pages?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:367
+#: inc/functions/customizer-functions.php:356
 msgid "Store/Download Archives Main Title"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:377
+#: inc/functions/customizer-functions.php:367
 msgid "Store/Download Archives Description"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:385
+#: inc/functions/customizer-functions.php:375
 msgid "View Details"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:389
+#: inc/functions/customizer-functions.php:379
 msgid "Store Item Link Text"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:397
+#: inc/functions/customizer-functions.php:389
 msgid "How many items per store front page?"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:410
+#: inc/functions/customizer-functions.php:400
 msgid "Social Networking Profiles"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:411
+#: inc/functions/customizer-functions.php:401
 msgid ""
 "Paste full URLs to profiles. The URLs will be used in various places around "
 "the theme like the post footer author section on single posts."
 msgstr ""
 
-#: inc/functions/customizer-functions.php:420
+#: inc/functions/customizer-functions.php:410
 msgid "Github Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:431
+#: inc/functions/customizer-functions.php:421
 msgid "Twitter Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:442
+#: inc/functions/customizer-functions.php:432
 msgid "Facebook Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:453
+#: inc/functions/customizer-functions.php:443
 msgid "Google Plus Profile URL"
 msgstr ""
 
-#: inc/functions/customizer-functions.php:465
+#: inc/functions/customizer-functions.php:454
 msgid "Navigation Menu"
 msgstr ""
 
-#: inc/functions/updater.php:69
+#: inc/functions/updater.php:68
 msgid ""
 "Updating this theme will lose any customizations you have made. 'Cancel' to "
 "stop, 'OK' to update."
 msgstr ""
 
-#: inc/functions/updater.php:175
+#: inc/functions/updater.php:174
 msgid "Pro Dev Theme"
 msgstr ""
 
-#: inc/functions/updater.php:189
+#: inc/functions/updater.php:188
 msgid " Settings"
 msgstr ""
 
-#: inc/functions/updater.php:198
+#: inc/functions/updater.php:197
 msgid "License Key"
 msgstr ""
 
-#: inc/functions/updater.php:207 inc/functions/updater.php:216
+#: inc/functions/updater.php:206 inc/functions/updater.php:215
 msgid "Activate License"
 msgstr ""
 
-#: inc/functions/updater.php:211
+#: inc/functions/updater.php:210
 msgid "active"
 msgstr ""
 
-#: inc/functions/updater.php:213
+#: inc/functions/updater.php:212
 msgid "Deactivate License"
 msgstr ""
 
-#: inc/theme-functions.php:68
+#: inc/theme-functions.php:69
 msgid "Main Menu"
 msgstr ""
 
 #: searchform.php:8
-msgctxt "placeholder"
 msgid "Search&hellip;"
 msgstr ""
 
@@ -434,28 +428,27 @@ msgid "Search for:"
 msgstr ""
 
 #: searchform.php:9
-msgctxt "submit button"
 msgid "Search"
 msgstr ""
 
-#: sidebar-bbpress.php:29 sidebar-download.php:55 sidebar.php:26
-#: templates/content-archive.php:41
+#: sidebar-bbpress.php:21 sidebar-download.php:39 sidebar.php:17
+#: templates/content-archive.php:39
 msgid "Archives"
 msgstr ""
 
-#: sidebar-bbpress.php:36 sidebar-download.php:62 sidebar.php:33
+#: sidebar-bbpress.php:27 sidebar-download.php:46 sidebar.php:23
 msgid "Meta"
 msgstr ""
 
+#: sidebar-download.php:17
+msgid "Starting at"
+msgstr ""
+
+#: sidebar-download.php:19
+msgid "Price at"
+msgstr ""
+
 #: sidebar-download.php:21
-msgid "Price:"
-msgstr ""
-
-#: sidebar-download.php:22
-msgid "Starting at:"
-msgstr ""
-
-#: sidebar-download.php:23
 msgid "Free"
 msgstr ""
 
@@ -463,26 +456,26 @@ msgstr ""
 msgid "Oops! It looks like there&rsquo;s an error."
 msgstr ""
 
-#: templates/content-404.php:15
+#: templates/content-404.php:14
 msgid "Try using search to find what you were looking for."
 msgstr ""
 
-#: templates/content-archive.php:23
+#: templates/content-archive.php:21
 #, php-format
 msgid "Author: %s"
 msgstr ""
 
-#: templates/content-archive.php:32
+#: templates/content-archive.php:30
 #, php-format
 msgid "Day: %s"
 msgstr ""
 
-#: templates/content-archive.php:35
+#: templates/content-archive.php:33
 #, php-format
 msgid "Month: %s"
 msgstr ""
 
-#: templates/content-archive.php:38
+#: templates/content-archive.php:36
 #, php-format
 msgid "Year: %s"
 msgstr ""
@@ -496,49 +489,49 @@ msgid ""
 "rel=\"gallery\">%8$s</a> "
 msgstr ""
 
-#: templates/content-attachment.php:46 templates/content-download.php:24
-#: templates/content-page.php:19 templates/content-single.php:28
-#: templates/content.php:42
+#: templates/content-attachment.php:43 templates/content-download.php:23
+#: templates/content-page.php:14 templates/content-single.php:25
+#: templates/content.php:32
 msgid "Pages:"
 msgstr ""
 
-#: templates/content-download-taxonomy.php:62
-#: templates/content-store-front.php:71
+#: templates/content-download-taxonomy.php:59
+#: templates/content-store-front.php:70
 msgid "Not Found"
 msgstr ""
 
-#: templates/content-download-taxonomy.php:63
-#: templates/content-store-front.php:72
+#: templates/content-download-taxonomy.php:60
+#: templates/content-store-front.php:71
 msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
 
-#: templates/content-single.php:38 templates/content-single.php:41
+#: templates/content-single.php:33 templates/content-single.php:34
 msgid ", "
 msgstr ""
 
-#: templates/content-single.php:47
+#: templates/content-single.php:40
 #, php-format
 msgid "Tagged as %2$s."
 msgstr ""
 
-#: templates/content-single.php:49
+#: templates/content-single.php:42
 #, php-format
 msgid ""
 "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark"
 "\">permalink</a>."
 msgstr ""
 
-#: templates/content-single.php:56
+#: templates/content-single.php:49
 #, php-format
 msgid "Posted in %1$s and tagged %2$s."
 msgstr ""
 
-#: templates/content-single.php:58
+#: templates/content-single.php:51
 #, php-format
 msgid "Posted in %1$s."
 msgstr ""
 
-#: templates/content-single.php:85
+#: templates/content-single.php:78
 msgid "Written by "
 msgstr ""
 
@@ -546,19 +539,19 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#: templates/no-results.php:15
+#: templates/no-results.php:13
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: templates/no-results.php:19
+#: templates/no-results.php:15
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with "
 "different keywords."
 msgstr ""
 
-#: templates/no-results.php:24
+#: templates/no-results.php:18
 msgid ""
 "It seems we can't find what you're looking for. Perhaps searching can help."
 msgstr ""
