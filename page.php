@@ -2,46 +2,35 @@
 /**
  * The template for displaying all pages
  */
+get_header();
+
+// adjust content column class if it's bbPress and full width forums are selected
+if ( class_exists( 'bbPress' ) && is_bbpress() ) {
+	$page_content = 1 == get_theme_mod( 'pdt_bbpress_full_width' ) ? 'bbpress-content' : 'content';
+} else {
+	$page_content = 'content';
+}
 ?>
-
-<?php get_header(); 
-
-		if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'pdt_bbpress_full_width' ) ) :
-			$bbpress_fw = 'bbpress-content ';
-		else :
-			$bbpress_fw = 'content';
-		endif; 
-	?>
-
-	<div class="<?php echo $bbpress_fw; ?>">
-
-		<?php 
-			// start the loop
+	<div class="<?php echo $page_content; ?>">
+		<?php
 			while ( have_posts() ) : the_post();
-
 				get_template_part( 'templates/content', 'page' );
-			
-				// only allow comments if chosen in theme customizer
-				if ( 1 == get_theme_mod( 'pdt_page_comments' ) ) :
-				
-					// if comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() ) :
+				if ( 1 == get_theme_mod( 'pdt_page_comments' ) ) {
+					if ( comments_open() || '0' != get_comments_number() ) {
 						comments_template();
-					endif;
-				endif;
-
-			endwhile; // end of the loop.
+					}
+				}
+			endwhile;
 		?>
-
 	</div>
+<?php
 
-<?php 
-	if ( class_exists( 'bbPress' ) && is_bbpress() ) :
-		if ( 1 != get_theme_mod( 'pdt_bbpress_full_width' ) ) :
-			get_sidebar( 'bbpress' );
-		endif;
-	else :
-		get_sidebar();
-	endif;
-?>
-<?php get_footer(); ?>
+// if it's a bbPress page and a sidebar is displayed, get the bbPress sidebar
+if ( class_exists( 'bbPress' ) && is_bbpress() ) {
+	if ( 1 != get_theme_mod( 'pdt_bbpress_full_width' ) ) {
+		get_sidebar( 'bbpress' );
+	}
+} else {
+	get_sidebar();
+}
+get_footer();

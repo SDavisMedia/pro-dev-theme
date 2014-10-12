@@ -7,25 +7,16 @@
  * folder in the same structural location. Then, WordPress will use
  * your child theme's content-image.php file instead. 
  */
-?>
-
-<?php get_header(); ?>
-
+get_header();
+	?>
 	<div class="content attached">
-
 		<?php 
-			// start the loop
 			while ( have_posts() ) : the_post();
-
-				// get main template HTML from template file
-				get_template_part( 'templates/content', 'attachment' );			
-
-			endwhile; // end the loop
-			
+				get_template_part( 'templates/content', 'attachment' );
+			endwhile;		
 			pdt_attachment_nav();
 		?>
-
 	</div>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+	<?php
+get_sidebar();
+get_footer();

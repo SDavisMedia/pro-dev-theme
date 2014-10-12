@@ -3,7 +3,6 @@
  * functions specific to Easy Digital Downloads
  */
  
- 
 
 /** ===============
  * Allow comments on downloads
@@ -14,7 +13,6 @@ function pdt_edd_add_comments_support( $supports ) {
 }
 add_filter( 'edd_download_supports', 'pdt_edd_add_comments_support' );
 
-	
 	
 /** ===============
  * No purchase button below download content

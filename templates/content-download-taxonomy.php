@@ -6,9 +6,7 @@
  ***** TEMPLATE. BE SURE TO MAKE CHANGES TO BOTH TEMPLATES IF YOU EDIT ONE.
  *****
  */
-?>
-
-<?php if ( have_posts() ) : $i = 1; ?>
+if ( have_posts() ) { $i = 1; ?>
 	<div class="store-info">
 		<?php if ( get_theme_mod( 'pdt_edd_store_archives_title' ) ) : ?>
 			<h1 class="store-title"><?php echo get_theme_mod( 'pdt_edd_store_archives_title' ); ?></h1>
@@ -20,8 +18,7 @@
 		<?php endif; ?>
 	</div>
 	<div class="store-front clear-pdt">
-		<?php while ( have_posts() ) : the_post(); ?>
-			
+		<?php while ( have_posts() ) : the_post(); ?>			
 			<div class="threecol product">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div class="product-image">
@@ -52,15 +49,15 @@
 			echo paginate_links( array(
 				'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 				'format' => '?paged=%#%',
-				'current' => max( 1, $current_page ),
-				'total' => max_num_pages
+				'current' => max( 1, get_query_var( 'paged' ) ),
+				'total' => $wp_query->max_num_pages
 			) );
 		?>
 	</div>
-<?php else : ?>
-
+	<?php
+} else { ?>
 	<h2 class="center"><?php _e( 'Not Found', 'pdt' ); ?></h2>
 	<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'pdt' ); ?></p>
-	<?php get_search_form(); ?>
-
-<?php endif;
+	<?php
+	get_search_form();
+}

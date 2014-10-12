@@ -7,18 +7,11 @@
  * folder in the same structural location. Then, WordPress will use 
  * your child theme's content-404.php file instead. 
  */
-?>
-
-<?php get_header(); ?>
-
-	<div class="content">
-	
-		<?php 
-			// get main template HTML from template file
-			get_template_part( 'templates/content', '404' );
-		?>
-
+get_header();
+	?>
+	<div class="content">	
+		<?php get_template_part( 'templates/content', '404' ); ?>
 	</div>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+	<?php
+get_sidebar();
+get_footer();

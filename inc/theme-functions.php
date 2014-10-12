@@ -7,7 +7,6 @@
  * this system works, see the functions.php file comment block header.
  */
 
- 
 
 /** ===============
  * Constants and important files
@@ -32,17 +31,19 @@ require( PDT_FUNCTIONS . '/edd-functions.php' );
 require( PDT_FUNCTIONS . '/updater.php' );	
 
  
- 
 /** ===============
  * Set up defaults and add support
  */
 if ( ! function_exists( 'pdt_setup' ) ) :
 	function pdt_setup() {
+		global $content_width;
 
 		/**
-		 * WordPress says it's required. *Shoulder shrug*
+		 * Set the max content width for media
 		 */
-		if ( !isset( $content_width ) ) $content_width = 615;
+		if ( !isset( $content_width ) ) {
+			$content_width = 615;
+		}
 	
 		/**
 		 * Make theme available for translation
@@ -72,7 +73,6 @@ endif; // pdt_setup
 add_action( 'after_setup_theme', 'pdt_setup' );
 
 
-
 /** ===============
  * Enqueue scripts and styles
  */
@@ -85,8 +85,8 @@ function pdt_scripts() {
 	// font awesome fonts
 	wp_enqueue_style( 'fontawesome', PDT_FONTS . '/font-awesome/css/font-awesome.min.css' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) :
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	endif;
+	}
 }
 add_action( 'wp_enqueue_scripts', 'pdt_scripts' );

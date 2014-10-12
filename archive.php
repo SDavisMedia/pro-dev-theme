@@ -7,22 +7,11 @@
  * folder in the same structural location. Then, WordPress will use 
  * your child theme's content-archive.php file instead. 
  */
-?>
-
-<?php get_header(); ?>
-
-<section class="content">
-
-	<?php 
-		/** 
-		 * The loop is inside of the content-archive.php file because 
-		 * of the way archive pages are structured. Also, get main 
-		 * template HTML from template file.
-		 */
-		get_template_part( 'templates/content', 'archive' ); 
+get_header();
 	?>
-	
-</section>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+	<section class="content">
+		<?php get_template_part( 'templates/content', 'archive' ); ?>
+	</section>
+	<?php
+get_sidebar();
+get_footer();

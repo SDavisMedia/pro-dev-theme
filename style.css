@@ -16,7 +16,8 @@
 
 .sidebar input[type="search"],
 .info-box,
-.main-menu ul li:hover > ul {
+.main-menu ul li:hover > ul,
+.comment pre {
 	background-color: #fff;
 }
 
@@ -58,18 +59,18 @@ blockquote,
 }
 
 .entry-meta a,
-.post-footer-author a {
+.social-nav-item:hover,
+.product-info {
 	color: #666;
 }
 
-.social-nav-item:hover {
+.social-nav-item {
 	color: #333;
 }
 
 body,
 .site-title a,
 .main-menu a,
-.social-nav-item,
 .entry-title,
 .entry-title h1,
 .info-subtitle,
@@ -104,6 +105,7 @@ input[type="search"],
 .info-note,
 .wp-caption-text,
 .post-footer-author a,
+.product-info,
 .edd-variable-pricing-desc {
 	font-size: 13px;
 }
@@ -111,7 +113,8 @@ input[type="search"],
 h1, h2, h3, h4, h5, h6,
 .sidebar,
 .comments-title,
-.info-note {
+.info-note,
+.product-info {
 	line-height: 1.4em;
 }
 .site-description {
@@ -183,7 +186,6 @@ a:hover,
 .sidebar .info-box,
 .note,
 .tip,
-pre,
 [class*="navigation"] .nav-previous,
 [class*="navigation"] .nav-next,
 #comments,
@@ -251,6 +253,7 @@ pre,
 
 .site-description,
 .entry-title,
+.post-footer-author h3,
 .info-box-description p:last-child {
 	margin-bottom: .2em;
 }
@@ -443,10 +446,13 @@ i {
 }
 
 pre { 
-	font: 400 1em/1.3em "Courier 10 Pitch", Courier, monospace;
-	border: 3px solid rgba(0,0,0,.05);
+	font: 400 13px/1.3em "Courier 10 Pitch", Courier, monospace;
+	padding: 8px;
+	border: 2px solid rgba(0,0,0,.05);
 	overflow: auto; 
-	max-width: 100%; 
+	max-width: 100%;
+	-ms-word-wrap: normal;
+	word-wrap: normal;
 }
 
 code, 
@@ -457,11 +463,10 @@ var {
 }
 
 code {
-	background: #F5F5F5;
+	background: #fafafa;
 	color: #666;
 	font-size: 12px;
 	padding: 2px 4px;
-	border: 1px solid #DBDBDB;
 }
 
 abbr, 
@@ -798,9 +803,13 @@ input[type="submit"]:hover {
 	float: left;
 }
 
-.post-footer-author a { 
-	display: inline-block;  
-	margin-right: 10px; 
+.post-footer-author .social-nav-item { 
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+
+.post-footer-body {
+	margin-top: 10px;
 }
 
 .site-content [class*="navigation"] {
@@ -1154,7 +1163,7 @@ cite.fn {
 img {
 	max-width: 100%;
 	height: auto;
-	vertical-align: baseline;
+	vertical-align: inherit;
 }
 
 embed, 

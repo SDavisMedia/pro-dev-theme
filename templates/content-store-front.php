@@ -11,34 +11,33 @@ $current_page = get_query_var( $store_page_setting );
 $per_page = intval( get_theme_mod( 'pdt_store_front_count' ) );
 $offset = $current_page > 0 ? $per_page * ( $current_page-1 ) : 0;
 $product_args = array(
-	'post_type'			=> 'download',
-	'posts_per_page'	=> $per_page,
-	'offset'			=> $offset
+	'post_type' => 'download',
+	'posts_per_page' => $per_page,
+	'offset' => $offset
 );
 $products = new WP_Query( $product_args );
-?>
-<?php if ( $products->have_posts() ) : $i = 1; ?>
+if ( $products->have_posts() ) { $i = 1; ?>
 	<div class="store-info">
-		<?php if ( get_theme_mod( 'pdt_edd_store_archives_title' ) ) : ?>
+		<?php if ( get_theme_mod( 'pdt_edd_store_archives_title' ) ) { ?>
 			<h1 class="store-title"><?php echo get_theme_mod( 'pdt_edd_store_archives_title' ); ?></h1>
-		<?php endif; ?>
-		<?php if ( get_theme_mod( 'pdt_edd_store_archives_description' ) ) : ?>
+		<?php } ?>
+		<?php if ( get_theme_mod( 'pdt_edd_store_archives_description' ) ) { ?>
 			<div class="store-description">
 				<?php echo wpautop( get_theme_mod( 'pdt_edd_store_archives_description' ) ); ?>
 			</div>
-		<?php endif; ?>
+		<?php } ?>
 	</div>
 	<div class="store-front clear-pdt">
 		<?php while ( $products->have_posts() ) : $products->the_post(); ?>
 			
 			<div class="threecol product">
-				<?php if ( has_post_thumbnail() ) : ?>
+				<?php if ( has_post_thumbnail() ) { ?>
 					<div class="product-image">
 						<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail( 'product-img' ); ?>
 						</a>
 					</div>
-				<?php endif; ?>
+				<?php } ?>
 				<div class="product-description">
 					<a class="product-title" href="<?php the_permalink(); ?>">
 						<?php the_title( '<h3>', '</h3>' ); ?>
@@ -47,9 +46,9 @@ $products = new WP_Query( $product_args );
 						<?php the_excerpt(); ?>
 					</div>
 				</div>
-				<?php if ( get_theme_mod( 'pdt_product_view_details' ) ) : ?>
+				<?php if ( get_theme_mod( 'pdt_product_view_details' ) ) { ?>
 					<a class="view-details" href="<?php the_permalink(); ?>"><?php echo get_theme_mod( 'pdt_product_view_details' ); ?></a>
-				<?php endif; ?>
+				<?php } ?>
 			</div>
 
 			<?php $i+=1; ?>
@@ -66,10 +65,10 @@ $products = new WP_Query( $product_args );
 			) );
 		?>
 	</div>
-<?php else : ?>
-
+	<?php
+} else { ?>
 	<h2 class="center"><?php _e( 'Not Found', 'pdt' ); ?></h2>
 	<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'pdt' ); ?></p>
-	<?php get_search_form(); ?>
-
-<?php endif;
+	<?php
+	get_search_form();
+}

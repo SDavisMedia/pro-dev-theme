@@ -6,7 +6,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post-attachment' ); ?>>
 	<header class="entry-header">
-		<?php the_title( '<span class="entry-title"><h1>', '</h1></span>' ); ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
 			<?php
 				// image byline information
@@ -24,29 +24,25 @@
 
 				edit_post_link( __( 'Edit', 'pdt' ), '<span class="edit-link">', '</span>' );
 			?>
-
 		</div>
 	</header>
-
 	<section class="entry-content">
 		<div class="entry-attachment">
 			<div class="attachment">
 				<?php pdt_the_attached_image(); ?>
 			</div>
-			<?php if ( has_excerpt() ) : ?>
+			<?php if ( has_excerpt() ) { ?>
 				<div class="entry-caption">
 					<?php the_excerpt(); ?>
 				</div>
-			<?php endif; ?>
+			<?php } ?>
 		</div>
-
 		<?php
 			the_content();
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),
 				'after'  => '</div>',
 			) );
-		?>
-		
+		?>		
 	</section>
 </article>

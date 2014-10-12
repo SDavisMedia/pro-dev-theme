@@ -5,7 +5,6 @@
  *
  * https://easydigitaldownloads.com/extensions/software-licensing?ref=184
  */
-
 define( 'PDT_SL_STORE_URL', 'http://buildwpyourself.com' );
 define( 'PDT_DOWNLOAD_TITLE', 'Professional Developer Theme' );
 
@@ -158,11 +157,11 @@ class PDT_SL_Theme_Updater {
 $test_license = trim( get_option( 'pdt_license_key' ) );
 
 $edd_updater = new PDT_SL_Theme_Updater( array( 
-		'remote_api_url' 	=> PDT_SL_STORE_URL, 	// Our store URL that is running EDD
-		'version' 			=> PDT_VERSION, 		// The current theme version we are running
-		'license' 			=> $test_license, 		// The license key (used get_option above to retrieve from DB)
-		'item_name' 		=> PDT_DOWNLOAD_TITLE,	// The name of this theme
-		'author'			=> PDT_AUTHOR			// The author's name
+		'remote_api_url' 	=> PDT_SL_STORE_URL,    // Our store URL that is running EDD
+		'version' 			=> PDT_VERSION,         // The current theme version we are running
+		'license' 			=> $test_license,       // The license key (used get_option above to retrieve from DB)
+		'item_name' 		=> PDT_DOWNLOAD_TITLE,  // The name of this theme
+		'author'			=> PDT_AUTHOR           // The author's name
 	)
 );
 

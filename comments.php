@@ -4,7 +4,6 @@
  */
 
 
-
 /** ===============
  * template for comments and pingbacks
  */ 
@@ -12,16 +11,19 @@ if ( ! function_exists( 'pdt_comment' ) ) :
 	function pdt_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 	
-		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
-	
+		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) :
+			?>
 			<div id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 				<div class="comment-body">
-					<?php _e( 'Pingback:', 'pdt' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', 'pdt' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php
+						_e( 'Pingback:', 'pdt' );
+						comment_author_link();
+						edit_comment_link( __( 'Edit', 'pdt' ), '<span class="edit-link">', '</span>' );
+					?>
 				</div>
 			</div>
-	
-		<?php else : ?>
-	
+			<?php
+		else : ?>	
 			<div id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 				<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 					<footer class="comment-meta">
@@ -50,15 +52,24 @@ if ( ! function_exists( 'pdt_comment' ) ) :
 					</div>
 		
 					<div class="comment-reply">
-						<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+						<?php
+							comment_reply_link(
+								array_merge( $args,
+									array(
+										'add_below' => 'div-comment',
+										'depth' => $depth,
+										'max_depth' => $args['max_depth']
+									)
+								)
+							);
+						?>
 					</div>
 				</div>
 			</div>
-	
-		<?php endif; // ends check for comment type (comment or ping)
+			<?php
+		endif; // ends check for comment type (comment or ping)
 	}
 endif; // ends check for pdt_comment()
-
 
 
 /** ===============
@@ -66,30 +77,26 @@ endif; // ends check for pdt_comment()
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() )
-	return; ?>
+if ( post_password_required() ) {
+	return;
+}
+?>
 
-	<div id="comments" class="comments-area">
-
+<div id="comments" class="comments-area">
 	<?php if ( have_comments() ) : ?>
 		<span class="comments-title">
-		
 			<?php
 				printf( _nx( 'One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'pdt' ),
 					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
-			?>
-			
+			?>			
 		</span>
-
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-above" class="navigation-comment" role="navigation">
 				<div class="nav-previous"><?php previous_comments_link( '&larr; ' . __( 'Older Comments', 'pdt' ) ); ?></div>
 				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'pdt' ) . ' &rarr;' ); ?></div>
 			</nav>
 		<?php endif; // check for comment navigation ?>
-
-		<div class="comment-list">
-		
+		<div class="comment-list">		
 			<?php
 				/** 
 				 * Loop through and list the comments. Tell wp_list_comments()
@@ -99,10 +106,8 @@ if ( post_password_required() )
 				 * define pdt_comment() and that will be used instead.
 				 */
 				wp_list_comments( array( 'callback' => 'pdt_comment' ) );
-			?>
-			
+			?>			
 		</div>
-
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 			<nav id="comment-nav-below" class="navigation-comment" role="navigation">
 				<div class="nav-previous"><?php previous_comments_link( '&larr; ' . __( 'Older Comments', 'pdt' ) ); ?></div>
@@ -112,11 +117,8 @@ if ( post_password_required() )
 
 	<?php endif; // have_comments() ?>
 
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-			<p class="no-comments"><?php _e( 'Comments are closed.', 'pdt' ); ?></p>
+	<?php if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'pdt' ); ?></p>
 	<?php endif; ?>
 
 	<?php 
@@ -147,5 +149,4 @@ if ( post_password_required() )
 			) 
 		);
 	?>
-
 </div>

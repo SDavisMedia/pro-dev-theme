@@ -4,12 +4,11 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>	
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'download' ); ?>>	
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
 	<?php		
-		// display featured image?
 		if ( has_post_thumbnail() ) : ?>
 			<div class="featured-image">
 				<?php the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) ); ?>

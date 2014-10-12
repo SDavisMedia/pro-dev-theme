@@ -4,10 +4,9 @@
  */
 ?>
 
-				</div><?php // .site-content ?>
-			</div><?php // .main ?>
-		</div><?php // .content-area ?>
-		
+				</div>
+			</div>
+		</div>		
 		<div class="footer-area full">
 			<div class="main">
 				<footer class="site-footer inner">

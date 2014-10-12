@@ -6,23 +6,20 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 	<header class="entry-header">
-		<?php the_title( '<span class="entry-title"><h1>', '</h1></span>' ); ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
 			<?php pdt_posted_on(); ?>
 		</div>
 	</header>
-
 	<section class="entry-content">
 		<?php 
 			// display featured image?
-			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) : ?>
+			if ( 1 == get_theme_mod( 'pdt_single_featured_image' ) && has_post_thumbnail() ) { ?>
 				<div class="featured-image">
 					<?php the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) ); ?>
 				</div>
 				<?php
-			endif;
-			
-			// display post content with pages if necessary
+			}
 			the_content();
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),
@@ -30,14 +27,10 @@
 			) );
 		?>
 	</section>
-
 	<footer class="entry-footer">
 		<div class="entry-meta">
 			<?php
-				// translators: used between list items, there is a space after the comma
 				$category_list = get_the_category_list( __( ', ', 'pdt' ) );
-	
-				// translators: used between list items, there is a space after the comma
 				$tag_list = get_the_tag_list( '', __( ', ', 'pdt' ) );
 	
 				if ( ! pdt_categorized_blog() ) {
@@ -74,8 +67,8 @@
 	</footer>
 </article>
 
-<?php // show post footer? theme customizer options ?>
-<?php if ( 1 == get_theme_mod( 'pdt_post_footer' ) ) : ?>
+<?php
+if ( 1 == get_theme_mod( 'pdt_post_footer' ) ) { // show post footer? theme customizer options ?>
 	<div class="single-post-footer">
 		<div class="post-footer-header clear-pdt">
 			<div class="post-footer-avatar">
@@ -83,46 +76,14 @@
 			</div>
 			<div class="post-footer-author">
 				<h3><?php _e( 'Written by ' . get_the_author_meta( 'display_name' ), 'pdt' ); ?></h3>
-				<p>
-					<?php 
-						/**
-						 * Built into the Customizer are a fields for social networking
-						 * profiles. Using the following array, check to see if the field
-						 * has a URL. If so, create a link for that profile in the post
-						 * footer. If not, do nothing.
-						 */
-						$social_profiles = array( 
-							'github'	=> array(
-								'name' 		=> 'Github',
-								'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
-							),
-							'twitter'	=> array(
-								'name' 		=> 'Twitter',
-								'option'	=> esc_url( get_theme_mod( 'pdt_twitter' ) ),
-							),
-							'facebook'	=> array(
-								'name' 		=> 'Facebook',
-								'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
-							),
-							'gplus'	=> array(
-								'name' 		=> 'Google+',
-								'option'	=> esc_url( get_theme_mod( 'pdt_gplus' ) ),
-							),
-						);
-						// Build the social networking profile links based on the $social_profiles
-						foreach ( $social_profiles as $profile ) {
-							if ( '' != $profile[ 'option' ] ) :
-								echo '<a href="', $profile[ 'option' ], '">', $profile[ 'name' ], '</a>'; 
-							endif;
-						}
-					?>			
-				</p>
+				<p><?php pdt_social_profiles(); ?></p>
 			</div>
 		</div>
-		<?php if ( get_the_author_meta( 'description' ) ) : ?>
+		<?php if ( get_the_author_meta( 'description' ) ) { ?>
 			<div class="post-footer-body">
 				<p><?php echo get_the_author_meta( 'description' ); ?></p>
 			</div>
-		<?php endif; ?>
+		<?php } ?>
 	</div>
-<?php endif; ?>
+	<?php
+}

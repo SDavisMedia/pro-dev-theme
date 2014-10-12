@@ -6,14 +6,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 	<header class="entry-header">
-		<span class="entry-title">
-			<?php the_title( '<h1>', '</h1>' ); ?>
-		</span>
-	</header>
-
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>	</header>
 	<section class="entry-content">
 		<?php 
-			// display page content with pages if necessary
 			the_content(); 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'pdt' ),

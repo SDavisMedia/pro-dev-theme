@@ -37,42 +37,7 @@ $ping = get_bloginfo( 'pingback_url' );
 						<h1 class="site-description"><?php echo $tagline; ?></h1>
 					<?php endif; ?>
 					<div class="social-nav">
-						<?php 
-							/**
-							 * Built into the Customizer are a fields for social profiles. 
-							 * Using the following array, check to see if the field
-							 * has a URL. If so, create a link for that profile in the post
-							 * footer. If not, do nothing.
-							 */
-							$profiles_menu = array( 
-								'github'	=> array(
-									'name' 		=> 'Github',
-									'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
-									'icon'		=> '<i class="fa fa-github-alt"></i>'
-								),
-								'twitter'	=> array(
-									'name' 		=> 'Twitter',
-									'option'	=> esc_url( get_theme_mod( 'pdt_twitter' ) ),
-									'icon'		=> '<i class="fa fa-twitter"></i>'
-								),
-								'facebook'	=> array(
-									'name' 		=> 'Facebook',
-									'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
-									'icon'		=> '<i class="fa fa-facebook-square"></i>'
-								),
-								'gplus'	=> array(
-									'name' 		=> 'Google+',
-									'option'	=> esc_url( get_theme_mod( 'pdt_gplus' ) ),
-									'icon'		=> '<i class="fa fa-google-plus-square"></i>'
-								),
-							);
-							// Build the social networking profile links based on the $social_profiles
-							foreach ( $profiles_menu as $profile ) :
-								if ( '' != $profile[ 'option' ] ) :
-									echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>'; 
-								endif;
-							endforeach;
-						?>
+						<?php pdt_social_profiles(); ?>
 					</div>
 				</header>
 			</div>
@@ -98,14 +63,11 @@ $ping = get_bloginfo( 'pingback_url' );
 			</div>
 		</div>
 	
-		<?php // site wide feature box area ?>
+		<?php // site wide feature box area - leave wrapping HTML in place no matter what for nice design effect ?>
 		<div class="feature-area full">
 			<div class="main">
 				<div class="feature-box inner clear-pdt">
-					<?php
-						// call the templates/content-feature-box.php
-						get_template_part( 'templates/content', 'feature-box' );
-					?>
+					<?php get_template_part( 'templates/content', 'feature-box' ); ?>
 				</div>
 			</div>
 		</div>

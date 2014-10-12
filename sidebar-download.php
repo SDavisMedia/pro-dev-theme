@@ -5,52 +5,36 @@
 ?>
 
 <div class="sidebar">
-
-<?php 
-if ( ! is_front_page() ) : 
-	
-	// display default sidebar feature? -- theme customizer
-	if ( 1 == get_theme_mod( 'pdt_feature_sidebar_toggle' ) ) : ?>
-			
-		<aside class="info-box widget clear-pdt">	
-			<div class="product-info-wrapper">
-				<div class="product-sidebar-price">
-					<?php	
-						// custom price template filters 
-						$item_info = apply_filters( 'item_info', array(
-							'price'				=> __( 'Price:', 'pdt' ),
-							'starting_price'	=> __( 'Starting at:', 'pdt' ),
-							'free'				=> __( 'Free', 'pdt' ),
-						));
-					?>
-					<?php if ( edd_has_variable_prices( get_the_ID() ) ) : ?>
-						<h3><?php echo $item_info[ 'starting_price' ] . ' '; edd_price( get_the_ID() ); ?></h3>						
-					<?php elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) : ?>			
-						<h3><?php echo $item_info[ 'price' ] . ' '; edd_price( get_the_ID() ); ?></h3> 
-					<?php else : ?>
-						<h3><?php echo $item_info[ 'free' ] . ' '; ?></h3>
-					<?php endif;  ?>
-				</div>	
-				<div class="product-download-buy-button">
-					<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
-				</div>
-			</div>
-		</aside>
-
-	<?php
-	endif;
-	
-endif; // end feature box setup ?>
-
-	<?php do_action( 'before_sidebar' ); ?>
-	
 	<?php 
-	if ( is_active_sidebar( 'sidebar-edd' ) ) :
+	if ( ! is_front_page() ) { 
+		if ( 1 == get_theme_mod( 'pdt_feature_sidebar_toggle' ) ) {
+			?>
+				
+			<aside class="info-box widget clear-pdt">	
+				<div class="product-info-wrapper">
+					<div class="product-sidebar-price">
+						<?php if ( edd_has_variable_prices( get_the_ID() ) ) : ?>
+							<h3><?php echo __( 'Starting at', 'pdt' ) . ': '; edd_price( get_the_ID() ); ?></h3>						
+						<?php elseif ( '0' != edd_get_download_price( get_the_ID() ) && !edd_has_variable_prices( get_the_ID() ) ) : ?>			
+							<h3><?php echo __( 'Price at', 'pdt' ) . ': '; edd_price( get_the_ID() ); ?></h3> 
+						<?php else : ?>
+							<h3><?php _e( 'Free', 'pdt' ); ?></h3>
+						<?php endif;  ?>
+					</div>	
+					<div class="product-download-buy-button">
+						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
+					</div>
+				</div>
+			</aside>
+			<?php
+		}	
+	}
+	do_action( 'before_sidebar' );
+	if ( is_active_sidebar( 'sidebar-edd' ) ) {
 		dynamic_sidebar( 'sidebar-edd' );
-	else :
-		
-		if ( ! dynamic_sidebar( 'sidebar-primary' ) ) : ?>
-
+	} else {		
+		if ( ! dynamic_sidebar( 'sidebar-primary' ) ) {
+			?>
 			<aside id="archives" class="widget">
 				<h1 class="widget-title">&raquo; <?php _e( 'Archives', 'pdt' ); ?></h1>
 				<ul>
@@ -66,11 +50,8 @@ endif; // end feature box setup ?>
 					<?php wp_meta(); ?>
 				</ul>
 			</aside>
-			
-		<?php
-		endif;
-			
-	endif;
-	?>
-	
+			<?php
+		}
+	}
+	?>	
 </div>
