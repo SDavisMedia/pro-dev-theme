@@ -13,7 +13,7 @@
  */
 define( 'PDT_NAME', 'Professional Developer Theme' );
 define( 'PDT_AUTHOR', 'Sean Davis' );
-define( 'PDT_VERSION', '1.0.0' );
+define( 'PDT_VERSION', '1.0.5' );
 define( 'PDT_HOME', 'https://github.com/sdavis2702/pro-dev-theme' );
 define( 'PDT_DIR', get_template_directory() );
 define( 'PDT_DIR_URI', get_template_directory_uri() );
