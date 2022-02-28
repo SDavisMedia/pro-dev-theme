@@ -27,20 +27,13 @@
 pre,
 #bbpress-forums li.bbp-header,
 #bbpress-forums li.bbp-footer,
-input[type=search],
-.threecol.product,
-.checkout-template #edd_checkout_cart,
-#edd_user_history,
-.members-template #edd_profile_editor_form,
-.confirmation-template #edd_purchase_receipt,
-.confirmation-template #edd_purchase_receipt_products {
+input[type=search] {
   background-color: #f5f5f5;
 }
 
 a,
 .site-title a:hover,
-.main-menu ul li:hover > ul a:hover,
-.product-title:hover {
+.main-menu ul li:hover > ul a:hover {
   color: #015F8E;
 }
 
@@ -50,14 +43,12 @@ a,
 blockquote,
 .comment-meta,
 .info-note,
-.wp-caption-text,
-.edd-variable-pricing-desc {
+.wp-caption-text {
   color: #999;
 }
 
 .entry-meta a,
-.social-nav-item:hover,
-.product-info {
+.social-nav-item:hover {
   color: #666;
 }
 
@@ -81,8 +72,7 @@ h1, h2,
 }
 
 h3, h4,
-.sidebar .info-box h3,
-.product-sidebar-price {
+.sidebar .info-box h3 {
   font-size: 20px;
 }
 
@@ -101,17 +91,14 @@ input[type=search],
 .post-nav-title,
 .info-note,
 .wp-caption-text,
-.post-footer-author a,
-.product-info,
-.edd-variable-pricing-desc {
+.post-footer-author a {
   font-size: 13px;
 }
 
 h1, h2, h3, h4, h5, h6,
 .sidebar,
 .comments-title,
-.info-note,
-.product-info {
+.info-note {
   line-height: 1.4em;
 }
 
@@ -124,7 +111,6 @@ h1, h2, h3, h4, h5, h6, dt, b, th,
 .main-menu a,
 .comments-title,
 .info-subtitle,
-.product-sidebar-price,
 .cta-title,
 strong,
 input[type=submit],
@@ -187,15 +173,7 @@ a:hover,
 [class*=navigation] .nav-previous,
 [class*=navigation] .nav-next,
 #comments,
-.widget,
-.threecol.product,
-.store-info,
-.store-pagination,
-.checkout-template #edd_checkout_cart,
-.confirmation-template #edd_purchase_receipt,
-.confirmation-template #edd_purchase_receipt_products,
-#edd_user_history,
-.members-template #edd_profile_editor_form {
+.widget {
   padding: 1em;
 }
 
@@ -223,10 +201,7 @@ figure,
 h1, h2, h3, h4, h5, h6,
 .comments-title,
 .info-subtitle,
-.widget,
-.product-sidebar-price,
-#edd_profile_editor_form input,
-#edd_profile_editor_form select {
+.widget {
   margin-bottom: 16px;
 }
 
@@ -294,15 +269,7 @@ pre,
 #bbpress-forums ul.bbp-search-results,
 #bbpress-forums li.bbp-header,
 #bbpress-forums li.bbp-footer,
-#bbpress-forums div.wp-editor-container,
-.threecol.product,
-.checkout-template #edd_checkout_cart,
-#edd_user_history,
-.members-template #edd_profile_editor_form,
-.confirmation-template #edd_purchase_receipt,
-.confirmation-template #edd_purchase_receipt_products,
-#edd_user_history .edd_purchase_row td,
-#edd_profile_editor_form input {
+#bbpress-forums div.wp-editor-container {
   border: 1px solid #eaeaea;
 }
 
@@ -311,8 +278,7 @@ fieldset,
 .main-menu a,
 .site-content .navigation-comment,
 .widget li:last-child,
-.site-content .gallery a img,
-#edd_purchase_history_pagination {
+.site-content .gallery a img {
   border: none;
 }
 
@@ -325,13 +291,7 @@ button,
 .note,
 .tip,
 #comments,
-#bbpress-forums div.wp-editor-container,
-.threecol.product,
-.checkout-template #edd_checkout_cart,
-#edd_user_history,
-.members-template #edd_profile_editor_form,
-.confirmation-template #edd_purchase_receipt,
-.confirmation-template #edd_purchase_receipt_products {
+#bbpress-forums div.wp-editor-container {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
@@ -916,10 +876,6 @@ cite.fn {
   font-style: italic;
 }
 
-.sidebar .edd_purchase_submit_wrapper .button {
-  margin-bottom: 0;
-}
-
 /* =feature
 -------------------------------------------------------------- */
 .feature-box {
@@ -1025,78 +981,6 @@ cite.fn {
   margin: 0 0 1em;
 }
 
-/* =easy digital downloads
--------------------------------------------------------------- */
-.store-info {
-  max-width: 635px;
-}
-
-.threecol.product {
-  float: left;
-  width: 310px;
-  margin: 0 15px 30px 0;
-}
-
-.product-title {
-  color: #222;
-}
-
-.product-title:hover {
-  text-decoration: none;
-}
-
-.product-title h3 {
-  font-size: 18px;
-  margin-top: 5px;
-}
-
-.widget .product-info-wrapper ul,
-.product-info-wrapper li {
-  border: none;
-}
-
-.product-info-wrapper .edd_download_purchase_form .edd_price_options li {
-  padding: 0 0 6px;
-}
-
-.product-info-wrapper .edd-add-to-cart.button {
-  margin-bottom: 0;
-}
-
-.store-content {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 700px;
-}
-
-.tax-download_tag .continue-reading,
-.tax-download_category .continue-reading,
-.post-type-archive-download div.sharedaddy,
-.tax-download_category div.sharedaddy,
-.tax-download_tag div.sharedaddy {
-  display: none;
-}
-
-.checkout-template #edd_checkout_cart,
-#edd_user_history,
-.members-template #edd_profile_editor_form,
-.confirmation-template #edd_purchase_receipt,
-.confirmation-template #edd_purchase_receipt_products {
-  margin-top: 1.5em;
-}
-
-.checkout-template .edd_cart_footer_row th,
-#edd_checkout_cart .edd_cart_tax_row th,
-#edd_user_history .edd_purchase_row {
-  background: #fff;
-}
-
-#edd_profile_name_label,
-#edd_profile_billing_address_label,
-#edd_profile_password_label {
-  font-weight: bold;
-}
-
 /* =handy
 -------------------------------------------------------------- */
 .alignleft {
@@ -1167,29 +1051,6 @@ object {
 
   .feature-box {
     border-width: 0 1px 1px;
-  }
-
-  .threecol.product:nth-child(3n+3) {
-    margin-right: 0;
-  }
-}
-@media screen and (max-width: 975px) {
-  .store-front {
-    padding: 0 1em 1em;
-  }
-
-  .threecol.product {
-    float: left;
-    width: 48.8%;
-    margin: 0 2% 30px 0;
-  }
-
-  .threecol.product:nth-child(3n+3) {
-    margin-right: 2%;
-  }
-
-  .threecol.product:nth-child(even) {
-    margin-right: 0;
   }
 }
 @media screen and (max-width: 959px) {
@@ -1351,17 +1212,6 @@ object {
 
   .feature-box .info-text {
     padding-bottom: 0;
-  }
-}
-@media screen and (max-width: 550px) {
-  .threecol.product {
-    float: none;
-    width: 100%;
-    margin: 0 0 30px 0;
-  }
-
-  .threecol.product:nth-child(3n+3) {
-    margin-right: 0;
   }
 }
 

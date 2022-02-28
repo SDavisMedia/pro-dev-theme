@@ -7,13 +7,13 @@
 /** ===============
  * social networking profiles
  */
-function pdt_social_profiles() {	
+function pdt_social_profiles() {
 	/**
-	 * Built into the Customizer are a fields for social profiles. 
+	 * Built into the Customizer are a fields for social profiles.
 	 * Using the following array, check to see if the field
 	 * has a URL. If so, create a link for the profile. If not, do nothing.
 	 */
-	$profiles_menu = array( 
+	$profiles_menu = array(
 		'github'	=> array(
 			'name' 		=> 'Github',
 			'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
@@ -28,17 +28,12 @@ function pdt_social_profiles() {
 			'name' 		=> 'Facebook',
 			'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
 			'icon'		=> '<i class="fa fa-facebook-square"></i>'
-		),
-		'gplus'	=> array(
-			'name' 		=> 'Google+',
-			'option'	=> esc_url( get_theme_mod( 'pdt_gplus' ) ),
-			'icon'		=> '<i class="fa fa-google-plus-square"></i>'
-		),
+		)
 	);
 	// Build the social networking profile links based on the $social_profiles
 	foreach ( $profiles_menu as $profile ) {
 		if ( '' != $profile[ 'option' ] ) {
-			echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>'; 
+			echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>';
 		}
 	}
 }
@@ -65,14 +60,14 @@ if ( ! function_exists( 'pdt_posted_on' ) ) :
 
 	function pdt_posted_on() {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	
+
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-	
+
 		printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark">%3$s</a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s" rel="author">%6$s</a></span></span>', 'pdt' ),
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
@@ -92,41 +87,41 @@ if ( ! function_exists( 'pdt_content_nav' ) ) :
 
 	function pdt_content_nav( $nav_id ) {
 		global $wp_query, $post;
-	
+
 		// Don't print empty markup on single pages if there's nowhere to navigate.
 		if ( is_single() ) {
 			$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
 			$next = get_adjacent_post( false, '', false );
-	
+
 			if ( ! $next && ! $previous ) {
 				return;
 			}
 		}
-	
+
 		// Don't print empty markup in archives if there's only one page.
 		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
 			return;
 		}
-	
+
 		$nav_class = ( is_single() ) ? 'navigation-post' : 'navigation-paging';
-	
+
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 			<?php
 			if ( is_single() ) { // navigation links for single posts
-			
+
 				previous_post_link( '<div class="nav-previous"><span class="post-nav-title">' . __( 'Previous post:', 'pdt' ) . '</span>%link</div>', '%title' );
 				next_post_link( '<div class="nav-next"><span class="post-nav-title">' . __( 'Next post:', 'pdt' ) . '</span>%link</div>', '%title' );
-				
+
 			} elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) {
-			
+
 				if ( get_next_posts_link() ) { ?>
 					<div class="nav-previous">
 						<?php next_posts_link( '<span class="meta-nav">&larr;</span> ' . __( 'Older posts', 'pdt' ) ); ?>
 					</div>
 					<?php
 				}
-				
+
 				if ( get_previous_posts_link() ) {
 					?>
 					<div class="nav-next">
@@ -157,7 +152,7 @@ if ( ! function_exists( 'pdt_attachment_nav' ) ) :
 				<?php next_image_link( false, __( 'Next', 'pdt' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
 			</div>
 		</nav>
-		
+
 	<?php }
 endif; // pdt_attachment_nav
 
@@ -171,7 +166,7 @@ if ( ! function_exists( 'pdt_the_attached_image' ) ) :
 		$post                = get_post();
 		$attachment_size     = apply_filters( 'pdt_attachment_size', array( 1200, 1200 ) );
 		$next_attachment_url = wp_get_attachment_url();
-	
+
 		/**
 		 * Grab the IDs of all the image attachments in a gallery so we can get the URL
 		 * of the next adjacent image in a gallery, or the first image (if we're
@@ -186,7 +181,7 @@ if ( ! function_exists( 'pdt_the_attached_image' ) ) :
 			'order'          => 'ASC',
 			'orderby'        => 'menu_order ID'
 		)));
-	
+
 		// If there is more than 1 attachment in a gallery...
 		if ( count( $attachments ) > 1 ) {
 			foreach ( $attachments as $k => $attachment ) {
@@ -195,14 +190,14 @@ if ( ! function_exists( 'pdt_the_attached_image' ) ) :
 				}
 			}
 			$k++;
-	
+
 			if ( isset( $attachments[ $k ] ) ) { // get the URL of the next image attachment...
 				$next_attachment_url = get_attachment_link( $attachments[ $k ]->ID );
 			} else { // or get the URL of the first image attachment.
 				$next_attachment_url = get_attachment_link( $attachments[0]->ID );
 			}
 		}
-	
+
 		printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
 			esc_url( $next_attachment_url ),
 			the_title_attribute( array( 'echo' => false ) ),
@@ -216,7 +211,7 @@ endif; // pdt_the_attached_image
  * Register sidebar areas with default widgets
  */
 function pdt_widgets_init() {
-	
+
 	/**
 	 * Register sidebars by default or only if their associate plugins are activated
 	 */
@@ -229,17 +224,6 @@ function pdt_widgets_init() {
 		'before_title'	=> '<h4 class="widget-title">&raquo; ',
 		'after_title'	=> '</h4>',
 	) );
-	if ( class_exists( 'Easy_Digital_Downloads' ) ) {
-		register_sidebar( array(
-			'name'			=> __( 'Easy Digital Downloads Sidebar', 'pdt' ),
-			'id'			=> 'sidebar-edd',
-			'description'	=> __( 'This sidebar only displays on EDD downloads and templates. If it is empty, it defaults to the Primary Sidebar.', 'pdt' ),
-			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'	=> '</aside>',
-			'before_title'	=> '<h4 class="widget-title">&raquo; ',
-			'after_title'	=> '</h4>',
-		) );
-	}
 	if ( class_exists( 'bbPress' ) ) {
 		register_sidebar( array(
 			'name'			=> __( 'bbPress Sidebar', 'pdt' ),
@@ -263,38 +247,15 @@ function pdt_body_classes( $classes ) {
 	if ( is_front_page() ) {
 		$classes[] = 'homepage';
 	}
-		
-	if ( is_single() || is_page() ) {
-		
-		// add .singular body class to posts and pages
-		$classes[] = 'singular';
-		
-		if ( is_page_template( 'change-log.php' ) ) :		
-			$classes[] = 'change-log';		
-		elseif ( is_page_template( 'edd_templates/edd-store-front.php' ) ) :		
-			$classes[] = 'store-front-template no-sidebar';
-		elseif ( is_page_template( 'edd_templates/edd-checkout.php' ) ) :		
-			$classes[] = 'checkout-template no-sidebar';	
-		elseif ( is_page_template( 'edd_templates/edd-confirmation.php' ) ) :		
-			$classes[] = 'confirmation-template no-sidebar';
-		elseif ( is_page_template( 'edd_templates/edd-history.php' ) ) :		
-			$classes[] = 'history-template no-sidebar';
-		elseif ( is_page_template( 'edd_templates/edd-members.php' ) ) :		
-			$classes[] = 'members-template no-sidebar';
-		elseif ( is_page_template( 'edd_templates/edd-failed.php' ) ) :		
-			$classes[] = 'failed-template no-sidebar';				
-		endif;
-		
-	}
-	
+
 	if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'pdt_bbpress_full_width' ) ) {
 		$classes[] = 'no-sidebar';
 	}
-	
+
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
-		
+
 	return $classes;
 }
 add_filter( 'body_class', 'pdt_body_classes');
@@ -336,7 +297,7 @@ function pdt_search_filter( $query ) {
 	if ( $query->is_search && !is_admin() &&  !is_bbpress() ) {
 		$query->set( 'post_type', 'post' );
 	}
-	
+
 	return $query;
 }
 add_filter( 'pre_get_posts','pdt_search_filter' );
@@ -352,32 +313,19 @@ add_filter( 'excerpt_length', 'pdt_custom_excerpt_length', 999 );
 
 
 /** ===============
- * Replace excerpt ellipses with new ellipses and link to full article
- */
-function pdt_excerpt_more( $more ) {
-	if ( is_page_template( 'edd_templates/edd-store-front.php' ) || is_post_type_archive( 'download' ) ) {
-		return '...';
-	} else {
-		return '...</p> <div class="continue-reading"><a class="more-link" href="' . get_permalink( get_the_ID() ) . '">' . get_theme_mod( 'pdt_read_more', __( 'Read More', 'pdt' ) . ' &rarr;' ) . '</a></div>';
-	}
-}
-add_filter( 'excerpt_more', 'pdt_excerpt_more' );
-
-
-/** ===============
  * Protected posts custom password form
  */
 function pdt_password_form() {
     global $post;
-    
-    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );    
-    
+
+    $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+
     $protect_post_form = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">';
     $protect_post_form .= '<p class="password-protected">' . __( 'To view this protected post, enter the password below:', 'pdt' ) . '</p>';
     $protect_post_form .= '<input name="post_password" class="post-password" id="' . $label . '" type="password" size="20" placeholder="' . __( 'Enter Password', 'pdt' ) . '" />';
     $protect_post_form .= '<input type="submit" name="Submit" value="' . esc_attr__( 'Submit', 'pdt' ) . '" />';
     $protect_post_form .= '</form>';
-    
+
     return $protect_post_form;
 }
 add_filter( 'the_password_form', 'pdt_password_form' );
@@ -388,7 +336,7 @@ add_filter( 'the_password_form', 'pdt_password_form' );
  */
 function pdt_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
-	
+
 		// Create an array of all the categories that are attached to posts
 		$all_the_cool_cats = get_categories( array(
 			'hide_empty' => 1,

@@ -27,7 +27,6 @@ define( 'PDT_IMAGES', PDT_INC . '/assets/images' );
 
 require( PDT_FUNCTIONS . '/content-functions.php' );
 require( PDT_FUNCTIONS . '/customizer-functions.php' );
-require( PDT_FUNCTIONS . '/edd-functions.php' );
 require( PDT_FUNCTIONS . '/updater.php' );
 
 

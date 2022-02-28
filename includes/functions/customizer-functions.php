@@ -322,74 +322,6 @@ function pdt_customize_register( $wp_customize ) {
 
 
 	/** ===============
-	 * Easy Digital Downloads Options
-	 */
-	// only if EDD is activated
-	if ( class_exists( 'Easy_Digital_Downloads' ) ) {
-		$wp_customize->add_section( 'pdt_edd_options', array(
-	    	'title'       	=> 'Easy Digital Downloads',
-			'description'   => __( 'All other EDD options are under Dashboard => Downloads.', 'pdt' ),
-			'priority'      => 60,
-		) );
-		// show comments on downloads?
-		$wp_customize->add_setting( 'pdt_download_comments', array(
-			'default'           => 0,
-			'sanitize_callback' => 'pdt_sanitize_checkbox'
-		) );
-		$wp_customize->add_control( 'pdt_download_comments', array(
-			'label'     => __( 'Display Comments on Download Pages?', 'pdt' ),
-			'section'   => 'pdt_edd_options',
-			'priority'  => 10,
-			'type'      => 'checkbox',
-		) );
-		// store front/downloads archive headline
-		$wp_customize->get_setting( 'pdt_edd_store_archives_title' )->transport = 'postMessage';
-		$wp_customize->add_setting( 'pdt_edd_store_archives_title', array(
-			'default'           => null,
-			'sanitize_callback' => 'pdt_sanitize_text'
-		) );
-		$wp_customize->add_control( 'pdt_edd_store_archives_title', array(
-			'label'     => __( 'Store/Download Archives Main Title', 'pdt' ),
-			'section'   => 'pdt_edd_options',
-			'settings'  => 'pdt_edd_store_archives_title',
-			'priority'  => 20,
-		) );
-		// store front/downloads archive description
-		$wp_customize->add_setting( 'pdt_edd_store_archives_description', array(
-			'default'           => null,
-			'sanitize_callback' => 'pdt_sanitize_textarea'
-		) );
-		$wp_customize->add_control( new pdt_customize_textarea_control( $wp_customize, 'pdt_edd_store_archives_description', array(
-			'label'     => __( 'Store/Download Archives Description', 'pdt' ),
-			'section'   => 'pdt_edd_options',
-			'settings'  => 'pdt_edd_store_archives_description',
-			'priority' => 30,
-		) ) );
-		// read more link
-		$wp_customize->get_setting( 'pdt_product_view_details' )->transport = 'postMessage';
-		$wp_customize->add_setting( 'pdt_product_view_details', array(
-			'default'           => __( 'View Details', 'pdt' ) . ' &rarr;',
-			'sanitize_callback' => 'pdt_sanitize_text'
-		) );
-		$wp_customize->add_control( 'pdt_product_view_details', array(
-		    'label'     => __( 'Store Item Link Text', 'pdt' ),
-		    'section'   => 'pdt_edd_options',
-			'priority'  => 40,
-		) );
-		// store front/archive item count
-		$wp_customize->add_setting( 'pdt_store_front_count', array(
-			'default'           => 9,
-			'sanitize_callback' => 'pdt_sanitize_integer'
-		) );
-		$wp_customize->add_control( 'pdt_store_front_count', array(
-		    'label'     => __( 'How many items per store front page?', 'pdt' ),
-		    'section'   => 'pdt_edd_options',
-			'priority'  => 50,
-		) );
-	}
-
-
-	/** ===============
 	 * Social Network Options
 	 */
 	$wp_customize->add_section( 'pdt_social_networks', array(
@@ -429,17 +361,6 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'pdt_social_networks',
 		'settings'	=> 'pdt_facebook',
 		'priority'	=> 30,
-	) );
-	// google plus url
-	$wp_customize->add_setting( 'pdt_gplus', array(
-		'default'           => null,
-		'sanitize_callback' => 'pdt_sanitize_text'
-	) );
-	$wp_customize->add_control( 'pdt_gplus', array(
-		'label'		=> __( 'Google Plus Profile URL', 'pdt' ),
-		'section'	=> 'pdt_social_networks',
-		'settings'	=> 'pdt_gplus',
-		'priority'	=> 40,
 	) );
 
 
