@@ -12,6 +12,7 @@
  * Constants and important files
  */
 define( 'PDT_NAME', 'Professional Developer Theme' );
+define( 'PDT_SLUG', 'pro-dev-theme' );
 define( 'PDT_AUTHOR', 'Sean Davis' );
 define( 'PDT_VERSION', '2.0.0' );
 define( 'PDT_HOME', 'https://github.com/SDavisMedia/pro-dev-theme' );
@@ -79,7 +80,7 @@ function pdt_scripts() {
 	wp_enqueue_style( 'pdt-style', get_stylesheet_uri() );
 
 	// responsive menu
-	wp_enqueue_script( 'pdt-navigation', PDT_DIR_URI . '/includes/assets/js/navigation.js', array(), PDT_VERSION, true );
+	wp_enqueue_script( 'pdt-navigation', PDT_DIR_URI . '/includes/assets/js/' . PDT_SLUG . '.js', array(), PDT_VERSION, true );
 
 	// font awesome fonts
 	wp_enqueue_style( 'fontawesome', PDT_FONTS . '/font-awesome/css/font-awesome.min.css' );

@@ -4,18 +4,18 @@ module.exports = function(grunt) {
 
 		pkg: grunt.file.readJSON('package.json'),
 
-		// concat
+		// combine all JS scr files into a single theme JS file
 		concat: {
 			main: {
 				options: {
 					separator: ';'
 				},
-				src: ['includes/assets/js/src/**/*.js'],
+				src: ['src/js/**/*.js'],
 				dest: 'includes/assets/js/<%= pkg.name %>.js'
 			}
 		},
 
-		// uglify
+		// now take that theme JS file and make an uglier version of it
 		uglify: {
 			options: {
 				mangle: false
@@ -27,30 +27,31 @@ module.exports = function(grunt) {
 			}
 		},
 
+		// turn all SCSS into a single theme CSS file
 		sass: {
 			default: {
 				files: {
-					"style.css" : "includes/assets/scss/style.scss",
+					"style.css" : "src/scss/style.scss",
 				}
 			}
 		},
 
-		// watch
+		// actively watch all src files ... run the above tasks if any of them are modified
 		watch: {
 			css: {
-				files: 'includes/assets/scss/**/*.scss',
+				files: 'src/scss/**/*.scss',
 				tasks: ['sass']
 			},
 			js: {
-				files: ['includes/assets/js/**/*.js', 'includes/assets/js/<%= pkg.name %>.js'],
+				files: ['src/js/**/*.js', 'src/js/<%= pkg.name %>.js'],
 				tasks: ['concat:main', 'uglify:js'],
 			},
 		},
 	});
 
-	// Saves having to declare each dependency
+	// saves having to declare each dependency
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks );
 
+	// run 'grunt watch' while working to do this all on the fly
 	grunt.registerTask( 'default', [ 'concat', 'uglify', 'sass' ] );
-
 };

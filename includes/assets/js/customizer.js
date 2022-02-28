@@ -1,6 +1,7 @@
 /**
- * Theme Customizer enhancements for a better user experience.
+ * USED ONLY IN ADMIN
  *
+ * Theme Customizer enhancements for a better user experience.
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 
