@@ -3,15 +3,15 @@
  * Theme Customizer
  */
 
-function pdt_customize_register( $wp_customize ) {	
-	
-	
+function pdt_customize_register( $wp_customize ) {
+
+
 	/** ===============
 	 * Extends CONTROLS class to add textarea
 	 */
 	class pdt_customize_textarea_control extends WP_Customize_Control {
 		public $type = 'textarea';
-		public function render_content() {				
+		public function render_content() {
 			?>
 			<label>
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -19,7 +19,7 @@ function pdt_customize_register( $wp_customize ) {
 			</label>
 			<?php
 		}
-	}	
+	}
 
 
 	/** ===============
@@ -41,11 +41,11 @@ function pdt_customize_register( $wp_customize ) {
 		'section'   => 'title_tagline',
 		'settings'  => 'pdt_logo',
 		'priority'  => 20
-	) ) );	
+	) ) );
 	// hide the tagline?
-	$wp_customize->add_setting( 'pdt_hide_tagline', array( 
+	$wp_customize->add_setting( 'pdt_hide_tagline', array(
 		'default'           => 0,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_hide_tagline', array(
 		'label'     => __( 'Hide Tagline', 'pdt' ),
@@ -54,48 +54,48 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// use big header
-	$wp_customize->add_setting( 'pdt_big_header', array( 
+	$wp_customize->add_setting( 'pdt_big_header', array(
 		'default' => 0,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_big_header', array(
 		'label'     => __( 'Use Big Header', 'pdt' ),
 		'section'   => 'title_tagline',
 		'priority'  => 50,
 		'type'      => 'checkbox',
-	) );	
+	) );
 
 
 	/** ===============
 	 * Color Options
-	 */ 
+	 */
 	// sections adjustments
 	$wp_customize->get_section( 'colors' )->title = __( 'Color Options', 'pdt' );
 	$wp_customize->get_section( 'colors' )->priority = 20;
 	// color options
 	$colors = array();
 	$colors[] = array(
-		'slug'     =>'pdt_primary_color', 
+		'slug'     =>'pdt_primary_color',
 		'default'  => '#015F8E',
 		'label'    => __( 'Primary Design Color', 'pdt' )
 	);
 	// Build settings from $colors array
-	foreach( $colors as $color ) {	
+	foreach( $colors as $color ) {
 		// color options
 		$wp_customize->add_setting( $color['slug'], array(
 			'default'     => $color['default'],
-			'type'        => 'option', 
+			'type'        => 'option',
 			'capability'  => 'edit_theme_options'
-		) );		
+		) );
 		// color controls
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, $color['slug'], array(
-			'label'     => $color['label'], 
+			'label'     => $color['label'],
 			'section'   => 'colors',
 			'settings'  => $color['slug'])
 		) );
 	}
 	// button color
-	$wp_customize->add_setting( 'pdt_cta_button_color', array( 
+	$wp_customize->add_setting( 'pdt_cta_button_color', array(
 		'default'           => 'green',
 		'sanitize_callback' => 'pdt_sanitize_color_radio'
 	) );
@@ -110,7 +110,7 @@ function pdt_customize_register( $wp_customize ) {
 			'blue'  => __( 'Blue', 'pdt' ),
 			'gray'  => __( 'Gray', 'pdt' ),
 		),
-	) ) );	
+	) ) );
 
 
 	/** ===============
@@ -122,9 +122,9 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'     => 30,
 	) );
 	// post content
-	$wp_customize->add_setting( 'pdt_post_content', array( 
+	$wp_customize->add_setting( 'pdt_post_content', array(
 		'default'           => 0,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_post_content', array(
 		'label'     => __( 'Post Feed Content', 'pdt' ),
@@ -133,11 +133,10 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// read more link
-	$wp_customize->get_setting( 'pdt_read_more' )->transport = 'postMessage';
 	$wp_customize->add_setting( 'pdt_read_more', array(
 		'default'           => __( 'Read More', 'pdt' ) . ' &rarr;',
 		'sanitize_callback' => 'pdt_sanitize_text'
-	) );		
+	) );
 	$wp_customize->add_control( 'pdt_read_more', array(
 	    'label'     => __( 'Excerpt & More Link Text', 'pdt' ),
 	    'section'   => 'pdt_content_section',
@@ -145,9 +144,9 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 20,
 	) );
 	// show featured images on feed?
-	$wp_customize->add_setting( 'pdt_feed_featured_image', array( 
+	$wp_customize->add_setting( 'pdt_feed_featured_image', array(
 		'default'           => 0,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_feed_featured_image', array(
 		'label'     => __( 'Show Featured Images in blog feed (full content)?', 'pdt' ),
@@ -156,9 +155,9 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// show featured images on posts?
-	$wp_customize->add_setting( 'pdt_single_featured_image', array( 
+	$wp_customize->add_setting( 'pdt_single_featured_image', array(
 		'default'           => 1,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_single_featured_image', array(
 		'label'     => __( 'Show Featured Images on Single Posts?', 'pdt' ),
@@ -167,9 +166,9 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// show single post footer?
-	$wp_customize->add_setting( 'pdt_post_footer', array( 
+	$wp_customize->add_setting( 'pdt_post_footer', array(
 		'default'           => 1,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_post_footer', array(
 		'label'     => __( 'Show Post Footer on Single Posts?', 'pdt' ),
@@ -178,9 +177,9 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// comments on pages?
-	$wp_customize->add_setting( 'pdt_page_comments', array( 
+	$wp_customize->add_setting( 'pdt_page_comments', array(
 		'default'           => 0,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_page_comments', array(
 		'label'     => __( 'Display Comments on Standard Pages?', 'pdt' ),
@@ -189,7 +188,7 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// credits & copyright
-	$wp_customize->add_setting( 'pdt_credits_copyright', array( 
+	$wp_customize->add_setting( 'pdt_credits_copyright', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_textarea_lite'
 	) );
@@ -197,9 +196,9 @@ function pdt_customize_register( $wp_customize ) {
 		'label'     => __( 'Footer Credits & Copyright', 'pdt' ),
 		'section'   => 'pdt_content_section',
 		'priority'  => 70,
-	) ) );	
-	
-	
+	) ) );
+
+
 	/** ===============
 	 * Feature Box Options
 	 */
@@ -209,9 +208,9 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'     => 40,
 	) );
 	// feature box toggle
-	$wp_customize->add_setting( 'pdt_feature_box_toggle', array( 
+	$wp_customize->add_setting( 'pdt_feature_box_toggle', array(
 		'default'           => 1,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_feature_box_toggle', array(
 		'label'     => __( 'Display Default Feature Box?', 'pdt' ),
@@ -220,9 +219,9 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// feature sidebar box toggle
-	$wp_customize->add_setting( 'pdt_feature_sidebar_toggle', array( 
+	$wp_customize->add_setting( 'pdt_feature_sidebar_toggle', array(
 		'default'           => 1,
-		'sanitize_callback' => 'pdt_sanitize_checkbox'  
+		'sanitize_callback' => 'pdt_sanitize_checkbox'
 	) );
 	$wp_customize->add_control( 'pdt_feature_sidebar_toggle', array(
 		'label'     => __( 'Display Default Sidebar Feature?', 'pdt' ),
@@ -231,8 +230,7 @@ function pdt_customize_register( $wp_customize ) {
 		'type'      => 'checkbox',
 	) );
 	// featured info headline
-	$wp_customize->get_setting( 'pdt_featured_info_headline' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'pdt_featured_info_headline', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_headline', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );
@@ -243,7 +241,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 30,
 	) );
 	// featured info description
-	$wp_customize->add_setting( 'pdt_featured_info_description', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_description', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_textarea'
 	) );
@@ -254,8 +252,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 40,
 	) ) );
 	// featured info notes headline
-	$wp_customize->get_setting( 'pdt_featured_info_notes_headline' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'pdt_featured_info_notes_headline', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_notes_headline', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );
@@ -266,7 +263,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 50,
 	) );
 	// featured info notes
-	$wp_customize->add_setting( 'pdt_featured_info_note', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_note', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_textarea'
 	) );
@@ -277,7 +274,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 60,
 	) ) );
 	// featured info url
-	$wp_customize->add_setting( 'pdt_featured_info_url', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_url', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );
@@ -288,8 +285,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'  => 70,
 	) );
 	// featured info button text
-	$wp_customize->get_setting( 'pdt_featured_info_button_text' )->transport = 'postMessage';
-	$wp_customize->add_setting( 'pdt_featured_info_button_text', array( 
+	$wp_customize->add_setting( 'pdt_featured_info_button_text', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );
@@ -298,8 +294,8 @@ function pdt_customize_register( $wp_customize ) {
 		'section'   => 'pdt_featured_info',
 		'settings'  => 'pdt_featured_info_button_text',
 		'priority'  => 80,
-	) );	
-	
+	) );
+
 
 	/** ===============
 	 * bbPress Options
@@ -312,9 +308,9 @@ function pdt_customize_register( $wp_customize ) {
 			'priority'     => 50,
 		) );
 		// full-width forums?
-		$wp_customize->add_setting( 'pdt_bbpress_full_width', array( 
+		$wp_customize->add_setting( 'pdt_bbpress_full_width', array(
 			'default'           => 0,
-			'sanitize_callback' => 'pdt_sanitize_checkbox'  
+			'sanitize_callback' => 'pdt_sanitize_checkbox'
 		) );
 		$wp_customize->add_control( 'pdt_bbpress_full_width', array(
 			'label'     => __( 'Remove sidebar & display full-width?', 'pdt' ),
@@ -322,9 +318,9 @@ function pdt_customize_register( $wp_customize ) {
 			'priority'  => 10,
 			'type'      => 'checkbox',
 		) );
-	}	
-	
-	
+	}
+
+
 	/** ===============
 	 * Easy Digital Downloads Options
 	 */
@@ -336,9 +332,9 @@ function pdt_customize_register( $wp_customize ) {
 			'priority'      => 60,
 		) );
 		// show comments on downloads?
-		$wp_customize->add_setting( 'pdt_download_comments', array( 
+		$wp_customize->add_setting( 'pdt_download_comments', array(
 			'default'           => 0,
-			'sanitize_callback' => 'pdt_sanitize_checkbox'  
+			'sanitize_callback' => 'pdt_sanitize_checkbox'
 		) );
 		$wp_customize->add_control( 'pdt_download_comments', array(
 			'label'     => __( 'Display Comments on Download Pages?', 'pdt' ),
@@ -348,7 +344,7 @@ function pdt_customize_register( $wp_customize ) {
 		) );
 		// store front/downloads archive headline
 		$wp_customize->get_setting( 'pdt_edd_store_archives_title' )->transport = 'postMessage';
-		$wp_customize->add_setting( 'pdt_edd_store_archives_title', array( 
+		$wp_customize->add_setting( 'pdt_edd_store_archives_title', array(
 			'default'           => null,
 			'sanitize_callback' => 'pdt_sanitize_text'
 		) );
@@ -359,7 +355,7 @@ function pdt_customize_register( $wp_customize ) {
 			'priority'  => 20,
 		) );
 		// store front/downloads archive description
-		$wp_customize->add_setting( 'pdt_edd_store_archives_description', array( 
+		$wp_customize->add_setting( 'pdt_edd_store_archives_description', array(
 			'default'           => null,
 			'sanitize_callback' => 'pdt_sanitize_textarea'
 		) );
@@ -371,10 +367,10 @@ function pdt_customize_register( $wp_customize ) {
 		) ) );
 		// read more link
 		$wp_customize->get_setting( 'pdt_product_view_details' )->transport = 'postMessage';
-		$wp_customize->add_setting( 'pdt_product_view_details', array( 
+		$wp_customize->add_setting( 'pdt_product_view_details', array(
 			'default'           => __( 'View Details', 'pdt' ) . ' &rarr;',
-			'sanitize_callback' => 'pdt_sanitize_text' 
-		) );		
+			'sanitize_callback' => 'pdt_sanitize_text'
+		) );
 		$wp_customize->add_control( 'pdt_product_view_details', array(
 		    'label'     => __( 'Store Item Link Text', 'pdt' ),
 		    'section'   => 'pdt_edd_options',
@@ -384,15 +380,15 @@ function pdt_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'pdt_store_front_count', array(
 			'default'           => 9,
 			'sanitize_callback' => 'pdt_sanitize_integer'
-		) );		
+		) );
 		$wp_customize->add_control( 'pdt_store_front_count', array(
 		    'label'     => __( 'How many items per store front page?', 'pdt' ),
 		    'section'   => 'pdt_edd_options',
 			'priority'  => 50,
 		) );
-	}	
-	
-	
+	}
+
+
 	/** ===============
 	 * Social Network Options
 	 */
@@ -402,7 +398,7 @@ function pdt_customize_register( $wp_customize ) {
 		'priority'    => 70,
 	) );
 	// github url
-	$wp_customize->add_setting( 'pdt_github', array( 
+	$wp_customize->add_setting( 'pdt_github', array(
 		'default'           => null,
 		'sanitize_callback' => 'pdt_sanitize_text'
 	) );
@@ -444,22 +440,14 @@ function pdt_customize_register( $wp_customize ) {
 		'section'	=> 'pdt_social_networks',
 		'settings'	=> 'pdt_gplus',
 		'priority'	=> 40,
-	) );	
-		
+	) );
 
-	/** ===============
-	 * Navigation Menu
-	 */
-	// section adjustments
-	$wp_customize->get_section( 'nav' )->title = __( 'Navigation Menu', 'pdt' );
-	$wp_customize->get_section( 'nav' )->priority = 80;	
-	
-	
+
 	/** ===============
 	 * Static Front Page
 	 */
 	// section adjustments
-	$wp_customize->get_section( 'static_front_page' )->priority = 90;	
+	$wp_customize->get_section( 'static_front_page' )->priority = 90;
 }
 add_action( 'customize_register', 'pdt_customize_register' );
 
@@ -485,7 +473,7 @@ function pdt_sanitize_color_radio( $input ) {
 		'blue'  => 'Blue',
 		'gray'  => 'Gray'
     );
- 
+
     if ( array_key_exists( $input, $color ) ) :
         return $input;
     else :
@@ -644,25 +632,25 @@ function pdt_customizer_head_styles() {
 			.social-nav { top: 31px; }
 		<?php endif; ?>
 		<?php if ( '#015F8E' != $pdt_primary_color && '' != $pdt_primary_color ) : // Primary design color ?>
-			a, 
-			.site-title a:hover, 
-			.main-menu ul li:hover > ul a:hover, 
-			.product-title:hover { 
-				color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>; 
+			a,
+			.site-title a:hover,
+			.main-menu ul li:hover > ul a:hover,
+			.product-title:hover {
+				color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>;
 			}
-			.bypostauthor .comment-meta { 
-				border-right: 1px solid <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>; 
+			.bypostauthor .comment-meta {
+				border-right: 1px solid <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>;
 			}
 			@media screen and (min-width: 768px) {
-				.main-menu > ul > li > a:hover, 
-				.main-menu > ul > .current-menu-item > a { 
-					border-color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>; 
+				.main-menu > ul > li > a:hover,
+				.main-menu > ul > .current-menu-item > a {
+					border-color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>;
 				}
 			}
 			@media screen and (max-width: 767px) {
-				.main-menu a:hover, 
-				.main-menu ul li:hover > ul a:hover { 
-					color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>; 
+				.main-menu a:hover,
+				.main-menu ul li:hover > ul a:hover {
+					color: <?php echo pdt_sanitize_hex_color( $pdt_primary_color ); ?>;
 				}
 			}
 		<?php endif; ?>
@@ -692,6 +680,6 @@ add_action( 'customize_controls_print_styles', 'pdt_customizer_styles' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function pdt_customize_preview_js() {
-	wp_enqueue_script( 'pdt_customizer', get_template_directory_uri() . '/inc/assets/js/customizer.js', array( 'customize-preview' ), PDT_VERSION, true );
+	wp_enqueue_script( 'pdt_customizer', get_template_directory_uri() . '/includes/assets/js/customizer.js', array( 'customize-preview' ), PDT_VERSION, true );
 }
 add_action( 'customize_preview_init', 'pdt_customize_preview_js' );

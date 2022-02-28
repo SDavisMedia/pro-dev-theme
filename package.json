@@ -1,0 +1,30 @@
+{
+  "name": "pro-dev-theme",
+  "version": "2.0.0",
+  "description": "The Professional Developer Theme is designed to be a hub for software developers.",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDavisMedia/pro-dev-theme.git"
+  },
+  "author": "Sean Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SDavisMedia/pro-dev-theme/issues"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "matchdep": "^2.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "latest",
+    "popper.js": "latest"
+  }
+}
