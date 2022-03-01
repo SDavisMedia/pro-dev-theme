@@ -1,0 +1,75 @@
+.comment-list {
+	margin-left: 0;
+}
+
+.comment-list > .parent + .children,
+.children > .children {
+	border-width: 0 0 0 1px;
+	margin-left: 0;
+	padding-left: 1em;
+}
+
+.bypostauthor .comment-meta {
+	border-right: 1px solid #015F8E;
+}
+
+.comment {
+	list-style: none;
+}
+
+.comment-meta {
+	background: #fff;
+	font-size: 12px;
+	padding-right: 10px;
+}
+
+.comment-info {
+	padding-top: 4px;
+}
+
+.comment-avatar {
+	float: left;
+}
+
+.comment-avatar img {
+	margin-right: 10px;
+	vertical-align: top;
+}
+
+cite.fn {
+	font-style: normal;
+}
+
+.comment-awaiting-moderation {
+	color: #f00;
+}
+
+.comment-body {
+	padding: 1em 0 3em;
+}
+
+.pingback .comment-body {
+	padding-bottom: 0;
+}
+
+.comment-content {
+	clear: both;
+	word-wrap: break-word;
+}
+
+#commentform textarea {
+	width: 100%;
+	height: 150px;
+}
+
+.form-submit {
+	margin-bottom: 0;
+}
+
+.navigation-comment .nav-previous {
+	padding-left: 0;
+}
+
+.navigation-comment .nav-next {
+	padding-right: 0;
+}

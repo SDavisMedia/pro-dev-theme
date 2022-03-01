@@ -1,0 +1,65 @@
+.menu-area {
+	border-width: 0 0 1px;
+}
+
+.main-menu ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.main-menu li {
+	float: left;
+	position: relative;
+}
+
+.main-menu a {
+	display: inline-block;
+	padding: 10px 14px 7px;
+}
+
+.main-menu > ul > li {
+	border-width: 0 1px 0 0;
+}
+
+.main-menu > ul > li > a {
+	border-bottom: 3px solid #fff;
+}
+
+.main-menu ul li:hover > ul {
+	display: block;
+	top: 44px;
+	box-shadow: none;
+}
+
+.main-menu ul li:hover > ul a {
+	border-width: 0 0 1px;
+	cursor: pointer;
+}
+
+.main-menu ul li:hover > ul li:last-child a {
+	border-width: 0;
+}
+
+.main-menu > ul > li > a:hover,
+.main-menu > ul > .current-menu-item > a {
+	border-bottom: 3px solid #015F8E;
+}
+
+.main-menu ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	display: none;
+	float: left;
+	position: absolute;
+	top: 1.5em;
+	left: 0;
+	z-index: 99999;
+}
+
+.main-menu ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+.main-menu ul ul a {
+	width: 200px;
+}

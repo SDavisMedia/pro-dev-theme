@@ -9,4 +9,15 @@
 	License URI: license.txt
 */
 
-@import "legacy";
+@import "site";
+@import "shared";
+@import "header";
+@import "navigation";
+@import "formatting";
+@import "info-feature";
+@import "content";
+@import "comments";
+@import "sidebar";
+@import "bbpress";
+@import "footer";
+@import "responsive";

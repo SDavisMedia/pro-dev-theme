@@ -1,0 +1,50 @@
+.sidebar {
+	position: relative;
+	z-index: 99;
+	padding-top: 1em;
+	border-width: 0 0 1px;
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	-o-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+.widget-title {
+	font-size: 14px;
+	margin-bottom: .6em;
+}
+
+.widget ul {
+	border-width: 1px 0 0;
+}
+
+.widget .children,
+.widget .sub-menu {
+	margin-top: 3px;
+	margin-left: -8px;
+}
+
+.widget .children > li a:before,
+.widget .sub-menu > li a:before {
+	content: "\2192 \00a0";
+}
+
+.widget li {
+	list-style: none;
+	border-width: 0 0 1px;
+}
+
+.widget .children li:last-child,
+.widget .sub-menu li:last-child {
+	padding-bottom: 0;
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+.widget_calendar table > tfoot td a {
+	display: block;
+}
