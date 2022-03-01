@@ -1,11 +1,5 @@
 @media screen and (min-width: 960px) {
 
-	.main {
-		margin: 0 auto;
-		width: 100%;
-		max-width: 960px;
-	}
-
 	.sidebar {
 		border-width: 0 1px 1px;
 	}
@@ -19,9 +13,6 @@
 
 	.sidebar {
 		border-width: 0 0 1px 1px;
-		-webkit-border-radius: 0 0 0 3px;
-		-moz-border-radius: 0 0 0 3px;
-		-o-border-radius: 0 0 0 3px;
 		border-radius: 0 0 0 3px;
 	}
 }
@@ -72,16 +63,10 @@
 	}
 
 	.feature-box {
-		-webkit-border-radius: 0 0 0 3px;
-		-moz-border-radius: 0 0 0 3px;
-		-o-border-radius: 0 0 0 3px;
 		border-radius: 0 0 0 3px;
 	}
 
 	.no-sidebar .feature-box {
-		-webkit-border-radius: 0 0 3px 3px;
-		-moz-border-radius: 0 0 3px 3px;
-		-o-border-radius: 0 0 3px 3px;
 		border-radius: 0 0 3px 3px;
 	}
 

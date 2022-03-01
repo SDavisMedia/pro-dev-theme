@@ -1,16 +1,20 @@
 body {
-	background: #fff;
+	background: $background;
 }
 
 body,
 input,
 textarea,
 .site-description {
-	font: 400 14px/24px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 17px;
+	line-height: 1.4;
 }
 
-.full {
+.main {
+	margin: 0 auto;
 	width: 100%;
+	max-width: 1260px;
 }
 
 .inner {

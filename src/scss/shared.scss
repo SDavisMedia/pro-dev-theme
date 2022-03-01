@@ -15,101 +15,7 @@ pre,
 #bbpress-forums li.bbp-header,
 #bbpress-forums li.bbp-footer,
 input[type="search"] {
-	background-color: #f5f5f5;
-}
-
-a,
-.site-title a:hover,
-.main-menu ul li:hover > ul a:hover {
-	color: #015F8E;
-}
-
-.site-description,
-.site-footer,
-.entry-meta,
-blockquote,
-.comment-meta,
-.info-note,
-.wp-caption-text {
-	color: #999;
-}
-
-.entry-meta a,
-.social-nav-item:hover {
-	color: #666;
-}
-
-.social-nav-item {
-	color: #333;
-}
-
-body,
-.site-title a,
-.main-menu a,
-.entry-title,
-.entry-title h1,
-.info-subtitle,
-.widget-title {
-	color: #222;
-}
-
-h1, h2,
-.home .info-box h3 {
-	font-size: 24px;
-}
-
-h3, h4,
-.sidebar .info-box h3 {
-	font-size: 20px;
-}
-
-h5, h6,
-.comments-title,
-.page-title {
-	font-size: 16px;
-}
-
-.site-description,
-.sidebar,
-.site-footer,
-.main-menu a,
-input[type="search"],
-.entry-meta,
-.post-nav-title,
-.info-note,
-.wp-caption-text,
-.post-footer-author a {
-	font-size: 13px;
-}
-
-h1, h2, h3, h4, h5, h6,
-.sidebar,
-.comments-title,
-.info-note {
-	line-height: 1.4em;
-}
-.site-description {
-	line-height: 1em;
-}
-
-h1, h2, h3, h4, h5, h6, dt, b, th,
-.site-title,
-.main-menu a,
-.comments-title,
-.info-subtitle,
-.cta-title,
-strong,
-input[type="submit"],
-.button,
-.logout-link,
-.widget_calendar table caption {
-	font-weight: 700;
-}
-
-caption,
-th,
-td {
-	font-weight: 400;
+	background-color: $background-alt;
 }
 
 .button,
@@ -120,29 +26,6 @@ td {
 .widget_calendar table th,
 .widget_calendar table td {
 	text-align: center;
-}
-
-a,
-.content a:hover,
-.feature-box a:hover,
-mark,
-ins,
-a.button,
-.button:hover,
-.logout-link:hover,
-.site-title a:hover,
-.main-menu a:hover,
-.content a.entry-title,
-.entry-meta a,
-.entry-meta a:hover,
-.social-nav-item:hover {
-	text-decoration: none;
-}
-
-a:hover,
-.content a,
-.feature-box a {
-	text-decoration: underline;
 }
 
 .inner,
@@ -278,19 +161,12 @@ button,
 .tip,
 #comments,
 #bbpress-forums div.wp-editor-container {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-o-border-radius: 3px;
 	border-radius: 3px;
 }
 
 * {
 	padding: 0;
 	margin: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
 	box-sizing: border-box;
-	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
