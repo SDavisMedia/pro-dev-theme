@@ -14,15 +14,11 @@
 
 .main-menu a {
 	display: inline-block;
-	padding: 10px 14px 7px;
+	padding: 10px 1rem;
 }
 
 .main-menu > ul > li {
 	border-width: 0 1px 0 0;
-}
-
-.main-menu > ul > li > a {
-	border-bottom: 3px solid #fff;
 }
 
 .main-menu ul li:hover > ul {
@@ -38,11 +34,6 @@
 
 .main-menu ul li:hover > ul li:last-child a {
 	border-width: 0;
-}
-
-.main-menu > ul > li > a:hover,
-.main-menu > ul > .current-menu-item > a {
-	border-bottom: 3px solid #015F8E;
 }
 
 .main-menu ul ul {
@@ -62,4 +53,85 @@
 
 .main-menu ul ul a {
 	width: 200px;
+}
+
+.menu-toggle {
+
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	.social-nav {
+		float: right;
+		position: absolute;
+		right: 15px;
+		top: 9px;
+	}
+
+	.search-container {
+		position: absolute;
+		right: 15px;
+		top: 9px;
+	}
+
+	.menu-area .search-form {
+		margin-left: 6px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {
+		display: block;
+		margin-bottom: 10px
+	}
+
+	.menu-toggle {
+		cursor: pointer;
+	}
+
+	.main-navigation {
+		text-align: center;
+		padding: 1rem;
+	}
+
+	.main-navigation ul {
+		display: none;
+	}
+
+	.main-menu li {
+		float: none;
+	}
+
+	.main-menu ul ul {
+		display: block;
+		float: none;
+		position: static;
+		box-shadow: none;
+	}
+
+	.main-menu > ul > li,
+	.main-menu ul li:hover > ul,
+	.main-menu ul li:hover > ul a,
+	.main-menu > ul > li > a,
+	.main-menu > ul > li > a:hover,
+	.main-menu > ul > .current-menu-item > a {
+		border: none;
+	}
+
+	.main-menu a:hover {
+		color: #015F8E;
+	}
+
+	.social-nav-item:first-child {
+		margin-left: 0;
+	}
+
+	.menu-area .fa.main-search-icon {
+		display: none;
+	}
 }

@@ -7,6 +7,14 @@ html {
 		word-wrap: break-word;
 	}
 
+	& body,
+	input,
+	textarea {
+		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-size: 18px;
+		line-height: 1.4;
+	}
+
 	& body {
 		background: $background;
 
@@ -19,14 +27,22 @@ html {
 		& .inner {
 			position: relative;
 		}
-	}
 
-	& body,
-	input,
-	textarea,
-	.site-description {
-		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-size: 17px;
-		line-height: 1.4;
+		& .content {
+
+			@media screen and (min-width: 768px) {
+				float: left;
+				width: 67%;
+			}
+		}
+
+		& .sidebar {
+
+			@media screen and (min-width: 768px) {
+				float: right;
+				padding-top: 0;
+				width: 30%;
+			}
+		}
 	}
 }

@@ -4,13 +4,7 @@
 	background-color: #fff;
 }
 
-.header-area,
-.sidebar,
-.single-post-footer,
-.content .wp-caption,
-#comments,
-pre,
-input[type="search"] {
+pre {
 	background-color: $background-alt;
 }
 
@@ -36,7 +30,7 @@ input[type="search"] {
 [class*="navigation"] .nav-next,
 #comments,
 .widget {
-	padding: 1em;
+	padding: 1rem;
 }
 
 .menu,
@@ -91,7 +85,6 @@ pre,
 	margin-bottom: .2em;
 }
 
-.entry-title h1,
 .more-link {
 	margin-bottom: 0;
 }
@@ -104,16 +97,12 @@ pre,
 .main-menu ul li:hover > ul a,
 .content .wp-caption,
 .single-post-footer,
-#comments,
 #commentform input,
 #commentform textarea,
 .comment-list > .parent + .children,
 .children > .children,
-.comment-meta,
-.sidebar,
 .widget ul,
 .widget li,
-.site-footer,
 .site-content [class*="navigation"] {
 	border: 1px solid #eaeaea;
 }

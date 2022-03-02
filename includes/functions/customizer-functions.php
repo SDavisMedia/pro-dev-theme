@@ -426,7 +426,7 @@ function pdt_customizer_head_styles() {
 
 	<style type="text/css">
 		<?php if ( get_theme_mod( 'pdt_big_header' ) ) : // big header ?>
-			.site-header { padding: 2em 14px; }
+			.site-header { padding-top: 2em; padding-bottom: 2em; }
 			.site-title { font-size: 24px; }
 			.social-nav { top: 31px; }
 		<?php endif; ?>

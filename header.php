@@ -24,17 +24,13 @@ $ping = get_bloginfo( 'pingback_url' );
 				<header class="site-header inner">
 					<span class="site-title">
 						<?php if ( get_theme_mod( 'pdt_logo' ) ) : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<img src="<?php echo get_theme_mod( 'pdt_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>">
-							</a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_theme_mod( 'pdt_logo' ); ?>" alt="<?php echo esc_attr( $title ); ?>"></a>
 						<?php else : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $title ); ?>">
-								<?php echo $title; ?>
-							</a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( $title ); ?>"><?php echo $title; ?></a>
 						<?php endif; ?>
 					</span>
 					<?php if ( 1 != get_theme_mod( 'pdt_hide_tagline' ) ) : ?>
-						<h1 class="site-description"><?php echo $tagline; ?></h1>
+						<span class="site-description"><?php echo $tagline; ?></span>
 					<?php endif; ?>
 					<div class="social-nav">
 						<?php pdt_social_profiles(); ?>

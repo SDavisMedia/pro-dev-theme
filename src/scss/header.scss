@@ -1,15 +1,25 @@
 .header-area {
 	border-width: 0 0 1px;
-}
 
-.site-header {
-	padding: .6em 14px .5em;
-}
+	& .site-header {
+		text-align: center;
+		padding: .5rem 1rem;
 
-.site-title img {
-	vertical-align: bottom;
-}
+		@media screen and (min-width: 768px) {
+			text-align: left;
+		}
 
-.social-nav-item {
-	margin-left: 10px;
+		& .site-title,
+		.site-description {
+			display: block;
+
+			& img {
+				vertical-align: bottom;
+			}
+		}
+
+		& .social-nav-item {
+			margin-left: 10px;
+		}
+	}
 }
