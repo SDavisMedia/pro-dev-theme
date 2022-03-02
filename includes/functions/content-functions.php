@@ -224,17 +224,6 @@ function pdt_widgets_init() {
 		'before_title'	=> '<h4 class="widget-title">&raquo; ',
 		'after_title'	=> '</h4>',
 	) );
-	if ( class_exists( 'bbPress' ) ) {
-		register_sidebar( array(
-			'name'			=> __( 'bbPress Sidebar', 'pdt' ),
-			'id'			=> 'sidebar-bbpress',
-			'description'	=> __( 'This sidebar only displays on the bbPress pages. If it is empty, it defaults to the Primary Sidebar.', 'pdt' ),
-			'before_widget'	=> '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'	=> '</aside>',
-			'before_title'	=> '<h4 class="widget-title">&raquo; ',
-			'after_title'	=> '</h4>',
-		) );
-	}
 }
 add_action( 'widgets_init', 'pdt_widgets_init' );
 
@@ -246,10 +235,6 @@ function pdt_body_classes( $classes ) {
 
 	if ( is_front_page() ) {
 		$classes[] = 'homepage';
-	}
-
-	if ( class_exists( 'bbPress' ) && is_bbpress() && 1 == get_theme_mod( 'pdt_bbpress_full_width' ) ) {
-		$classes[] = 'no-sidebar';
 	}
 
 	if ( is_multi_author() ) {
@@ -294,7 +279,7 @@ add_filter( 'wp_title', 'pdt_wp_title', 10, 2 );
  * Only show regular posts in search results
  */
 function pdt_search_filter( $query ) {
-	if ( $query->is_search && !is_admin() &&  !is_bbpress() ) {
+	if ( $query->is_search && ! is_admin() ) {
 		$query->set( 'post_type', 'post' );
 	}
 

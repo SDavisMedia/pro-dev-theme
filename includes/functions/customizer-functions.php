@@ -200,30 +200,6 @@ function pdt_customize_register( $wp_customize ) {
 
 
 	/** ===============
-	 * bbPress Options
-	 */
-	// only if bbPress is activated
-	if ( class_exists( 'bbPress' ) ) {
-		$wp_customize->add_section( 'pdt_bbpress_options', array(
-	    	'title'        => __( 'bbPress Options', 'pdt' ),
-			'description'  => __( 'These options are specific to all pages that display bbPress forums and its components.', 'pdt' ),
-			'priority'     => 50,
-		) );
-		// full-width forums?
-		$wp_customize->add_setting( 'pdt_bbpress_full_width', array(
-			'default'           => 0,
-			'sanitize_callback' => 'pdt_sanitize_checkbox'
-		) );
-		$wp_customize->add_control( 'pdt_bbpress_full_width', array(
-			'label'     => __( 'Remove sidebar & display full-width?', 'pdt' ),
-			'section'   => 'pdt_bbpress_options',
-			'priority'  => 10,
-			'type'      => 'checkbox',
-		) );
-	}
-
-
-	/** ===============
 	 * Social Network Options
 	 */
 	$wp_customize->add_section( 'pdt_social_networks', array(

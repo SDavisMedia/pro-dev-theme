@@ -1,5 +1,4 @@
 .sidebar input[type="search"],
-.info-box,
 .main-menu ul li:hover > ul,
 .comment pre {
 	background-color: #fff;
@@ -11,8 +10,6 @@
 .content .wp-caption,
 #comments,
 pre,
-#bbpress-forums li.bbp-header,
-#bbpress-forums li.bbp-footer,
 input[type="search"] {
 	background-color: $background-alt;
 }
@@ -65,7 +62,6 @@ figure,
 
 h1, h2, h3, h4, h5, h6,
 .comments-title,
-.info-subtitle,
 .widget {
 	margin-bottom: 16px;
 }
@@ -91,8 +87,7 @@ pre,
 
 .site-description,
 .entry-title,
-.post-footer-author h3,
-.info-box-description p:last-child {
+.post-footer-author h3 {
 	margin-bottom: .2em;
 }
 
@@ -119,18 +114,7 @@ pre,
 .widget ul,
 .widget li,
 .site-footer,
-.site-content [class*="navigation"],
-#bbpress-forums li.bbp-body ul.forum,
-#bbpress-forums li.bbp-body ul.topic,
-#bbpress-forums fieldset.bbp-form,
-#bbpress-forums ul.bbp-lead-topic,
-#bbpress-forums ul.bbp-topics,
-#bbpress-forums ul.bbp-forums,
-#bbpress-forums ul.bbp-replies,
-#bbpress-forums ul.bbp-search-results,
-#bbpress-forums li.bbp-header,
-#bbpress-forums li.bbp-footer,
-#bbpress-forums div.wp-editor-container {
+.site-content [class*="navigation"] {
 	border: 1px solid #eaeaea;
 }
 
@@ -139,7 +123,7 @@ fieldset,
 .main-menu a,
 .site-content .navigation-comment,
 .widget li:last-child,
-.site-content .gallery a img{
+.site-content .gallery a img {
 	border: none;
 }
 
@@ -151,14 +135,6 @@ button,
 .single-post-footer,
 .note,
 .tip,
-#comments,
-#bbpress-forums div.wp-editor-container {
+#comments {
 	border-radius: 3px;
-}
-
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	word-wrap: break-word;
 }
