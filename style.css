@@ -40,7 +40,6 @@ textarea,
 }
 
 .header-area,
-.feature-box,
 .sidebar,
 .single-post-footer,
 .content .wp-caption,
@@ -68,9 +67,6 @@ input[type=search] {
 .page-header,
 .single-post-footer,
 .nocomments,
-.feature-box .info-text,
-.feature-box .info-cta,
-.sidebar .info-box,
 .note,
 .tip,
 [class*=navigation] .nav-previous,
@@ -153,10 +149,6 @@ pre,
 .comment-list > .parent + .children,
 .children > .children,
 .comment-meta,
-.feature-box,
-.info-box,
-.feature-box .info-text,
-.feature-box .info-cta,
 .sidebar,
 .widget ul,
 .widget li,
@@ -597,27 +589,6 @@ object {
 .tip {
   background: #F0F8FF;
   border: 1px solid #CEE1EF;
-}
-
-.sidebar .info-box {
-  margin: 0 10px 10px;
-}
-
-.sidebar .info-text {
-  margin-bottom: 16px;
-}
-
-.info-subtitle {
-  display: block;
-}
-
-.info-note {
-  font-style: italic;
-}
-
-.feature-box {
-  position: relative;
-  border-width: 0 0 1px;
 }
 
 .content {
