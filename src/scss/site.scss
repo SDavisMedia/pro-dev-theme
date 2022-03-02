@@ -28,20 +28,26 @@ html {
 			position: relative;
 		}
 
-		& .content {
+		& .site-content {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 
-			@media screen and (min-width: 768px) {
-				float: left;
-				width: 67%;
+			& .content {
+				width: 100%;
+
+				@media screen and (min-width: 768px) {
+					width: 65%;
+				}
 			}
-		}
 
-		& .sidebar {
+			& .sidebar {
+				width: 100%;
 
-			@media screen and (min-width: 768px) {
-				float: right;
-				padding-top: 0;
-				width: 30%;
+				@media screen and (min-width: 768px) {
+					padding-top: 0;
+					width: 30%;
+				}
 			}
 		}
 	}

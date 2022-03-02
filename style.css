@@ -33,15 +33,24 @@ html body .main {
 html body .inner {
   position: relative;
 }
-@media screen and (min-width: 768px) {
-  html body .content {
-    float: left;
-    width: 67%;
-  }
+html body .site-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+html body .site-content .content {
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
-  html body .sidebar {
-    float: right;
+  html body .site-content .content {
+    width: 65%;
+  }
+}
+html body .site-content .sidebar {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  html body .site-content .sidebar {
     padding-top: 0;
     width: 30%;
   }
@@ -82,17 +91,6 @@ pre {
   padding: 1rem;
 }
 
-.menu,
-input[type=search] {
-  padding: 0;
-}
-
-.widget_calendar table th,
-.widget_calendar table td,
-.widget li {
-  padding: 4px 8px;
-}
-
 figure,
 .main-menu ul,
 .page-header p:last-child,
@@ -106,15 +104,14 @@ figure,
 h1, h2, h3, h4, h5, h6,
 .comments-title,
 .widget {
-  margin-bottom: 16px;
+  margin-bottom: 1.2rem;
 }
 
 .entry-header,
 .comment-meta {
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
 }
 
-.site-content,
 p,
 address,
 table,
@@ -125,17 +122,7 @@ pre,
 .featured-image,
 .content .wp-caption,
 .single-post-footer {
-  margin-bottom: 1.2em;
-}
-
-.site-description,
-.entry-title,
-.post-footer-author h3 {
-  margin-bottom: 0.2em;
-}
-
-.more-link {
-  margin-bottom: 0;
+  margin-bottom: 1.2rem;
 }
 
 .sidebar input[type=search],
@@ -165,18 +152,6 @@ fieldset,
   border: none;
 }
 
-input,
-textarea,
-.button,
-.logout-link,
-button,
-.single-post-footer,
-.note,
-.tip,
-#comments {
-  border-radius: 3px;
-}
-
 .header-area {
   border-width: 0 0 1px;
 }
@@ -197,94 +172,71 @@ button,
 .header-area .site-header .site-description img {
   vertical-align: bottom;
 }
-.header-area .site-header .social-nav-item {
-  margin-left: 10px;
-}
 
 .menu-area {
   border-width: 0 0 1px;
 }
-
-.main-menu ul {
+.menu-area .menu {
+  padding: 0;
+}
+.menu-area .menu .menu-toggle {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .menu-area .menu .menu-toggle {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-area .menu .main-menu > ul {
+    display: flex;
+  }
+}
+.menu-area .menu .main-menu > ul > li {
+  flex-wrap: wrap;
+  border-width: 0 1px 0 0;
+}
+.menu-area .menu .main-menu ul {
   list-style: none;
   padding-left: 0;
 }
-
-.main-menu li {
-  float: left;
+.menu-area .menu .main-menu ul li {
   position: relative;
 }
-
-.main-menu a {
+.menu-area .menu .main-menu ul li a {
   display: inline-block;
   padding: 10px 1rem;
 }
-
-.main-menu > ul > li {
-  border-width: 0 1px 0 0;
-}
-
-.main-menu ul li:hover > ul {
+.menu-area .menu .main-menu ul li:hover > ul {
   display: block;
   top: 44px;
   box-shadow: none;
 }
-
-.main-menu ul li:hover > ul a {
+.menu-area .menu .main-menu ul li:hover > ul a {
   border-width: 0 0 1px;
   cursor: pointer;
 }
-
-.main-menu ul li:hover > ul li:last-child a {
+.menu-area .menu .main-menu ul li:hover > ul li:last-child a {
   border-width: 0;
 }
-
-.main-menu ul ul {
+.menu-area .menu .main-menu ul ul {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   display: none;
-  float: left;
   position: absolute;
   top: 1.5em;
   left: 0;
   z-index: 99999;
 }
-
-.main-menu ul ul ul {
+.menu-area .menu .main-menu ul ul ul {
   left: 100%;
   top: 0;
 }
-
-.main-menu ul ul a {
+.menu-area .menu .main-menu ul ul a {
   width: 200px;
 }
 
-@media screen and (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .social-nav {
-    float: right;
-    position: absolute;
-    right: 15px;
-    top: 9px;
-  }
-
-  .search-container {
-    position: absolute;
-    right: 15px;
-    top: 9px;
-  }
-
-  .menu-area .search-form {
-    margin-left: 6px;
-  }
-}
 @media screen and (max-width: 767px) {
-  .menu-toggle,
-.main-navigation.toggled .nav-menu {
+  .main-navigation.toggled .nav-menu {
     display: block;
     margin-bottom: 10px;
   }
@@ -324,14 +276,6 @@ button,
 
   .main-menu a:hover {
     color: #015F8E;
-  }
-
-  .social-nav-item:first-child {
-    margin-left: 0;
-  }
-
-  .menu-area .fa.main-search-icon {
-    display: none;
   }
 }
 h5 {
@@ -625,16 +569,6 @@ object {
   margin: 0 auto;
 }
 
-.clear-pdt:after,
-.hentry:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-
 .note {
   background-color: #FFFFE0;
   border: 1px solid #E6DB55;
@@ -643,11 +577,6 @@ object {
 .tip {
   background: #F0F8FF;
   border: 1px solid #CEE1EF;
-}
-
-.content {
-  padding-top: 1rem;
-  margin-bottom: -1px;
 }
 
 .hentry,

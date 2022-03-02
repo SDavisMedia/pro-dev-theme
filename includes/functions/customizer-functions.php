@@ -200,49 +200,6 @@ function pdt_customize_register( $wp_customize ) {
 
 
 	/** ===============
-	 * Social Network Options
-	 */
-	$wp_customize->add_section( 'pdt_social_networks', array(
-    	'title'       => __( 'Social Networking Profiles', 'pdt' ),
-		'description' => __( 'Paste full URLs to profiles. The URLs will be used in various places around the theme like the post footer author section on single posts.', 'pdt' ),
-		'priority'    => 70,
-	) );
-	// github url
-	$wp_customize->add_setting( 'pdt_github', array(
-		'default'           => null,
-		'sanitize_callback' => 'pdt_sanitize_text'
-	) );
-	$wp_customize->add_control( 'pdt_github', array(
-		'label'		=> __( 'Github Profile URL', 'pdt' ),
-		'section'	=> 'pdt_social_networks',
-		'settings'	=> 'pdt_github',
-		'priority'	=> 10,
-	) );
-	// twitter url
-	$wp_customize->add_setting( 'pdt_twitter', array(
-		'default'           => null,
-		'sanitize_callback' => 'pdt_sanitize_text'
-	) );
-	$wp_customize->add_control( 'pdt_twitter', array(
-		'label'		=> __( 'Twitter Profile URL', 'pdt' ),
-		'section'	=> 'pdt_social_networks',
-		'settings'	=> 'pdt_twitter',
-		'priority'	=> 20,
-	) );
-	// facebook url
-	$wp_customize->add_setting( 'pdt_facebook', array(
-		'default'           => null,
-		'sanitize_callback' => 'pdt_sanitize_text'
-	) );
-	$wp_customize->add_control( 'pdt_facebook', array(
-		'label'		=> __( 'Facebook Profile URL', 'pdt' ),
-		'section'	=> 'pdt_social_networks',
-		'settings'	=> 'pdt_facebook',
-		'priority'	=> 30,
-	) );
-
-
-	/** ===============
 	 * Static Front Page
 	 */
 	// section adjustments
@@ -428,7 +385,6 @@ function pdt_customizer_head_styles() {
 		<?php if ( get_theme_mod( 'pdt_big_header' ) ) : // big header ?>
 			.site-header { padding-top: 2em; padding-bottom: 2em; }
 			.site-title { font-size: 24px; }
-			.social-nav { top: 31px; }
 		<?php endif; ?>
 		<?php if ( '#015F8E' != $pdt_primary_color && '' != $pdt_primary_color ) : // Primary design color ?>
 			a,

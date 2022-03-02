@@ -5,41 +5,6 @@
 
 
 /** ===============
- * social networking profiles
- */
-function pdt_social_profiles() {
-	/**
-	 * Built into the Customizer are a fields for social profiles.
-	 * Using the following array, check to see if the field
-	 * has a URL. If so, create a link for the profile. If not, do nothing.
-	 */
-	$profiles_menu = array(
-		'github'	=> array(
-			'name' 		=> 'Github',
-			'option'	=> esc_url( get_theme_mod( 'pdt_github' ) ),
-			'icon'		=> '<i class="fa fa-github-alt"></i>'
-		),
-		'twitter'	=> array(
-			'name' 		=> 'Twitter',
-			'option'	=> esc_url( get_theme_mod( 'pdt_twitter' ) ),
-			'icon'		=> '<i class="fa fa-twitter"></i>'
-		),
-		'facebook'	=> array(
-			'name' 		=> 'Facebook',
-			'option'	=> esc_url( get_theme_mod( 'pdt_facebook' ) ),
-			'icon'		=> '<i class="fa fa-facebook-square"></i>'
-		)
-	);
-	// Build the social networking profile links based on the $social_profiles
-	foreach ( $profiles_menu as $profile ) {
-		if ( '' != $profile[ 'option' ] ) {
-			echo '<a class="social-nav-item" href="', $profile[ 'option' ], '" title="', $profile[ 'name' ], '">', $profile[ 'icon' ], '</a>';
-		}
-	}
-}
-
-
-/** ===============
  * fallback function for empty menus
  */
 function pdt_menu_fallback() { ?>

@@ -33,17 +33,6 @@ pre {
 	padding: 1rem;
 }
 
-.menu,
-input[type="search"] {
-	padding: 0;
-}
-
-.widget_calendar table th,
-.widget_calendar table td,
-.widget li {
-	padding: 4px 8px;
-}
-
 figure,
 .main-menu ul,
 .page-header p:last-child,
@@ -57,15 +46,14 @@ figure,
 h1, h2, h3, h4, h5, h6,
 .comments-title,
 .widget {
-	margin-bottom: 16px;
+	margin-bottom: 1.2rem;
 }
 
 .entry-header,
 .comment-meta {
-	margin-bottom: 10px;
+	margin-bottom: .6rem;
 }
 
-.site-content,
 p,
 address,
 table,
@@ -76,17 +64,7 @@ pre,
 .featured-image,
 .content .wp-caption,
 .single-post-footer {
-	margin-bottom: 1.2em;
-}
-
-.site-description,
-.entry-title,
-.post-footer-author h3 {
-	margin-bottom: .2em;
-}
-
-.more-link {
-	margin-bottom: 0;
+	margin-bottom: 1.2rem;
 }
 
 .sidebar input[type="search"],
@@ -114,16 +92,4 @@ fieldset,
 .widget li:last-child,
 .site-content .gallery a img {
 	border: none;
-}
-
-input,
-textarea,
-.button,
-.logout-link,
-button,
-.single-post-footer,
-.note,
-.tip,
-#comments {
-	border-radius: 3px;
 }

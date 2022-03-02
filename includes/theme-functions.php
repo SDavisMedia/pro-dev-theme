@@ -23,7 +23,6 @@ define( 'PDT_THEME_URI', get_stylesheet_directory_uri() );
 define( 'PDT_LANGUAGES', PDT_DIR . '/languages' );
 define( 'PDT_INC', PDT_THEME_URI . '/includes' );
 define( 'PDT_FUNCTIONS', PDT_DIR . '/includes/functions' );
-define( 'PDT_FONTS', PDT_DIR_URI . '/includes/assets/fonts' );
 define( 'PDT_IMAGES', PDT_INC . '/assets/images' );
 
 require( PDT_FUNCTIONS . '/content-functions.php' );
@@ -42,7 +41,7 @@ if ( ! function_exists( 'pdt_setup' ) ) :
 		 * Set the max content width for media
 		 */
 		if ( !isset( $content_width ) ) {
-			$content_width = 615;
+			$content_width = 900;
 		}
 
 		/**
@@ -60,7 +59,7 @@ if ( ! function_exists( 'pdt_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		// add size for downloads
-		add_image_size( 'product-img', 540, 360, true );
+		add_image_size( 'product-img', 900, 600 );
 
 		/**
 		 * Register navigation menus
@@ -81,9 +80,6 @@ function pdt_scripts() {
 
 	// responsive menu
 	wp_enqueue_script( 'pdt-navigation', PDT_DIR_URI . '/includes/assets/js/' . PDT_SLUG . '.js', array(), PDT_VERSION, true );
-
-	// font awesome fonts
-	wp_enqueue_style( 'fontawesome', PDT_FONTS . '/font-awesome/css/font-awesome.min.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -32,9 +32,6 @@ $ping = get_bloginfo( 'pingback_url' );
 					<?php if ( 1 != get_theme_mod( 'pdt_hide_tagline' ) ) : ?>
 						<span class="site-description"><?php echo $tagline; ?></span>
 					<?php endif; ?>
-					<div class="social-nav">
-						<?php pdt_social_profiles(); ?>
-					</div>
 				</header>
 			</div>
 		</div>
@@ -42,7 +39,7 @@ $ping = get_bloginfo( 'pingback_url' );
 		<div class="menu-area full">
 			<div class="main">
 				<nav id="site-navigation" class="main-navigation menu inner clear-pdt" role="navigation">
-					<span class="menu-toggle"><i class="fa fa-bars"></i> <?php _e( 'Menu', 'pdt' ); ?></span>
+					<span class="menu-toggle"><?php _e( 'Menu', 'pdt' ); ?></span>
 					<?php
 						// main menu configuration
 						$menu_args = array(
@@ -52,9 +49,6 @@ $ping = get_bloginfo( 'pingback_url' );
 						);
 						wp_nav_menu( $menu_args );
 					?>
-					<div class="search-container">
-						<i class="fa fa-search main-search-icon"></i><?php get_search_form(); ?>
-					</div>
 				</nav>
 			</div>
 		</div>
@@ -62,4 +56,4 @@ $ping = get_bloginfo( 'pingback_url' );
 		<?php // site wide content area... closes in footer.php ?>
 		<div class="content-area full">
 			<div class="main">
-				<div class="site-content clear-pdt">
+				<div class="site-content">

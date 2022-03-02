@@ -289,16 +289,6 @@ object {
 	margin: 0 auto;
 }
 
-.clear-pdt:after,
-.hentry:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
-
 .note {
 	background-color: #FFFFE0;
 	border: 1px solid #E6DB55;
