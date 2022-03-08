@@ -1,0 +1,22 @@
+.single,
+.page {
+
+	& .page-header,
+	.single-post-footer {
+		padding: 1rem;
+	}
+
+	& .single-post-footer {
+		margin-bottom: 1.2rem;
+	}
+
+	& .page-header p:last-child,
+	.post-footer-author p,
+	.post-footer-body p:last-of-type {
+		margin: 0;
+	}
+
+	& .entry-header {
+		margin-bottom: .6rem;
+	}
+}

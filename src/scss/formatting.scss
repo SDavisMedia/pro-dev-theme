@@ -1,5 +1,9 @@
-h5 {
-	text-transform: uppercase;
+p {
+	margin-bottom: 1.2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 1.2rem;
 }
 
 ul {
@@ -27,6 +31,7 @@ ol ol {
 table {
 	border-collapse: separate;
 	border-spacing: 3px;
+	margin-bottom: 1.2rem;
 	width: 100%;
 }
 
@@ -39,6 +44,7 @@ td {
 blockquote {
 	font-style: italic;
 	padding-left: 1.2em;
+	margin-bottom: 1.2rem;
 }
 
 blockquote:before,
@@ -57,6 +63,10 @@ dd {
 	margin: 0 1.2em 1.2em;
 }
 
+.site-content .gallery dd {
+	margin: 0;
+}
+
 dfn,
 cite,
 em,
@@ -65,13 +75,18 @@ i {
 }
 
 pre {
-	font: 400 13px/1.3em "Courier 10 Pitch", Courier, monospace;
+	background-color: $background-alt;
+	font-family: "Courier 10 Pitch", Courier, monospace;
 	padding: 8px;
 	border: 2px solid rgba(0,0,0,.05);
 	overflow: auto;
 	max-width: 100%;
-	-ms-word-wrap: normal;
 	word-wrap: normal;
+	margin-bottom: 1.2rem;
+}
+
+address {
+	margin-bottom: 1.2rem;
 }
 
 code,
@@ -126,6 +141,7 @@ textarea,
 button {
 	padding: 5px 10px;
 	border: 1px solid rgba(0,0,0,.05);
+	margin-bottom: 1.2rem;
 }
 
 input[type="text"],
@@ -269,6 +285,10 @@ object {
 	max-width: 100%;
 }
 
+figure {
+	margin: 0;
+}
+
 .button {
 	text-decoration: none !important;
 }
@@ -291,10 +311,12 @@ object {
 
 .note {
 	background-color: #FFFFE0;
+	padding: 1rem;
 	border: 1px solid #E6DB55;
 }
 
 .tip {
 	background: #F0F8FF;
+	padding: 1rem;
 	border: 1px solid #CEE1EF;
 }

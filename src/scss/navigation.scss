@@ -29,6 +29,7 @@
 			& ul {
 				list-style: none;
 				padding-left: 0;
+				margin: 0;
 
 				& li {
 					position: relative;
@@ -119,4 +120,9 @@
 	.main-menu a:hover {
 		color: #015F8E;
 	}
+}
+
+[class*="navigation"] .nav-previous,
+[class*="navigation"] .nav-next {
+	padding: 1rem;
 }

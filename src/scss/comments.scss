@@ -1,3 +1,8 @@
+#comments,
+.nocomments {
+	padding: 1rem;
+}
+
 .comment-list {
 	margin-left: 0;
 }
@@ -21,6 +26,7 @@
 	background: #fff;
 	font-size: 12px;
 	padding-right: 10px;
+	margin-bottom: .6rem;
 }
 
 .comment-info {

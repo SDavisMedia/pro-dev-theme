@@ -1,6 +1,9 @@
 .sidebar {
 	position: relative;
-	padding-top: 1rem;
+
+	& .widget {
+		padding: 1rem;
+	}
 
 	& .widget-title {
 		margin-bottom: .6em;
@@ -8,17 +11,13 @@
 
 	& .widget ul {
 		border-width: 1px 0 0;
+		margin: 0;
 	}
 
 	& .widget .children,
 	.widget .sub-menu {
 		margin-top: 3px;
 		margin-left: -8px;
-	}
-
-	& .widget .children > li a:before,
-	.widget .sub-menu > li a:before {
-		content: "\2192 \00a0";
 	}
 
 	& .widget li {

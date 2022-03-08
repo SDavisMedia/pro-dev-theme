@@ -11,7 +11,7 @@ html {
 	input,
 	textarea {
 		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 1.4;
 	}
 
@@ -26,15 +26,18 @@ html {
 
 		& .inner {
 			position: relative;
+			padding: 1rem;
 		}
 
 		& .site-content {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+
+			@media screen and (min-width: 768px) {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
 
 			& .content {
-				width: 100%;
 
 				@media screen and (min-width: 768px) {
 					width: 65%;
@@ -42,7 +45,6 @@ html {
 			}
 
 			& .sidebar {
-				width: 100%;
 
 				@media screen and (min-width: 768px) {
 					padding-top: 0;

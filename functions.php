@@ -31,7 +31,7 @@
  * the child theme.
  *
  * Therefore, child themes with a functions.php file should run the
- * following line above *all* other custom functions:
+ * following line ABOVE ALL OTHER CUSTOM FUNCTIONS:
  *
  * require_once( get_template_directory() . '/includes/theme-functions.php' );
  *
